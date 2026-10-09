@@ -1,0 +1,1126 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "type": "Class",
+      "comment": "Identidad = repositorio + fileName; el numero declarado no es clave. El id de nodo es un slug de ambos.",
+      "id": "ADR"
+    },
+    {
+      "type": "Class",
+      "id": "AdditionalInformationStatement"
+    },
+    {
+      "type": "Class",
+      "id": "Alternative"
+    },
+    {
+      "type": "Class",
+      "pivot": true,
+      "id": "ArgumentStatement"
+    },
+    {
+      "type": "Class",
+      "id": "ConArgumentStatement"
+    },
+    {
+      "type": "Class",
+      "id": "ConfirmationStatement"
+    },
+    {
+      "type": "Class",
+      "id": "ConsequenceStatement"
+    },
+    {
+      "type": "Class",
+      "id": "ConsultedParticipantStatement"
+    },
+    {
+      "type": "Class",
+      "id": "ContextStatement"
+    },
+    {
+      "type": "Class",
+      "id": "DecisionDriverStatement"
+    },
+    {
+      "type": "Class",
+      "id": "DecisionMakerStatement"
+    },
+    {
+      "type": "Class",
+      "id": "DecisionStatement"
+    },
+    {
+      "type": "Class",
+      "id": "Document"
+    },
+    {
+      "type": "Class",
+      "id": "InformedParticipantStatement"
+    },
+    {
+      "type": "Class",
+      "id": "JustificationStatement"
+    },
+    {
+      "type": "Class",
+      "id": "NegativeConsequenceStatement"
+    },
+    {
+      "type": "Class",
+      "id": "NeutralArgumentStatement"
+    },
+    {
+      "type": "Class",
+      "id": "NeutralConsequenceStatement"
+    },
+    {
+      "type": "Class",
+      "id": "NormalizedStatus"
+    },
+    {
+      "type": "Class",
+      "id": "ParticipantStatement"
+    },
+    {
+      "type": "Class",
+      "id": "PositiveConsequenceStatement"
+    },
+    {
+      "type": "Class",
+      "id": "ProArgumentStatement"
+    },
+    {
+      "type": "Class",
+      "id": "ProblemStatement"
+    },
+    {
+      "type": "Class",
+      "pivot": true,
+      "comment": "Una por cada documento que afirma la relacion. Si los dos ADR la declaran, hay dos.",
+      "id": "RelationshipStatement"
+    },
+    {
+      "type": "Class",
+      "id": "Repository"
+    },
+    {
+      "type": "Class",
+      "comment": "Elemento extraido del texto de un ADR. Toda instancia lleva evidenceText con un fragmento literal de su ADR; si el fragmento no aparece en el fichero, el nodo es no fundamentado.",
+      "id": "Statement"
+    },
+    {
+      "type": "Class",
+      "id": "StatusStatement"
+    },
+    {
+      "type": "Class",
+      "comment": "Se asigna, no se extrae: los ADR de una misma cadena de reemplazo comparten el mismo nodo Topic.",
+      "id": "Topic"
+    },
+    {
+      "type": "ObjectProperty",
+      "comment": "Va desde la alternativa hacia cada argumento que se da sobre ella.",
+      "id": "argumentAlternative"
+    },
+    {
+      "type": "ObjectProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "belongsToRepository"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "considersAlternative"
+    },
+    {
+      "type": "ObjectProperty",
+      "comment": "Va desde el documento que contiene la afirmacion hacia la declaracion.",
+      "id": "declaringADR"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "hasAdditionalInformationStatement"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "hasArgumentStatement"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "hasConfirmationStatement"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "hasConsequenceStatement"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "hasContextStatement"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "hasDecisionDriverStatement"
+    },
+    {
+      "type": "ObjectProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "hasDecisionStatement"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "hasJustificationStatement"
+    },
+    {
+      "type": "ObjectProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "hasNormalizedStatus"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "hasParticipantStatement"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "hasProblemStatement"
+    },
+    {
+      "type": "ObjectProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "hasStatusStatement"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "hasTopic"
+    },
+    {
+      "type": "ObjectProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "comment": "Si la opcion elegida no figura entre las listadas, se crea como Alternative con la frase de la eleccion como evidencia.",
+      "id": "selectsAlternative"
+    },
+    {
+      "type": "ObjectProperty",
+      "comment": "Va desde el ADR NUEVO (el que reemplaza, enmienda o menciona) hacia la declaracion.",
+      "id": "sourceADR"
+    },
+    {
+      "type": "ObjectProperty",
+      "comment": "Va desde el ADR AFECTADO (el reemplazado, enmendado o mencionado) hacia la declaracion.",
+      "id": "targetADR"
+    },
+    {
+      "type": "DatatypeProperty",
+      "id": "additionalInformationDescription"
+    },
+    {
+      "type": "DatatypeProperty",
+      "id": "alternativeName"
+    },
+    {
+      "type": "DatatypeProperty",
+      "id": "argumentDescription"
+    },
+    {
+      "type": "DatatypeProperty",
+      "id": "confirmationDescription"
+    },
+    {
+      "type": "DatatypeProperty",
+      "id": "consequenceDescription"
+    },
+    {
+      "type": "DatatypeProperty",
+      "id": "contextDescription"
+    },
+    {
+      "type": "DatatypeProperty",
+      "id": "decisionSummary"
+    },
+    {
+      "type": "DatatypeProperty",
+      "id": "declaredStatusLiteral"
+    },
+    {
+      "type": "DatatypeProperty",
+      "id": "driverDescription"
+    },
+    {
+      "type": "DatatypeProperty",
+      "id": "evidenceText"
+    },
+    {
+      "type": "DatatypeProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "fileName"
+    },
+    {
+      "type": "DatatypeProperty",
+      "id": "justificationDescription"
+    },
+    {
+      "type": "DatatypeProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "comment": "Fecha que declara el propio ADR (campo date de MADR): su ultima actualizacion.",
+      "id": "lastUpdateDate"
+    },
+    {
+      "type": "DatatypeProperty",
+      "id": "participantName"
+    },
+    {
+      "type": "DatatypeProperty",
+      "id": "problemDescription"
+    },
+    {
+      "type": "DatatypeProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "comment": "Fecha de registro: sale del historial de git (regla temporal E1/E2), no del texto.",
+      "id": "registrationDate"
+    },
+    {
+      "type": "ObjectProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "relationType"
+    },
+    {
+      "type": "DatatypeProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "repositoryName"
+    },
+    {
+      "type": "DatatypeProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "title"
+    },
+    {
+      "type": "DatatypeProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "topicName"
+    },
+    {
+      "type": "Datatype",
+      "id": "xsd:date"
+    },
+    {
+      "type": "Datatype",
+      "id": "xsd:string"
+    },
+    {
+      "type": "Restriction",
+      "id": "R_adr_belongsToRepository"
+    },
+    {
+      "type": "Restriction",
+      "id": "R_adr_hasDecision"
+    },
+    {
+      "type": "Restriction",
+      "id": "R_adr_hasTopic"
+    },
+    {
+      "type": "NormalizedStatus",
+      "id": "status_proposed"
+    },
+    {
+      "type": "NormalizedStatus",
+      "id": "status_accepted"
+    },
+    {
+      "type": "NormalizedStatus",
+      "id": "status_rejected"
+    },
+    {
+      "type": "NormalizedStatus",
+      "id": "status_deprecated"
+    },
+    {
+      "type": "NormalizedStatus",
+      "id": "status_superseded"
+    },
+    {
+      "type": "NormalizedStatus",
+      "id": "status_amended"
+    },
+    {
+      "type": "Class",
+      "comment": "Vocabulario cerrado de tipos de relacion entre ADR.",
+      "id": "RelationType"
+    },
+    {
+      "type": "RelationType",
+      "comment": "El ADR origen deja sin vigencia al ADR destino (superseded by / supersedes / replaces).",
+      "id": "reltype_supersedes"
+    },
+    {
+      "type": "RelationType",
+      "comment": "El ADR origen modifica al ADR destino, que sigue vigente (amends / amended by).",
+      "id": "reltype_amends"
+    },
+    {
+      "type": "RelationType",
+      "comment": "El ADR origen menciona al destino como relacionado, sin reemplazarlo ni enmendarlo.",
+      "id": "reltype_relatesTo"
+    }
+  ],
+  "links": [
+    {
+      "relation": "subClassOf",
+      "source": "ADR",
+      "target": "Document",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "AdditionalInformationStatement",
+      "target": "Statement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "Alternative",
+      "target": "Statement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "ArgumentStatement",
+      "target": "Statement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "ConArgumentStatement",
+      "target": "ArgumentStatement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "disjointWith",
+      "source": "ConArgumentStatement",
+      "target": "NeutralArgumentStatement",
+      "key": "disjointWith"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "ConfirmationStatement",
+      "target": "Statement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "ConsequenceStatement",
+      "target": "Statement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "ConsultedParticipantStatement",
+      "target": "ParticipantStatement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "disjointWith",
+      "source": "ConsultedParticipantStatement",
+      "target": "InformedParticipantStatement",
+      "key": "disjointWith"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "ContextStatement",
+      "target": "Statement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "DecisionDriverStatement",
+      "target": "Statement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "DecisionMakerStatement",
+      "target": "ParticipantStatement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "disjointWith",
+      "source": "DecisionMakerStatement",
+      "target": "ConsultedParticipantStatement",
+      "key": "disjointWith"
+    },
+    {
+      "relation": "disjointWith",
+      "source": "DecisionMakerStatement",
+      "target": "InformedParticipantStatement",
+      "key": "disjointWith"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "DecisionStatement",
+      "target": "Statement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "InformedParticipantStatement",
+      "target": "ParticipantStatement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "JustificationStatement",
+      "target": "Statement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "NegativeConsequenceStatement",
+      "target": "ConsequenceStatement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "disjointWith",
+      "source": "NegativeConsequenceStatement",
+      "target": "NeutralConsequenceStatement",
+      "key": "disjointWith"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "NeutralArgumentStatement",
+      "target": "ArgumentStatement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "NeutralConsequenceStatement",
+      "target": "ConsequenceStatement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "ParticipantStatement",
+      "target": "Statement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "PositiveConsequenceStatement",
+      "target": "ConsequenceStatement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "disjointWith",
+      "source": "PositiveConsequenceStatement",
+      "target": "NegativeConsequenceStatement",
+      "key": "disjointWith"
+    },
+    {
+      "relation": "disjointWith",
+      "source": "PositiveConsequenceStatement",
+      "target": "NeutralConsequenceStatement",
+      "key": "disjointWith"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "ProArgumentStatement",
+      "target": "ArgumentStatement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "disjointWith",
+      "source": "ProArgumentStatement",
+      "target": "ConArgumentStatement",
+      "key": "disjointWith"
+    },
+    {
+      "relation": "disjointWith",
+      "source": "ProArgumentStatement",
+      "target": "NeutralArgumentStatement",
+      "key": "disjointWith"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "ProblemStatement",
+      "target": "Statement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "RelationshipStatement",
+      "target": "Statement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "StatusStatement",
+      "target": "Statement",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "domain",
+      "source": "argumentAlternative",
+      "target": "Alternative",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "argumentAlternative",
+      "target": "ArgumentStatement",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "belongsToRepository",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "belongsToRepository",
+      "target": "Repository",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "considersAlternative",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "considersAlternative",
+      "target": "Alternative",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "declaringADR",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "declaringADR",
+      "target": "RelationshipStatement",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "hasAdditionalInformationStatement",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "hasAdditionalInformationStatement",
+      "target": "AdditionalInformationStatement",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "hasArgumentStatement",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "hasArgumentStatement",
+      "target": "ArgumentStatement",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "hasConfirmationStatement",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "hasConfirmationStatement",
+      "target": "ConfirmationStatement",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "hasConsequenceStatement",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "hasConsequenceStatement",
+      "target": "ConsequenceStatement",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "hasContextStatement",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "hasContextStatement",
+      "target": "ContextStatement",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "hasDecisionDriverStatement",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "hasDecisionDriverStatement",
+      "target": "DecisionDriverStatement",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "hasDecisionStatement",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "hasDecisionStatement",
+      "target": "DecisionStatement",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "hasJustificationStatement",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "hasJustificationStatement",
+      "target": "JustificationStatement",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "hasNormalizedStatus",
+      "target": "StatusStatement",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "hasNormalizedStatus",
+      "target": "NormalizedStatus",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "hasParticipantStatement",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "hasParticipantStatement",
+      "target": "ParticipantStatement",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "hasProblemStatement",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "hasProblemStatement",
+      "target": "ProblemStatement",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "hasStatusStatement",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "hasStatusStatement",
+      "target": "StatusStatement",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "hasTopic",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "hasTopic",
+      "target": "Topic",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "selectsAlternative",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "selectsAlternative",
+      "target": "Alternative",
+      "key": "range"
+    },
+    {
+      "relation": "subPropertyOf",
+      "source": "selectsAlternative",
+      "target": "considersAlternative",
+      "key": "subPropertyOf"
+    },
+    {
+      "relation": "domain",
+      "source": "sourceADR",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "sourceADR",
+      "target": "RelationshipStatement",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "targetADR",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "targetADR",
+      "target": "RelationshipStatement",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "additionalInformationDescription",
+      "target": "AdditionalInformationStatement",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "additionalInformationDescription",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "alternativeName",
+      "target": "Alternative",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "alternativeName",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "argumentDescription",
+      "target": "ArgumentStatement",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "argumentDescription",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "confirmationDescription",
+      "target": "ConfirmationStatement",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "confirmationDescription",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "consequenceDescription",
+      "target": "ConsequenceStatement",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "consequenceDescription",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "contextDescription",
+      "target": "ContextStatement",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "contextDescription",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "decisionSummary",
+      "target": "DecisionStatement",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "decisionSummary",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "declaredStatusLiteral",
+      "target": "StatusStatement",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "declaredStatusLiteral",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "driverDescription",
+      "target": "DecisionDriverStatement",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "driverDescription",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "evidenceText",
+      "target": "Statement",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "evidenceText",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "fileName",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "fileName",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "justificationDescription",
+      "target": "JustificationStatement",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "justificationDescription",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "lastUpdateDate",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "lastUpdateDate",
+      "target": "xsd:date",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "participantName",
+      "target": "ParticipantStatement",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "participantName",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "problemDescription",
+      "target": "ProblemStatement",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "problemDescription",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "registrationDate",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "registrationDate",
+      "target": "xsd:date",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "relationType",
+      "target": "RelationshipStatement",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "relationType",
+      "target": "RelationType",
+      "key": 0
+    },
+    {
+      "relation": "domain",
+      "source": "repositoryName",
+      "target": "Repository",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "repositoryName",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "title",
+      "target": "ADR",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "title",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "topicName",
+      "target": "Topic",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "topicName",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "R_adr_belongsToRepository",
+      "target": "ADR",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "onProperty",
+      "source": "R_adr_belongsToRepository",
+      "target": "belongsToRepository",
+      "key": "onProperty"
+    },
+    {
+      "relation": "someValuesFrom",
+      "source": "R_adr_belongsToRepository",
+      "target": "Repository",
+      "key": "someValuesFrom"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "R_adr_hasDecision",
+      "target": "ADR",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "onProperty",
+      "source": "R_adr_hasDecision",
+      "target": "hasDecisionStatement",
+      "key": "onProperty"
+    },
+    {
+      "relation": "someValuesFrom",
+      "source": "R_adr_hasDecision",
+      "target": "DecisionStatement",
+      "key": "someValuesFrom"
+    },
+    {
+      "relation": "subClassOf",
+      "source": "R_adr_hasTopic",
+      "target": "ADR",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "onProperty",
+      "source": "R_adr_hasTopic",
+      "target": "hasTopic",
+      "key": "onProperty"
+    },
+    {
+      "relation": "someValuesFrom",
+      "source": "R_adr_hasTopic",
+      "target": "Topic",
+      "key": "someValuesFrom"
+    }
+  ]
+}

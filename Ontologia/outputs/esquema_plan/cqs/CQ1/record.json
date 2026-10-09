@@ -1,0 +1,65 @@
+{
+  "cq_id": "CQ1",
+  "cq_text": "¿Qué decisión registra un ADR determinado y a qué repositorio pertenece ese ADR?",
+  "code": "import networkx as nx\n\nG = nx.MultiDiGraph()\n\n# --- Tipos de datos ---\nG.add_node(\"xsd:string\", type=\"Datatype\")\n\n# --- Clases ---\nG.add_node(\"Document\", type=\"Class\")\nG.add_node(\"ArchitectureDecisionRecord\", type=\"Class\")\nG.add_node(\"Repository\", type=\"Class\")\nG.add_node(\"Decision\", type=\"Class\")\n\n# --- Jerarquias (subClassOf) ---\nG.add_edge(\"ArchitectureDecisionRecord\", \"Document\", relation=\"subClassOf\")\n\n# --- Propiedades de objeto ---\n# ADR pertenece a un Repositorio\nG.add_node(\"belongsToRepository\", type=\"ObjectProperty\", characteristics=[\"Functional\"])\nG.add_edge(\"belongsToRepository\", \"ArchitectureDecisionRecord\", relation=\"domain\")\nG.add_edge(\"belongsToRepository\", \"Repository\", relation=\"range\")\n\n# Relacion inversa: el repositorio contiene ADRs\nG.add_node(\"containsADR\", type=\"ObjectProperty\")\nG.add_edge(\"containsADR\", \"Repository\", relation=\"domain\")\nG.add_edge(\"containsADR\", \"ArchitectureDecisionRecord\", relation=\"range\")\nG.add_edge(\"belongsToRepository\", \"containsADR\", relation=\"inverseOf\")\n\n# Enlace hacia la clase Decision desde ArchitectureDecisionRecord\nG.add_node(\"recordsDecision\", type=\"ObjectProperty\")\nG.add_edge(\"recordsDecision\", \"ArchitectureDecisionRecord\", relation=\"domain\")\nG.add_edge(\"recordsDecision\", \"Decision\", relation=\"range\")\n\n# --- Propiedades de datos ---\n# Propiedades de ArchitectureDecisionRecord\nG.add_node(\"fileName\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\nG.add_edge(\"fileName\", \"ArchitectureDecisionRecord\", relation=\"domain\")\nG.add_edge(\"fileName\", \"xsd:string\", relation=\"range\")\n\nG.add_node(\"title\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\nG.add_edge(\"title\", \"ArchitectureDecisionRecord\", relation=\"domain\")\nG.add_edge(\"title\", \"xsd:string\", relation=\"range\")\n\n# Propiedades de Repository\nG.add_node(\"repositoryName\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\nG.add_edge(\"repositoryName\", \"Repository\", relation=\"domain\")\nG.add_edge(\"repositoryName\", \"xsd:string\", relation=\"range\")\n\n# Propiedades de Decision\nG.add_node(\"decisionDescription\", type=\"DatatypeProperty\")\nG.add_edge(\"decisionDescription\", \"Decision\", relation=\"domain\")\nG.add_edge(\"decisionDescription\", \"xsd:string\", relation=\"range\")\n\nG.add_node(\"evidenceSnippet\", type=\"DatatypeProperty\")\nG.add_edge(\"evidenceSnippet\", \"Decision\", relation=\"domain\")\nG.add_edge(\"evidenceSnippet\", \"xsd:string\", relation=\"range\")",
+  "applied_calls": 31,
+  "repair_rounds": 1,
+  "issues": [],
+  "usage": {
+    "input_tokens": 6941,
+    "output_tokens": 1557,
+    "thinking_tokens": 3232,
+    "total_tokens": 11730
+  },
+  "delta": {
+    "classes": 4,
+    "object_properties": 3,
+    "datatype_properties": 5,
+    "subclass_axioms": 1,
+    "inverse_axioms": 1,
+    "nodes": 13,
+    "edges": 18
+  },
+  "added": {
+    "nodes": [
+      "ArchitectureDecisionRecord",
+      "Decision",
+      "Document",
+      "Repository",
+      "belongsToRepository",
+      "containsADR",
+      "decisionDescription",
+      "evidenceSnippet",
+      "fileName",
+      "recordsDecision",
+      "repositoryName",
+      "title",
+      "xsd:string"
+    ],
+    "edges": [
+      "ArchitectureDecisionRecord -subClassOf-> Document",
+      "belongsToRepository -domain-> ArchitectureDecisionRecord",
+      "belongsToRepository -inverseOf-> containsADR",
+      "belongsToRepository -range-> Repository",
+      "containsADR -domain-> Repository",
+      "containsADR -range-> ArchitectureDecisionRecord",
+      "decisionDescription -domain-> Decision",
+      "decisionDescription -range-> xsd:string",
+      "evidenceSnippet -domain-> Decision",
+      "evidenceSnippet -range-> xsd:string",
+      "fileName -domain-> ArchitectureDecisionRecord",
+      "fileName -range-> xsd:string",
+      "recordsDecision -domain-> ArchitectureDecisionRecord",
+      "recordsDecision -range-> Decision",
+      "repositoryName -domain-> Repository",
+      "repositoryName -range-> xsd:string",
+      "title -domain-> ArchitectureDecisionRecord",
+      "title -range-> xsd:string"
+    ]
+  },
+  "lost": {
+    "nodes": [],
+    "edges": []
+  },
+  "restored_by_pipeline": false
+}

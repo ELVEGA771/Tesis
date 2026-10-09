@@ -1,0 +1,43 @@
+{
+  "version": "1.0",
+  "derivada_de": "outputs/esquema_plan (CQbyCQ, historia inputs/historia_adr_plan.json)",
+  "cambios": [
+    "A1: GroundedElement como unico dominio de evidenceSnippet (antes 5 dominios); Topic excluido",
+    "A2: NormalizedStatus con 6 individuos fijos: proposed, accepted, rejected, deprecated, superseded, amended",
+    "A3: relationType pasa de DatatypeProperty (xsd:string) a ObjectProperty -> RelationType {supersedes, amends}",
+    "A4: recordsDecision y selectsAlternative pasan a Functional",
+    "Convenciones documentadas como comment en: ArchitectureDecisionRecord, RelationDeclaration, sourceADR, targetADR, declaresRelation, recordDate, Topic, selectsAlternative"
+  ],
+  "summary_antes": {
+    "classes": 9,
+    "pivot_classes": 1,
+    "object_properties": 11,
+    "datatype_properties": 10,
+    "restrictions": 0,
+    "subclass_axioms": 1,
+    "equivalent_axioms": 0,
+    "disjoint_axioms": 0,
+    "subproperty_axioms": 1,
+    "inverse_axioms": 1,
+    "individuals": 0,
+    "assertions": 0,
+    "nodes": 32,
+    "edges": 49
+  },
+  "summary": {
+    "classes": 11,
+    "pivot_classes": 1,
+    "object_properties": 12,
+    "datatype_properties": 9,
+    "restrictions": 0,
+    "subclass_axioms": 5,
+    "equivalent_axioms": 0,
+    "disjoint_axioms": 0,
+    "subproperty_axioms": 1,
+    "inverse_axioms": 1,
+    "individuals": 8,
+    "assertions": 0,
+    "nodes": 42,
+    "edges": 49
+  }
+}

@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d3" for="edge" attr.name="relation" attr.type="string"/>
+<key id="d2" for="node" attr.name="characteristics" attr.type="string"/>
+<key id="d1" for="node" attr.name="pivot" attr.type="boolean"/>
+<key id="d0" for="node" attr.name="type" attr.type="string"/>
+<graph edgedefault="directed"><node id="Alternative">
+  <data key="d0">Class</data>
+</node>
+<node id="ArchitectureDecisionRecord">
+  <data key="d0">Class</data>
+</node>
+<node id="Decision">
+  <data key="d0">Class</data>
+</node>
+<node id="Document">
+  <data key="d0">Class</data>
+</node>
+<node id="NormalizedStatus">
+  <data key="d0">Class</data>
+</node>
+<node id="RelationDeclaration">
+  <data key="d0">Class</data>
+  <data key="d1">True</data>
+</node>
+<node id="Repository">
+  <data key="d0">Class</data>
+</node>
+<node id="StatusDeclaration">
+  <data key="d0">Class</data>
+</node>
+<node id="Topic">
+  <data key="d0">Class</data>
+</node>
+<node id="addressesTopic">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="belongsToRepository">
+  <data key="d0">ObjectProperty</data>
+  <data key="d2">["Functional"]</data>
+</node>
+<node id="considersAlternative">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="containsADR">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="declaresRelation">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="hasNormalizedStatus">
+  <data key="d0">ObjectProperty</data>
+  <data key="d2">["Functional"]</data>
+</node>
+<node id="hasStatusDeclaration">
+  <data key="d0">ObjectProperty</data>
+  <data key="d2">["Functional"]</data>
+</node>
+<node id="recordsDecision">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="selectsAlternative">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="sourceADR">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="targetADR">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="alternativeDescription">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="decisionDescription">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="evidenceSnippet">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="fileName">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d2">["Functional"]</data>
+</node>
+<node id="rawStatusLiteral">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d2">["Functional"]</data>
+</node>
+<node id="recordDate">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d2">["Functional"]</data>
+</node>
+<node id="relationType">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d2">["Functional"]</data>
+</node>
+<node id="repositoryName">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d2">["Functional"]</data>
+</node>
+<node id="title">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d2">["Functional"]</data>
+</node>
+<node id="topicName">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d2">["Functional"]</data>
+</node>
+<node id="xsd:date">
+  <data key="d0">Datatype</data>
+</node>
+<node id="xsd:string">
+  <data key="d0">Datatype</data>
+</node>
+<edge source="ArchitectureDecisionRecord" target="Document" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="addressesTopic" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="addressesTopic" target="Topic" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="belongsToRepository" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="belongsToRepository" target="Repository" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="belongsToRepository" target="containsADR" id="inverseOf">
+  <data key="d3">inverseOf</data>
+</edge>
+<edge source="considersAlternative" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="considersAlternative" target="Alternative" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="containsADR" target="Repository" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="containsADR" target="ArchitectureDecisionRecord" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="declaresRelation" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="declaresRelation" target="RelationDeclaration" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="hasNormalizedStatus" target="StatusDeclaration" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="hasNormalizedStatus" target="NormalizedStatus" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="hasStatusDeclaration" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="hasStatusDeclaration" target="StatusDeclaration" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="recordsDecision" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="recordsDecision" target="Decision" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="selectsAlternative" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="selectsAlternative" target="Alternative" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="selectsAlternative" target="considersAlternative" id="subPropertyOf">
+  <data key="d3">subPropertyOf</data>
+</edge>
+<edge source="sourceADR" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="sourceADR" target="RelationDeclaration" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="targetADR" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="targetADR" target="RelationDeclaration" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="alternativeDescription" target="Alternative" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="alternativeDescription" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="decisionDescription" target="Decision" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="decisionDescription" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="evidenceSnippet" target="Alternative" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="evidenceSnippet" target="Decision" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="evidenceSnippet" target="RelationDeclaration" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="evidenceSnippet" target="StatusDeclaration" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="evidenceSnippet" target="Topic" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="evidenceSnippet" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="fileName" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="fileName" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="rawStatusLiteral" target="StatusDeclaration" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="rawStatusLiteral" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="recordDate" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="recordDate" target="xsd:date" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="relationType" target="RelationDeclaration" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="relationType" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="repositoryName" target="Repository" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="repositoryName" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="title" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="title" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="topicName" target="Topic" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="topicName" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+</graph></graphml>

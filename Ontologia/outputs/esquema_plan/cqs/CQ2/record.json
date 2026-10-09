@@ -1,0 +1,45 @@
+{
+  "cq_id": "CQ2",
+  "cq_text": "Para un ADR dado, ¿qué alternativas se consideraron y cuál de ellas se adoptó como decisión?",
+  "code": "import networkx as nx\n\nG = nx.MultiDiGraph()\n\n# ¿Es esta CQ respondible con el grafo anterior? -> no, porque no existía la clase Alternative ni propiedades para registrar las alternativas consideradas y seleccionadas por un ADR.\n# Clases pivote (reificacion) que voy a crear en esta etapa: ninguna\n\n# --- Clases ---\nG.add_node(\"Alternative\", type=\"Class\")\nG.add_node(\"ArchitectureDecisionRecord\", type=\"Class\")\nG.add_node(\"Decision\", type=\"Class\")\nG.add_node(\"Document\", type=\"Class\")\nG.add_node(\"Repository\", type=\"Class\")\n\n# --- Object properties ---\nG.add_node(\"belongsToRepository\", type=\"ObjectProperty\", characteristics=[\"Functional\"])\nG.add_node(\"considersAlternative\", type=\"ObjectProperty\")\nG.add_node(\"containsADR\", type=\"ObjectProperty\")\nG.add_node(\"recordsDecision\", type=\"ObjectProperty\")\nG.add_node(\"selectsAlternative\", type=\"ObjectProperty\")\n\n# --- Datatype properties ---\nG.add_node(\"alternativeDescription\", type=\"DatatypeProperty\")\nG.add_node(\"decisionDescription\", type=\"DatatypeProperty\")\nG.add_node(\"evidenceSnippet\", type=\"DatatypeProperty\")\nG.add_node(\"fileName\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\nG.add_node(\"repositoryName\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\nG.add_node(\"title\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\n\n# --- Tipos de dato ---\nG.add_node(\"xsd:string\", type=\"Datatype\")\n\n# --- Axiomas ---\nG.add_edge(\"ArchitectureDecisionRecord\", \"Document\", relation=\"subClassOf\")\nG.add_edge(\"alternativeDescription\", \"Alternative\", relation=\"domain\")\nG.add_edge(\"alternativeDescription\", \"xsd:string\", relation=\"range\")\nG.add_edge(\"belongsToRepository\", \"ArchitectureDecisionRecord\", relation=\"domain\")\nG.add_edge(\"belongsToRepository\", \"Repository\", relation=\"range\")\nG.add_edge(\"belongsToRepository\", \"containsADR\", relation=\"inverseOf\")\nG.add_edge(\"considersAlternative\", \"ArchitectureDecisionRecord\", relation=\"domain\")\nG.add_edge(\"considersAlternative\", \"Alternative\", relation=\"range\")\nG.add_edge(\"containsADR\", \"Repository\", relation=\"domain\")\nG.add_edge(\"containsADR\", \"ArchitectureDecisionRecord\", relation=\"range\")\nG.add_edge(\"decisionDescription\", \"Decision\", relation=\"domain\")\nG.add_edge(\"decisionDescription\", \"xsd:string\", relation=\"range\")\nG.add_edge(\"evidenceSnippet\", \"Alternative\", relation=\"domain\")\nG.add_edge(\"evidenceSnippet\", \"Decision\", relation=\"domain\")\nG.add_edge(\"evidenceSnippet\", \"xsd:string\", relation=\"range\")\nG.add_edge(\"fileName\", \"ArchitectureDecisionRecord\", relation=\"domain\")\nG.add_edge(\"fileName\", \"xsd:string\", relation=\"range\")\nG.add_edge(\"recordsDecision\", \"ArchitectureDecisionRecord\", relation=\"domain\")\nG.add_edge(\"recordsDecision\", \"Decision\", relation=\"range\")\nG.add_edge(\"repositoryName\", \"Repository\", relation=\"domain\")\nG.add_edge(\"repositoryName\", \"xsd:string\", relation=\"range\")\nG.add_edge(\"selectsAlternative\", \"ArchitectureDecisionRecord\", relation=\"domain\")\nG.add_edge(\"selectsAlternative\", \"Alternative\", relation=\"range\")\nG.add_edge(\"selectsAlternative\", \"considersAlternative\", relation=\"subPropertyOf\")\nG.add_edge(\"title\", \"ArchitectureDecisionRecord\", relation=\"domain\")\nG.add_edge(\"title\", \"xsd:string\", relation=\"range\")",
+  "applied_calls": 43,
+  "repair_rounds": 0,
+  "issues": [],
+  "usage": {
+    "input_tokens": 5637,
+    "output_tokens": 864,
+    "thinking_tokens": 4165,
+    "total_tokens": 10666
+  },
+  "delta": {
+    "classes": 1,
+    "object_properties": 2,
+    "datatype_properties": 1,
+    "subproperty_axioms": 1,
+    "nodes": 4,
+    "edges": 8
+  },
+  "added": {
+    "nodes": [
+      "Alternative",
+      "alternativeDescription",
+      "considersAlternative",
+      "selectsAlternative"
+    ],
+    "edges": [
+      "alternativeDescription -domain-> Alternative",
+      "alternativeDescription -range-> xsd:string",
+      "considersAlternative -domain-> ArchitectureDecisionRecord",
+      "considersAlternative -range-> Alternative",
+      "evidenceSnippet -domain-> Alternative",
+      "selectsAlternative -domain-> ArchitectureDecisionRecord",
+      "selectsAlternative -range-> Alternative",
+      "selectsAlternative -subPropertyOf-> considersAlternative"
+    ]
+  },
+  "lost": {
+    "nodes": [],
+    "edges": []
+  },
+  "restored_by_pipeline": false
+}

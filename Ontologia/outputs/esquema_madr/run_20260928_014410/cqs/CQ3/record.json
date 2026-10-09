@@ -1,0 +1,64 @@
+{
+  "cq_id": "CQ3",
+  "cq_text": "¿Qué estado declara un ADR, con qué valor literal, a qué estado normalizado corresponde y en qué fecha se registró el ADR?",
+  "code": "import networkx as nx\n\nG = nx.MultiDiGraph()\n\n# ¿Es esta CQ respondible con el grafo anterior? -> no, porque no contiene clases ni propiedades para representar el estado declarado, su valor literal, el estado normalizado ni la fecha de registro del ADR.\n# Clases pivote (reificacion) que voy a crear en esta etapa: ninguna\n\n# --- Clases ---\nG.add_node(\"AcceptedStatus\", type=\"Class\")\nG.add_node(\"ADR\", type=\"Class\")\nG.add_node(\"Alternative\", type=\"Class\")\nG.add_node(\"AmendedStatus\", type=\"Class\")\nG.add_node(\"DecisionStatement\", type=\"Class\")\nG.add_node(\"DeprecatedStatus\", type=\"Class\")\nG.add_node(\"Document\", type=\"Class\")\nG.add_node(\"NormalizedStatus\", type=\"Class\")\nG.add_node(\"ProposedStatus\", type=\"Class\")\nG.add_node(\"Repository\", type=\"Class\")\nG.add_node(\"Statement\", type=\"Class\")\nG.add_node(\"StatusStatement\", type=\"Class\")\nG.add_node(\"SupersededStatus\", type=\"Class\")\n\n# --- Object properties ---\nG.add_node(\"belongsToRepository\", type=\"ObjectProperty\")\nG.add_node(\"considersAlternative\", type=\"ObjectProperty\")\nG.add_node(\"hasDecisionStatement\", type=\"ObjectProperty\")\nG.add_node(\"hasNormalizedStatus\", type=\"ObjectProperty\")\nG.add_node(\"hasStatusStatement\", type=\"ObjectProperty\")\nG.add_node(\"selectsAlternative\", type=\"ObjectProperty\")\n\n# --- Datatype properties ---\nG.add_node(\"alternativeName\", type=\"DatatypeProperty\")\nG.add_node(\"decisionSummary\", type=\"DatatypeProperty\")\nG.add_node(\"declaredStatusLiteral\", type=\"DatatypeProperty\")\nG.add_node(\"evidenceText\", type=\"DatatypeProperty\")\nG.add_node(\"fileName\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\nG.add_node(\"registrationDate\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\nG.add_node(\"repositoryName\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\nG.add_node(\"title\", type=\"DatatypeProperty\")\n\n# --- Tipos de dato ---\nG.add_node(\"xsd:date\", type=\"Datatype\")\nG.add_node(\"xsd:string\", type=\"Datatype\")\n\n# --- Restricciones ---\nG.add_node(\"R_adr_belongsToRepository\", type=\"Restriction\")\nG.add_node(\"R_adr_hasDecision\", type=\"Restriction\")\nG.add_node(\"R_adr_hasStatus\", type=\"Restriction\")\n\n# --- Axiomas ---\n# Jerarquia de clases\nG.add_edge(\"ADR\", \"Document\", relation=\"subClassOf\")\nG.add_edge(\"Alternative\", \"Statement\", relation=\"subClassOf\")\nG.add_edge(\"DecisionStatement\", \"Statement\", relation=\"subClassOf\")\nG.add_edge(\"StatusStatement\", \"Statement\", relation=\"subClassOf\")\nG.add_edge(\"AcceptedStatus\", \"NormalizedStatus\", relation=\"subClassOf\")\nG.add_edge(\"AmendedStatus\", \"NormalizedStatus\", relation=\"subClassOf\")\nG.add_edge(\"DeprecatedStatus\", \"NormalizedStatus\", relation=\"subClassOf\")\nG.add_edge(\"ProposedStatus\", \"NormalizedStatus\", relation=\"subClassOf\")\nG.add_edge(\"SupersededStatus\", \"NormalizedStatus\", relation=\"subClassOf\")\n\n# Jerarquia de propiedades\nG.add_edge(\"selectsAlternative\", \"considersAlternative\", relation=\"subPropertyOf\")\n\n# Dominios y rangos - Object Properties\nG.add_edge(\"belongsToRepository\", \"ADR\", relation=\"domain\")\nG.add_edge(\"belongsToRepository\", \"Repository\", relation=\"range\")\n\nG.add_edge(\"considersAlternative\", \"ADR\", relation=\"domain\")\nG.add_edge(\"considersAlternative\", \"Alternative\", relation=\"range\")\n\nG.add_edge(\"selectsAlternative\", \"ADR\", relation=\"domain\")\nG.add_edge(\"selectsAlternative\", \"Alternative\", relation=\"range\")\n\nG.add_edge(\"hasDecisionStatement\", \"ADR\", relation=\"domain\")\nG.add_edge(\"hasDecisionStatement\", \"DecisionStatement\", relation=\"range\")\n\nG.add_edge(\"hasStatusStatement\", \"ADR\", relation=\"domain\")\nG.add_edge(\"hasStatusStatement\", \"StatusStatement\", relation=\"range\")\n\nG.add_edge(\"hasNormalizedStatus\", \"StatusStatement\", relation=\"domain\")\nG.add_edge(\"hasNormalizedStatus\", \"NormalizedStatus\", relation=\"range\")\n\n# Dominios y rangos - Datatype Properties\nG.add_edge(\"alternativeName\", \"Alternative\", relation=\"domain\")\nG.add_edge(\"alternativeName\", \"xsd:string\", relation=\"range\")\n\nG.add_edge(\"decisionSummary\", \"DecisionStatement\", relation=\"domain\")\nG.add_edge(\"decisionSummary\", \"xsd:string\", relation=\"range\")\n\nG.add_edge(\"declaredStatusLiteral\", \"StatusStatement\", relation=\"domain\")\nG.add_edge(\"declaredStatusLiteral\", \"xsd:string\", relation=\"range\")\n\nG.add_edge(\"evidenceText\", \"Statement\", relation=\"domain\")\nG.add_edge(\"evidenceText\", \"xsd:string\", relation=\"range\")\n\nG.add_edge(\"fileName\", \"ADR\", relation=\"domain\")\nG.add_edge(\"fileName\", \"xsd:string\", relation=\"range\")\n\nG.add_edge(\"registrationDate\", \"ADR\", relation=\"domain\")\nG.add_edge(\"registrationDate\", \"xsd:date\", relation=\"range\")\n\nG.add_edge(\"repositoryName\", \"Repository\", relation=\"domain\")\nG.add_edge(\"repositoryName\", \"xsd:string\", relation=\"range\")\n\nG.add_edge(\"title\", \"ADR\", relation=\"domain\")\nG.add_edge(\"title\", \"xsd:string\", relation=\"range\")\n\n# Restricciones\nG.add_edge(\"R_adr_belongsToRepository\", \"belongsToRepository\", relation=\"onProperty\")\nG.add_edge(\"R_adr_belongsToRepository\", \"Repository\", relation=\"someValuesFrom\")\nG.add_edge(\"R_adr_belongsToRepository\", \"ADR\", relation=\"subClassOf\")\n\nG.add_edge(\"R_adr_hasDecision\", \"hasDecisionStatement\", relation=\"onProperty\")\nG.add_edge(\"R_adr_hasDecision\", \"DecisionStatement\", relation=\"someValuesFrom\")\nG.add_edge(\"R_adr_hasDecision\", \"ADR\", relation=\"subClassOf\")\n\nG.add_edge(\"R_adr_hasStatus\", \"hasStatusStatement\", relation=\"onProperty\")\nG.add_edge(\"R_adr_hasStatus\", \"StatusStatement\", relation=\"someValuesFrom\")\nG.add_edge(\"R_adr_hasStatus\", \"ADR\", relation=\"subClassOf\")",
+  "applied_calls": 79,
+  "repair_rounds": 0,
+  "issues": [],
+  "usage": {
+    "input_tokens": 6503,
+    "output_tokens": 1597,
+    "thinking_tokens": 3367,
+    "total_tokens": 11467
+  },
+  "delta": {
+    "classes": 7,
+    "object_properties": 2,
+    "datatype_properties": 2,
+    "restrictions": 1,
+    "subclass_axioms": 7,
+    "nodes": 13,
+    "edges": 17
+  },
+  "added": {
+    "nodes": [
+      "AcceptedStatus",
+      "AmendedStatus",
+      "DeprecatedStatus",
+      "NormalizedStatus",
+      "ProposedStatus",
+      "R_adr_hasStatus",
+      "StatusStatement",
+      "SupersededStatus",
+      "declaredStatusLiteral",
+      "hasNormalizedStatus",
+      "hasStatusStatement",
+      "registrationDate",
+      "xsd:date"
+    ],
+    "edges": [
+      "AcceptedStatus -subClassOf-> NormalizedStatus",
+      "AmendedStatus -subClassOf-> NormalizedStatus",
+      "DeprecatedStatus -subClassOf-> NormalizedStatus",
+      "ProposedStatus -subClassOf-> NormalizedStatus",
+      "R_adr_hasStatus -onProperty-> hasStatusStatement",
+      "R_adr_hasStatus -someValuesFrom-> StatusStatement",
+      "R_adr_hasStatus -subClassOf-> ADR",
+      "StatusStatement -subClassOf-> Statement",
+      "SupersededStatus -subClassOf-> NormalizedStatus",
+      "declaredStatusLiteral -domain-> StatusStatement",
+      "declaredStatusLiteral -range-> xsd:string",
+      "hasNormalizedStatus -domain-> StatusStatement",
+      "hasNormalizedStatus -range-> NormalizedStatus",
+      "hasStatusStatement -domain-> ADR",
+      "hasStatusStatement -range-> StatusStatement",
+      "registrationDate -domain-> ADR",
+      "registrationDate -range-> xsd:date"
+    ]
+  },
+  "lost": {
+    "nodes": [],
+    "edges": []
+  },
+  "restored_by_pipeline": false
+}

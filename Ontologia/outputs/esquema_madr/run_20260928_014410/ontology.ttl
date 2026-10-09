@@ -1,0 +1,291 @@
+@prefix : <http://example.org/onto#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/onto> a owl:Ontology .
+
+:ADR a owl:Class
+    ; rdfs:subClassOf :Document
+    .
+:AcceptedStatus a owl:Class
+    ; rdfs:subClassOf :NormalizedStatus
+    .
+:AdditionalInformationStatement a owl:Class
+    ; rdfs:subClassOf :Statement
+    .
+:Alternative a owl:Class
+    ; rdfs:subClassOf :Statement
+    .
+:AmendedStatus a owl:Class
+    ; rdfs:subClassOf :NormalizedStatus
+    .
+:ArgumentStatement a owl:Class
+    ; rdfs:subClassOf :Statement
+    .
+:ConArgumentStatement a owl:Class
+    ; rdfs:subClassOf :ArgumentStatement
+    ; owl:disjointWith :NeutralArgumentStatement
+    .
+:ConfirmationStatement a owl:Class
+    ; rdfs:subClassOf :Statement
+    .
+:ConsequenceStatement a owl:Class
+    ; rdfs:subClassOf :Statement
+    .
+:ConsultedParticipantStatement a owl:Class
+    ; rdfs:subClassOf :ParticipantStatement
+    ; owl:disjointWith :InformedParticipantStatement
+    .
+:ContextStatement a owl:Class
+    ; rdfs:subClassOf :Statement
+    .
+:DecisionDriverStatement a owl:Class
+    ; rdfs:subClassOf :Statement
+    .
+:DecisionMakerStatement a owl:Class
+    ; rdfs:subClassOf :ParticipantStatement
+    ; owl:disjointWith :ConsultedParticipantStatement
+    ; owl:disjointWith :InformedParticipantStatement
+    .
+:DecisionStatement a owl:Class
+    ; rdfs:subClassOf :Statement
+    .
+:DeprecatedStatus a owl:Class
+    ; rdfs:subClassOf :NormalizedStatus
+    .
+:Document a owl:Class
+    .
+:InformedParticipantStatement a owl:Class
+    ; rdfs:subClassOf :ParticipantStatement
+    .
+:JustificationStatement a owl:Class
+    ; rdfs:subClassOf :Statement
+    .
+:NegativeConsequenceStatement a owl:Class
+    ; rdfs:subClassOf :ConsequenceStatement
+    ; owl:disjointWith :NeutralConsequenceStatement
+    .
+:NeutralArgumentStatement a owl:Class
+    ; rdfs:subClassOf :ArgumentStatement
+    .
+:NeutralConsequenceStatement a owl:Class
+    ; rdfs:subClassOf :ConsequenceStatement
+    .
+:NormalizedStatus a owl:Class
+    .
+:ParticipantStatement a owl:Class
+    ; rdfs:subClassOf :Statement
+    .
+:PositiveConsequenceStatement a owl:Class
+    ; rdfs:subClassOf :ConsequenceStatement
+    ; owl:disjointWith :NegativeConsequenceStatement
+    ; owl:disjointWith :NeutralConsequenceStatement
+    .
+:ProArgumentStatement a owl:Class
+    ; rdfs:subClassOf :ArgumentStatement
+    ; owl:disjointWith :ConArgumentStatement
+    ; owl:disjointWith :NeutralArgumentStatement
+    .
+:ProblemStatement a owl:Class
+    ; rdfs:subClassOf :Statement
+    .
+:ProposedStatus a owl:Class
+    ; rdfs:subClassOf :NormalizedStatus
+    .
+:RelationshipStatement a owl:Class
+    ; rdfs:subClassOf :Statement
+    .
+:Repository a owl:Class
+    .
+:Statement a owl:Class
+    .
+:StatusStatement a owl:Class
+    ; rdfs:subClassOf :Statement
+    .
+:SupersededStatus a owl:Class
+    ; rdfs:subClassOf :NormalizedStatus
+    .
+:Topic a owl:Class
+    .
+
+[ a owl:Restriction ; owl:onProperty :belongsToRepository ; owl:someValuesFrom :Repository ] rdfs:subClassOf :ADR .
+[ a owl:Restriction ; owl:onProperty :hasDecisionStatement ; owl:someValuesFrom :DecisionStatement ] rdfs:subClassOf :ADR .
+[ a owl:Restriction ; owl:onProperty :hasStatusStatement ; owl:someValuesFrom :StatusStatement ] rdfs:subClassOf :ADR .
+[ a owl:Restriction ; owl:onProperty :hasTopic ; owl:someValuesFrom :Topic ] rdfs:subClassOf :ADR .
+
+:additionalInformationDescription a owl:DatatypeProperty
+    ; rdfs:domain :AdditionalInformationStatement
+    ; rdfs:range xsd:string
+    .
+:alternativeName a owl:DatatypeProperty
+    ; rdfs:domain :Alternative
+    ; rdfs:range xsd:string
+    .
+:argumentAlternative a owl:ObjectProperty
+    ; rdfs:domain :Alternative
+    ; rdfs:range :ArgumentStatement
+    .
+:argumentDescription a owl:DatatypeProperty
+    ; rdfs:domain :ArgumentStatement
+    ; rdfs:range xsd:string
+    .
+:argumentPolarity a owl:DatatypeProperty
+    ; rdfs:domain :ArgumentStatement
+    ; rdfs:range xsd:string
+    .
+:belongsToRepository a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :Repository
+    .
+:confirmationDescription a owl:DatatypeProperty
+    ; rdfs:domain :ConfirmationStatement
+    ; rdfs:range xsd:string
+    .
+:consequenceDescription a owl:DatatypeProperty
+    ; rdfs:domain :ConsequenceStatement
+    ; rdfs:range xsd:string
+    .
+:consequencePolarity a owl:DatatypeProperty
+    ; rdfs:domain :ConsequenceStatement
+    ; rdfs:range xsd:string
+    .
+:considersAlternative a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :Alternative
+    .
+:contextDescription a owl:DatatypeProperty
+    ; rdfs:domain :ContextStatement
+    ; rdfs:range xsd:string
+    .
+:decisionSummary a owl:DatatypeProperty
+    ; rdfs:domain :DecisionStatement
+    ; rdfs:range xsd:string
+    .
+:declaredStatusLiteral a owl:DatatypeProperty
+    ; rdfs:domain :StatusStatement
+    ; rdfs:range xsd:string
+    .
+:declaringADR a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :RelationshipStatement
+    .
+:driverDescription a owl:DatatypeProperty
+    ; rdfs:domain :DecisionDriverStatement
+    ; rdfs:range xsd:string
+    .
+:evidenceText a owl:DatatypeProperty
+    ; rdfs:domain :Statement
+    ; rdfs:range xsd:string
+    .
+:fileName a owl:DatatypeProperty, owl:FunctionalProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range xsd:string
+    .
+:hasAdditionalInformationStatement a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :AdditionalInformationStatement
+    .
+:hasArgumentStatement a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :ArgumentStatement
+    .
+:hasConfirmationStatement a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :ConfirmationStatement
+    .
+:hasConsequenceStatement a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :ConsequenceStatement
+    .
+:hasContextStatement a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :ContextStatement
+    .
+:hasDecisionDriverStatement a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :DecisionDriverStatement
+    .
+:hasDecisionStatement a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :DecisionStatement
+    .
+:hasJustificationStatement a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :JustificationStatement
+    .
+:hasNormalizedStatus a owl:ObjectProperty
+    ; rdfs:domain :StatusStatement
+    ; rdfs:range :NormalizedStatus
+    .
+:hasParticipantStatement a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :ParticipantStatement
+    .
+:hasProblemStatement a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :ProblemStatement
+    .
+:hasStatusStatement a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :StatusStatement
+    .
+:hasTopic a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :Topic
+    .
+:justificationDescription a owl:DatatypeProperty
+    ; rdfs:domain :JustificationStatement
+    ; rdfs:range xsd:string
+    .
+:lastUpdateDate a owl:DatatypeProperty, owl:FunctionalProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range xsd:date
+    .
+:participantName a owl:DatatypeProperty
+    ; rdfs:domain :ParticipantStatement
+    ; rdfs:range xsd:string
+    .
+:participantRole a owl:DatatypeProperty
+    ; rdfs:domain :ParticipantStatement
+    ; rdfs:range xsd:string
+    .
+:problemDescription a owl:DatatypeProperty
+    ; rdfs:domain :ProblemStatement
+    ; rdfs:range xsd:string
+    .
+:registrationDate a owl:DatatypeProperty, owl:FunctionalProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range xsd:date
+    .
+:relationType a owl:DatatypeProperty, owl:FunctionalProperty
+    ; rdfs:domain :RelationshipStatement
+    ; rdfs:range xsd:string
+    .
+:repositoryName a owl:DatatypeProperty, owl:FunctionalProperty
+    ; rdfs:domain :Repository
+    ; rdfs:range xsd:string
+    .
+:selectsAlternative a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :Alternative
+    ; rdfs:subPropertyOf :considersAlternative
+    .
+:sourceADR a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :RelationshipStatement
+    .
+:targetADR a owl:ObjectProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range :RelationshipStatement
+    .
+:title a owl:DatatypeProperty
+    ; rdfs:domain :ADR
+    ; rdfs:range xsd:string
+    .
+:topicName a owl:DatatypeProperty, owl:FunctionalProperty
+    ; rdfs:domain :Topic
+    ; rdfs:range xsd:string
+    .
+

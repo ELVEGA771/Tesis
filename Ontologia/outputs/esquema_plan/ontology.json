@@ -1,0 +1,462 @@
+{
+  "directed": true,
+  "multigraph": true,
+  "graph": {},
+  "nodes": [
+    {
+      "type": "Class",
+      "id": "Alternative"
+    },
+    {
+      "type": "Class",
+      "id": "ArchitectureDecisionRecord"
+    },
+    {
+      "type": "Class",
+      "id": "Decision"
+    },
+    {
+      "type": "Class",
+      "id": "Document"
+    },
+    {
+      "type": "Class",
+      "id": "NormalizedStatus"
+    },
+    {
+      "type": "Class",
+      "pivot": true,
+      "id": "RelationDeclaration"
+    },
+    {
+      "type": "Class",
+      "id": "Repository"
+    },
+    {
+      "type": "Class",
+      "id": "StatusDeclaration"
+    },
+    {
+      "type": "Class",
+      "id": "Topic"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "addressesTopic"
+    },
+    {
+      "type": "ObjectProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "belongsToRepository"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "considersAlternative"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "containsADR"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "declaresRelation"
+    },
+    {
+      "type": "ObjectProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "hasNormalizedStatus"
+    },
+    {
+      "type": "ObjectProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "hasStatusDeclaration"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "recordsDecision"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "selectsAlternative"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "sourceADR"
+    },
+    {
+      "type": "ObjectProperty",
+      "id": "targetADR"
+    },
+    {
+      "type": "DatatypeProperty",
+      "id": "alternativeDescription"
+    },
+    {
+      "type": "DatatypeProperty",
+      "id": "decisionDescription"
+    },
+    {
+      "type": "DatatypeProperty",
+      "id": "evidenceSnippet"
+    },
+    {
+      "type": "DatatypeProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "fileName"
+    },
+    {
+      "type": "DatatypeProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "rawStatusLiteral"
+    },
+    {
+      "type": "DatatypeProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "recordDate"
+    },
+    {
+      "type": "DatatypeProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "relationType"
+    },
+    {
+      "type": "DatatypeProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "repositoryName"
+    },
+    {
+      "type": "DatatypeProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "title"
+    },
+    {
+      "type": "DatatypeProperty",
+      "characteristics": [
+        "Functional"
+      ],
+      "id": "topicName"
+    },
+    {
+      "type": "Datatype",
+      "id": "xsd:date"
+    },
+    {
+      "type": "Datatype",
+      "id": "xsd:string"
+    }
+  ],
+  "links": [
+    {
+      "relation": "subClassOf",
+      "source": "ArchitectureDecisionRecord",
+      "target": "Document",
+      "key": "subClassOf"
+    },
+    {
+      "relation": "domain",
+      "source": "addressesTopic",
+      "target": "ArchitectureDecisionRecord",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "addressesTopic",
+      "target": "Topic",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "belongsToRepository",
+      "target": "ArchitectureDecisionRecord",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "belongsToRepository",
+      "target": "Repository",
+      "key": "range"
+    },
+    {
+      "relation": "inverseOf",
+      "source": "belongsToRepository",
+      "target": "containsADR",
+      "key": "inverseOf"
+    },
+    {
+      "relation": "domain",
+      "source": "considersAlternative",
+      "target": "ArchitectureDecisionRecord",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "considersAlternative",
+      "target": "Alternative",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "containsADR",
+      "target": "Repository",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "containsADR",
+      "target": "ArchitectureDecisionRecord",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "declaresRelation",
+      "target": "ArchitectureDecisionRecord",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "declaresRelation",
+      "target": "RelationDeclaration",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "hasNormalizedStatus",
+      "target": "StatusDeclaration",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "hasNormalizedStatus",
+      "target": "NormalizedStatus",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "hasStatusDeclaration",
+      "target": "ArchitectureDecisionRecord",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "hasStatusDeclaration",
+      "target": "StatusDeclaration",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "recordsDecision",
+      "target": "ArchitectureDecisionRecord",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "recordsDecision",
+      "target": "Decision",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "selectsAlternative",
+      "target": "ArchitectureDecisionRecord",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "selectsAlternative",
+      "target": "Alternative",
+      "key": "range"
+    },
+    {
+      "relation": "subPropertyOf",
+      "source": "selectsAlternative",
+      "target": "considersAlternative",
+      "key": "subPropertyOf"
+    },
+    {
+      "relation": "domain",
+      "source": "sourceADR",
+      "target": "ArchitectureDecisionRecord",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "sourceADR",
+      "target": "RelationDeclaration",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "targetADR",
+      "target": "ArchitectureDecisionRecord",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "targetADR",
+      "target": "RelationDeclaration",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "alternativeDescription",
+      "target": "Alternative",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "alternativeDescription",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "decisionDescription",
+      "target": "Decision",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "decisionDescription",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "evidenceSnippet",
+      "target": "Alternative",
+      "key": "domain"
+    },
+    {
+      "relation": "domain",
+      "source": "evidenceSnippet",
+      "target": "Decision",
+      "key": "domain"
+    },
+    {
+      "relation": "domain",
+      "source": "evidenceSnippet",
+      "target": "RelationDeclaration",
+      "key": "domain"
+    },
+    {
+      "relation": "domain",
+      "source": "evidenceSnippet",
+      "target": "StatusDeclaration",
+      "key": "domain"
+    },
+    {
+      "relation": "domain",
+      "source": "evidenceSnippet",
+      "target": "Topic",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "evidenceSnippet",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "fileName",
+      "target": "ArchitectureDecisionRecord",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "fileName",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "rawStatusLiteral",
+      "target": "StatusDeclaration",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "rawStatusLiteral",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "recordDate",
+      "target": "ArchitectureDecisionRecord",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "recordDate",
+      "target": "xsd:date",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "relationType",
+      "target": "RelationDeclaration",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "relationType",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "repositoryName",
+      "target": "Repository",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "repositoryName",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "title",
+      "target": "ArchitectureDecisionRecord",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "title",
+      "target": "xsd:string",
+      "key": "range"
+    },
+    {
+      "relation": "domain",
+      "source": "topicName",
+      "target": "Topic",
+      "key": "domain"
+    },
+    {
+      "relation": "range",
+      "source": "topicName",
+      "target": "xsd:string",
+      "key": "range"
+    }
+  ]
+}

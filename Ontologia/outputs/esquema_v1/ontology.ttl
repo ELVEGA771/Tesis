@@ -1,0 +1,137 @@
+@prefix : <http://example.org/adr-decision-graph#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/adr-decision-graph> a owl:Ontology .
+
+:Alternative a owl:Class
+    ; rdfs:subClassOf :GroundedElement
+    .
+:ArchitectureDecisionRecord a owl:Class
+    ; rdfs:subClassOf :Document
+    ; rdfs:comment "Identidad = repositorio + fileName; el numero declarado no es clave. El id de nodo es un slug de ambos."
+    .
+:Decision a owl:Class
+    ; rdfs:subClassOf :GroundedElement
+    .
+:Document a owl:Class
+    .
+:GroundedElement a owl:Class
+    ; rdfs:comment "Elemento extraido del texto de un ADR. Toda instancia debe llevar evidenceSnippet con un fragmento literal de su ADR de origen; si el fragmento no aparece en el fichero, el nodo es no fundamentado."
+    .
+:NormalizedStatus a owl:Class
+    .
+:RelationDeclaration a owl:Class
+    ; rdfs:subClassOf :GroundedElement
+    ; rdfs:comment "Una por cada documento que afirma la relacion. Si los dos ADR la declaran, hay dos."
+    .
+:RelationType a owl:Class
+    ; rdfs:comment "Vocabulario cerrado de tipos de relacion entre ADR."
+    .
+:Repository a owl:Class
+    .
+:StatusDeclaration a owl:Class
+    ; rdfs:subClassOf :GroundedElement
+    .
+:Topic a owl:Class
+    ; rdfs:comment "Se asigna, no se extrae: los ADR de una misma cadena de reemplazo comparten el mismo nodo Topic."
+    .
+
+
+:addressesTopic a owl:ObjectProperty
+    ; rdfs:domain :ArchitectureDecisionRecord
+    ; rdfs:range :Topic
+    .
+:alternativeDescription a owl:DatatypeProperty
+    ; rdfs:domain :Alternative
+    ; rdfs:range xsd:string
+    .
+:belongsToRepository a owl:ObjectProperty, owl:FunctionalProperty
+    ; rdfs:domain :ArchitectureDecisionRecord
+    ; rdfs:range :Repository
+    ; owl:inverseOf :containsADR
+    .
+:considersAlternative a owl:ObjectProperty
+    ; rdfs:domain :ArchitectureDecisionRecord
+    ; rdfs:range :Alternative
+    .
+:containsADR a owl:ObjectProperty
+    ; rdfs:domain :Repository
+    ; rdfs:range :ArchitectureDecisionRecord
+    .
+:decisionDescription a owl:DatatypeProperty
+    ; rdfs:domain :Decision
+    ; rdfs:range xsd:string
+    .
+:declaresRelation a owl:ObjectProperty
+    ; rdfs:domain :ArchitectureDecisionRecord
+    ; rdfs:range :RelationDeclaration
+    .
+:evidenceSnippet a owl:DatatypeProperty
+    ; rdfs:domain :GroundedElement
+    ; rdfs:range xsd:string
+    .
+:fileName a owl:DatatypeProperty, owl:FunctionalProperty
+    ; rdfs:domain :ArchitectureDecisionRecord
+    ; rdfs:range xsd:string
+    .
+:hasNormalizedStatus a owl:ObjectProperty, owl:FunctionalProperty
+    ; rdfs:domain :StatusDeclaration
+    ; rdfs:range :NormalizedStatus
+    .
+:hasStatusDeclaration a owl:ObjectProperty, owl:FunctionalProperty
+    ; rdfs:domain :ArchitectureDecisionRecord
+    ; rdfs:range :StatusDeclaration
+    .
+:rawStatusLiteral a owl:DatatypeProperty, owl:FunctionalProperty
+    ; rdfs:domain :StatusDeclaration
+    ; rdfs:range xsd:string
+    .
+:recordDate a owl:DatatypeProperty, owl:FunctionalProperty
+    ; rdfs:domain :ArchitectureDecisionRecord
+    ; rdfs:range xsd:date
+    .
+:recordsDecision a owl:ObjectProperty, owl:FunctionalProperty
+    ; rdfs:domain :ArchitectureDecisionRecord
+    ; rdfs:range :Decision
+    .
+:relationType a owl:ObjectProperty, owl:FunctionalProperty
+    ; rdfs:domain :RelationDeclaration
+    ; rdfs:range :RelationType
+    .
+:repositoryName a owl:DatatypeProperty, owl:FunctionalProperty
+    ; rdfs:domain :Repository
+    ; rdfs:range xsd:string
+    .
+:selectsAlternative a owl:ObjectProperty, owl:FunctionalProperty
+    ; rdfs:domain :ArchitectureDecisionRecord
+    ; rdfs:range :Alternative
+    ; rdfs:subPropertyOf :considersAlternative
+    .
+:sourceADR a owl:ObjectProperty
+    ; rdfs:domain :ArchitectureDecisionRecord
+    ; rdfs:range :RelationDeclaration
+    .
+:targetADR a owl:ObjectProperty
+    ; rdfs:domain :ArchitectureDecisionRecord
+    ; rdfs:range :RelationDeclaration
+    .
+:title a owl:DatatypeProperty, owl:FunctionalProperty
+    ; rdfs:domain :ArchitectureDecisionRecord
+    ; rdfs:range xsd:string
+    .
+:topicName a owl:DatatypeProperty, owl:FunctionalProperty
+    ; rdfs:domain :Topic
+    ; rdfs:range xsd:string
+    .
+
+:reltype_amends a owl:NamedIndividual, :RelationType .
+:reltype_supersedes a owl:NamedIndividual, :RelationType .
+:status_accepted a owl:NamedIndividual, :NormalizedStatus .
+:status_amended a owl:NamedIndividual, :NormalizedStatus .
+:status_deprecated a owl:NamedIndividual, :NormalizedStatus .
+:status_proposed a owl:NamedIndividual, :NormalizedStatus .
+:status_rejected a owl:NamedIndividual, :NormalizedStatus .
+:status_superseded a owl:NamedIndividual, :NormalizedStatus .

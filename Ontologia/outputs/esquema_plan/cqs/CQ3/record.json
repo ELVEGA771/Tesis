@@ -1,0 +1,48 @@
+{
+  "cq_id": "CQ3",
+  "cq_text": "¿Qué estado declara un ADR, con qué valor literal, a qué estado normalizado corresponde y en qué fecha se registró el ADR?",
+  "code": "import networkx as nx\n\nG = nx.MultiDiGraph()\n\n# --- Clases ---\nG.add_node(\"Alternative\", type=\"Class\")\nG.add_node(\"ArchitectureDecisionRecord\", type=\"Class\")\nG.add_node(\"Decision\", type=\"Class\")\nG.add_node(\"Document\", type=\"Class\")\nG.add_node(\"NormalizedStatus\", type=\"Class\")\nG.add_node(\"Repository\", type=\"Class\")\nG.add_node(\"StatusDeclaration\", type=\"Class\")\n\n# --- Object properties ---\nG.add_node(\"belongsToRepository\", type=\"ObjectProperty\", characteristics=[\"Functional\"])\nG.add_node(\"considersAlternative\", type=\"ObjectProperty\")\nG.add_node(\"containsADR\", type=\"ObjectProperty\")\nG.add_node(\"hasNormalizedStatus\", type=\"ObjectProperty\", characteristics=[\"Functional\"])\nG.add_node(\"hasStatusDeclaration\", type=\"ObjectProperty\", characteristics=[\"Functional\"])\nG.add_node(\"recordsDecision\", type=\"ObjectProperty\")\nG.add_node(\"selectsAlternative\", type=\"ObjectProperty\")\n\n# --- Datatype properties ---\nG.add_node(\"alternativeDescription\", type=\"DatatypeProperty\")\nG.add_node(\"decisionDescription\", type=\"DatatypeProperty\")\nG.add_node(\"evidenceSnippet\", type=\"DatatypeProperty\")\nG.add_node(\"fileName\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\nG.add_node(\"rawStatusLiteral\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\nG.add_node(\"recordDate\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\nG.add_node(\"repositoryName\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\nG.add_node(\"title\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\n\n# --- Tipos de dato ---\nG.add_node(\"xsd:date\", type=\"Datatype\")\nG.add_node(\"xsd:string\", type=\"Datatype\")\n\n# --- Axiomas ---\nG.add_edge(\"ArchitectureDecisionRecord\", \"Document\", relation=\"subClassOf\")\n\n# Dominios de Object Properties\nG.add_edge(\"belongsToRepository\", \"ArchitectureDecisionRecord\", relation=\"domain\")\nG.add_edge(\"considersAlternative\", \"ArchitectureDecisionRecord\", relation=\"domain\")\nG.add_edge(\"containsADR\", \"Repository\", relation=\"domain\")\nG.add_edge(\"hasNormalizedStatus\", \"StatusDeclaration\", relation=\"domain\")\nG.add_edge(\"hasStatusDeclaration\", \"ArchitectureDecisionRecord\", relation=\"domain\")\nG.add_edge(\"recordsDecision\", \"ArchitectureDecisionRecord\", relation=\"domain\")\nG.add_edge(\"selectsAlternative\", \"ArchitectureDecisionRecord\", relation=\"domain\")\n\n# Rangos de Object Properties\nG.add_edge(\"belongsToRepository\", \"Repository\", relation=\"range\")\nG.add_edge(\"considersAlternative\", \"Alternative\", relation=\"range\")\nG.add_edge(\"containsADR\", \"ArchitectureDecisionRecord\", relation=\"range\")\nG.add_edge(\"hasNormalizedStatus\", \"NormalizedStatus\", relation=\"range\")\nG.add_edge(\"hasStatusDeclaration\", \"StatusDeclaration\", relation=\"range\")\nG.add_edge(\"recordsDecision\", \"Decision\", relation=\"range\")\nG.add_edge(\"selectsAlternative\", \"Alternative\", relation=\"range\")\n\n# Dominios de Datatype Properties\nG.add_edge(\"alternativeDescription\", \"Alternative\", relation=\"domain\")\nG.add_edge(\"decisionDescription\", \"Decision\", relation=\"domain\")\nG.add_edge(\"evidenceSnippet\", \"Alternative\", relation=\"domain\")\nG.add_edge(\"evidenceSnippet\", \"Decision\", relation=\"domain\")\nG.add_edge(\"evidenceSnippet\", \"StatusDeclaration\", relation=\"domain\")\nG.add_edge(\"fileName\", \"ArchitectureDecisionRecord\", relation=\"domain\")\nG.add_edge(\"rawStatusLiteral\", \"StatusDeclaration\", relation=\"domain\")\nG.add_edge(\"recordDate\", \"ArchitectureDecisionRecord\", relation=\"domain\")\nG.add_edge(\"repositoryName\", \"Repository\", relation=\"domain\")\nG.add_edge(\"title\", \"ArchitectureDecisionRecord\", relation=\"domain\")\n\n# Rangos de Datatype Properties\nG.add_edge(\"alternativeDescription\", \"xsd:string\", relation=\"range\")\nG.add_edge(\"decisionDescription\", \"xsd:string\", relation=\"range\")\nG.add_edge(\"evidenceSnippet\", \"xsd:string\", relation=\"range\")\nG.add_edge(\"fileName\", \"xsd:string\", relation=\"range\")\nG.add_edge(\"rawStatusLiteral\", \"xsd:string\", relation=\"range\")\nG.add_edge(\"recordDate\", \"xsd:date\", relation=\"range\")\nG.add_edge(\"repositoryName\", \"xsd:string\", relation=\"range\")\nG.add_edge(\"title\", \"xsd:string\", relation=\"range\")\n\n# Jerarquias e inversas de propiedades\nG.add_edge(\"selectsAlternative\", \"considersAlternative\", relation=\"subPropertyOf\")\nG.add_edge(\"belongsToRepository\", \"containsADR\", relation=\"inverseOf\")",
+  "applied_calls": 59,
+  "repair_rounds": 1,
+  "issues": [],
+  "usage": {
+    "input_tokens": 8442,
+    "output_tokens": 2355,
+    "total_tokens": 19780,
+    "thinking_tokens": 8983
+  },
+  "delta": {
+    "classes": 2,
+    "object_properties": 2,
+    "datatype_properties": 2,
+    "nodes": 7,
+    "edges": 9
+  },
+  "added": {
+    "nodes": [
+      "NormalizedStatus",
+      "StatusDeclaration",
+      "hasNormalizedStatus",
+      "hasStatusDeclaration",
+      "rawStatusLiteral",
+      "recordDate",
+      "xsd:date"
+    ],
+    "edges": [
+      "evidenceSnippet -domain-> StatusDeclaration",
+      "hasNormalizedStatus -domain-> StatusDeclaration",
+      "hasNormalizedStatus -range-> NormalizedStatus",
+      "hasStatusDeclaration -domain-> ArchitectureDecisionRecord",
+      "hasStatusDeclaration -range-> StatusDeclaration",
+      "rawStatusLiteral -domain-> StatusDeclaration",
+      "rawStatusLiteral -range-> xsd:string",
+      "recordDate -domain-> ArchitectureDecisionRecord",
+      "recordDate -range-> xsd:date"
+    ]
+  },
+  "lost": {
+    "nodes": [],
+    "edges": []
+  },
+  "restored_by_pipeline": false
+}

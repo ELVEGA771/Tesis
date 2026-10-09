@@ -1,0 +1,668 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d3" for="edge" attr.name="relation" attr.type="string"/>
+<key id="d2" for="node" attr.name="characteristics" attr.type="string"/>
+<key id="d1" for="node" attr.name="pivot" attr.type="boolean"/>
+<key id="d0" for="node" attr.name="type" attr.type="string"/>
+<graph edgedefault="directed"><node id="ADR">
+  <data key="d0">Class</data>
+</node>
+<node id="AcceptedStatus">
+  <data key="d0">Class</data>
+</node>
+<node id="AdditionalInformationStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="Alternative">
+  <data key="d0">Class</data>
+</node>
+<node id="AmendedStatus">
+  <data key="d0">Class</data>
+</node>
+<node id="ArgumentStatement">
+  <data key="d0">Class</data>
+  <data key="d1">True</data>
+</node>
+<node id="ConArgumentStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="ConfirmationStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="ConsequenceStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="ConsultedParticipantStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="ContextStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="DecisionDriverStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="DecisionMakerStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="DecisionStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="DeprecatedStatus">
+  <data key="d0">Class</data>
+</node>
+<node id="Document">
+  <data key="d0">Class</data>
+</node>
+<node id="InformedParticipantStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="JustificationStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="NegativeConsequenceStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="NeutralArgumentStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="NeutralConsequenceStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="NormalizedStatus">
+  <data key="d0">Class</data>
+</node>
+<node id="ParticipantStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="PositiveConsequenceStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="ProArgumentStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="ProblemStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="ProposedStatus">
+  <data key="d0">Class</data>
+</node>
+<node id="RelationshipStatement">
+  <data key="d0">Class</data>
+  <data key="d1">True</data>
+</node>
+<node id="Repository">
+  <data key="d0">Class</data>
+</node>
+<node id="Statement">
+  <data key="d0">Class</data>
+</node>
+<node id="StatusStatement">
+  <data key="d0">Class</data>
+</node>
+<node id="SupersededStatus">
+  <data key="d0">Class</data>
+</node>
+<node id="Topic">
+  <data key="d0">Class</data>
+</node>
+<node id="argumentAlternative">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="belongsToRepository">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="considersAlternative">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="declaringADR">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="hasAdditionalInformationStatement">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="hasArgumentStatement">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="hasConfirmationStatement">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="hasConsequenceStatement">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="hasContextStatement">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="hasDecisionDriverStatement">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="hasDecisionStatement">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="hasJustificationStatement">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="hasNormalizedStatus">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="hasParticipantStatement">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="hasProblemStatement">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="hasStatusStatement">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="hasTopic">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="selectsAlternative">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="sourceADR">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="targetADR">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="additionalInformationDescription">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="alternativeName">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="argumentDescription">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="argumentPolarity">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="confirmationDescription">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="consequenceDescription">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="consequencePolarity">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="contextDescription">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="decisionSummary">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="declaredStatusLiteral">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="driverDescription">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="evidenceText">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="fileName">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d2">["Functional"]</data>
+</node>
+<node id="justificationDescription">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="lastUpdateDate">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d2">["Functional"]</data>
+</node>
+<node id="participantName">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="participantRole">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="problemDescription">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="registrationDate">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d2">["Functional"]</data>
+</node>
+<node id="relationType">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d2">["Functional"]</data>
+</node>
+<node id="repositoryName">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d2">["Functional"]</data>
+</node>
+<node id="title">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="topicName">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d2">["Functional"]</data>
+</node>
+<node id="xsd:date">
+  <data key="d0">Datatype</data>
+</node>
+<node id="xsd:string">
+  <data key="d0">Datatype</data>
+</node>
+<node id="R_adr_belongsToRepository">
+  <data key="d0">Restriction</data>
+</node>
+<node id="R_adr_hasDecision">
+  <data key="d0">Restriction</data>
+</node>
+<node id="R_adr_hasStatus">
+  <data key="d0">Restriction</data>
+</node>
+<node id="R_adr_hasTopic">
+  <data key="d0">Restriction</data>
+</node>
+<edge source="ADR" target="Document" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="AcceptedStatus" target="NormalizedStatus" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="AdditionalInformationStatement" target="Statement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="Alternative" target="Statement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="AmendedStatus" target="NormalizedStatus" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="ArgumentStatement" target="Statement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="ConArgumentStatement" target="ArgumentStatement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="ConArgumentStatement" target="NeutralArgumentStatement" id="disjointWith">
+  <data key="d3">disjointWith</data>
+</edge>
+<edge source="ConfirmationStatement" target="Statement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="ConsequenceStatement" target="Statement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="ConsultedParticipantStatement" target="ParticipantStatement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="ConsultedParticipantStatement" target="InformedParticipantStatement" id="disjointWith">
+  <data key="d3">disjointWith</data>
+</edge>
+<edge source="ContextStatement" target="Statement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="DecisionDriverStatement" target="Statement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="DecisionMakerStatement" target="ParticipantStatement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="DecisionMakerStatement" target="ConsultedParticipantStatement" id="disjointWith">
+  <data key="d3">disjointWith</data>
+</edge>
+<edge source="DecisionMakerStatement" target="InformedParticipantStatement" id="disjointWith">
+  <data key="d3">disjointWith</data>
+</edge>
+<edge source="DecisionStatement" target="Statement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="DeprecatedStatus" target="NormalizedStatus" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="InformedParticipantStatement" target="ParticipantStatement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="JustificationStatement" target="Statement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="NegativeConsequenceStatement" target="ConsequenceStatement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="NegativeConsequenceStatement" target="NeutralConsequenceStatement" id="disjointWith">
+  <data key="d3">disjointWith</data>
+</edge>
+<edge source="NeutralArgumentStatement" target="ArgumentStatement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="NeutralConsequenceStatement" target="ConsequenceStatement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="ParticipantStatement" target="Statement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="PositiveConsequenceStatement" target="ConsequenceStatement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="PositiveConsequenceStatement" target="NegativeConsequenceStatement" id="disjointWith">
+  <data key="d3">disjointWith</data>
+</edge>
+<edge source="PositiveConsequenceStatement" target="NeutralConsequenceStatement" id="disjointWith">
+  <data key="d3">disjointWith</data>
+</edge>
+<edge source="ProArgumentStatement" target="ArgumentStatement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="ProArgumentStatement" target="ConArgumentStatement" id="disjointWith">
+  <data key="d3">disjointWith</data>
+</edge>
+<edge source="ProArgumentStatement" target="NeutralArgumentStatement" id="disjointWith">
+  <data key="d3">disjointWith</data>
+</edge>
+<edge source="ProblemStatement" target="Statement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="ProposedStatus" target="NormalizedStatus" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="RelationshipStatement" target="Statement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="StatusStatement" target="Statement" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="SupersededStatus" target="NormalizedStatus" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="argumentAlternative" target="Alternative" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="argumentAlternative" target="ArgumentStatement" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="belongsToRepository" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="belongsToRepository" target="Repository" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="considersAlternative" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="considersAlternative" target="Alternative" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="declaringADR" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="declaringADR" target="RelationshipStatement" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="hasAdditionalInformationStatement" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="hasAdditionalInformationStatement" target="AdditionalInformationStatement" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="hasArgumentStatement" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="hasArgumentStatement" target="ArgumentStatement" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="hasConfirmationStatement" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="hasConfirmationStatement" target="ConfirmationStatement" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="hasConsequenceStatement" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="hasConsequenceStatement" target="ConsequenceStatement" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="hasContextStatement" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="hasContextStatement" target="ContextStatement" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="hasDecisionDriverStatement" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="hasDecisionDriverStatement" target="DecisionDriverStatement" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="hasDecisionStatement" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="hasDecisionStatement" target="DecisionStatement" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="hasJustificationStatement" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="hasJustificationStatement" target="JustificationStatement" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="hasNormalizedStatus" target="StatusStatement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="hasNormalizedStatus" target="NormalizedStatus" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="hasParticipantStatement" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="hasParticipantStatement" target="ParticipantStatement" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="hasProblemStatement" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="hasProblemStatement" target="ProblemStatement" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="hasStatusStatement" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="hasStatusStatement" target="StatusStatement" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="hasTopic" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="hasTopic" target="Topic" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="selectsAlternative" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="selectsAlternative" target="Alternative" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="selectsAlternative" target="considersAlternative" id="subPropertyOf">
+  <data key="d3">subPropertyOf</data>
+</edge>
+<edge source="sourceADR" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="sourceADR" target="RelationshipStatement" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="targetADR" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="targetADR" target="RelationshipStatement" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="additionalInformationDescription" target="AdditionalInformationStatement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="additionalInformationDescription" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="alternativeName" target="Alternative" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="alternativeName" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="argumentDescription" target="ArgumentStatement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="argumentDescription" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="argumentPolarity" target="ArgumentStatement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="argumentPolarity" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="confirmationDescription" target="ConfirmationStatement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="confirmationDescription" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="consequenceDescription" target="ConsequenceStatement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="consequenceDescription" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="consequencePolarity" target="ConsequenceStatement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="consequencePolarity" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="contextDescription" target="ContextStatement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="contextDescription" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="decisionSummary" target="DecisionStatement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="decisionSummary" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="declaredStatusLiteral" target="StatusStatement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="declaredStatusLiteral" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="driverDescription" target="DecisionDriverStatement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="driverDescription" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="evidenceText" target="Statement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="evidenceText" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="fileName" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="fileName" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="justificationDescription" target="JustificationStatement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="justificationDescription" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="lastUpdateDate" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="lastUpdateDate" target="xsd:date" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="participantName" target="ParticipantStatement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="participantName" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="participantRole" target="ParticipantStatement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="participantRole" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="problemDescription" target="ProblemStatement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="problemDescription" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="registrationDate" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="registrationDate" target="xsd:date" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="relationType" target="RelationshipStatement" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="relationType" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="repositoryName" target="Repository" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="repositoryName" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="title" target="ADR" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="title" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="topicName" target="Topic" id="domain">
+  <data key="d3">domain</data>
+</edge>
+<edge source="topicName" target="xsd:string" id="range">
+  <data key="d3">range</data>
+</edge>
+<edge source="R_adr_belongsToRepository" target="ADR" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="R_adr_belongsToRepository" target="belongsToRepository" id="onProperty">
+  <data key="d3">onProperty</data>
+</edge>
+<edge source="R_adr_belongsToRepository" target="Repository" id="someValuesFrom">
+  <data key="d3">someValuesFrom</data>
+</edge>
+<edge source="R_adr_hasDecision" target="ADR" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="R_adr_hasDecision" target="hasDecisionStatement" id="onProperty">
+  <data key="d3">onProperty</data>
+</edge>
+<edge source="R_adr_hasDecision" target="DecisionStatement" id="someValuesFrom">
+  <data key="d3">someValuesFrom</data>
+</edge>
+<edge source="R_adr_hasStatus" target="ADR" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="R_adr_hasStatus" target="hasStatusStatement" id="onProperty">
+  <data key="d3">onProperty</data>
+</edge>
+<edge source="R_adr_hasStatus" target="StatusStatement" id="someValuesFrom">
+  <data key="d3">someValuesFrom</data>
+</edge>
+<edge source="R_adr_hasTopic" target="ADR" id="subClassOf">
+  <data key="d3">subClassOf</data>
+</edge>
+<edge source="R_adr_hasTopic" target="hasTopic" id="onProperty">
+  <data key="d3">onProperty</data>
+</edge>
+<edge source="R_adr_hasTopic" target="Topic" id="someValuesFrom">
+  <data key="d3">someValuesFrom</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,46 @@
+{
+  "cq_id": "CQ2",
+  "cq_text": "Para un ADR dado, ¿qué alternativas se consideraron y cuál de ellas se adoptó como decisión?",
+  "code": "import networkx as nx\n\nG = nx.MultiDiGraph()\n\n# ¿Es esta CQ respondible con el grafo anterior? -> no, porque el grafo no contiene clases ni propiedades para representar las alternativas consideradas ni la alternativa seleccionada.\n# Clases pivote (reificacion) que voy a crear en esta etapa: ninguna\n\n# --- Clases ---\nG.add_node(\"ADR\", type=\"Class\")\nG.add_node(\"Alternative\", type=\"Class\")\nG.add_node(\"DecisionStatement\", type=\"Class\")\nG.add_node(\"Document\", type=\"Class\")\nG.add_node(\"Repository\", type=\"Class\")\nG.add_node(\"Statement\", type=\"Class\")\n\n# --- Object properties ---\nG.add_node(\"belongsToRepository\", type=\"ObjectProperty\")\nG.add_node(\"considersAlternative\", type=\"ObjectProperty\")\nG.add_node(\"hasDecisionStatement\", type=\"ObjectProperty\")\nG.add_node(\"selectsAlternative\", type=\"ObjectProperty\")\n\n# --- Datatype properties ---\nG.add_node(\"alternativeName\", type=\"DatatypeProperty\")\nG.add_node(\"decisionSummary\", type=\"DatatypeProperty\")\nG.add_node(\"evidenceText\", type=\"DatatypeProperty\")\nG.add_node(\"fileName\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\nG.add_node(\"repositoryName\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\nG.add_node(\"title\", type=\"DatatypeProperty\")\n\n# --- Tipos de dato ---\nG.add_node(\"xsd:string\", type=\"Datatype\")\n\n# --- Restricciones ---\nG.add_node(\"R_adr_belongsToRepository\", type=\"Restriction\")\nG.add_node(\"R_adr_hasDecision\", type=\"Restriction\")\n\n# --- Axiomas ---\nG.add_edge(\"ADR\", \"Document\", relation=\"subClassOf\")\nG.add_edge(\"Alternative\", \"Statement\", relation=\"subClassOf\")\nG.add_edge(\"DecisionStatement\", \"Statement\", relation=\"subClassOf\")\nG.add_edge(\"R_adr_belongsToRepository\", \"ADR\", relation=\"subClassOf\")\nG.add_edge(\"R_adr_hasDecision\", \"ADR\", relation=\"subClassOf\")\nG.add_edge(\"selectsAlternative\", \"considersAlternative\", relation=\"subPropertyOf\")\n\n# Dominios y rangos\nG.add_edge(\"belongsToRepository\", \"ADR\", relation=\"domain\")\nG.add_edge(\"belongsToRepository\", \"Repository\", relation=\"range\")\n\nG.add_edge(\"considersAlternative\", \"ADR\", relation=\"domain\")\nG.add_edge(\"considersAlternative\", \"Alternative\", relation=\"range\")\n\nG.add_edge(\"hasDecisionStatement\", \"ADR\", relation=\"domain\")\nG.add_edge(\"hasDecisionStatement\", \"DecisionStatement\", relation=\"range\")\n\nG.add_edge(\"selectsAlternative\", \"ADR\", relation=\"domain\")\nG.add_edge(\"selectsAlternative\", \"Alternative\", relation=\"range\")\n\nG.add_edge(\"alternativeName\", \"Alternative\", relation=\"domain\")\nG.add_edge(\"alternativeName\", \"xsd:string\", relation=\"range\")\n\nG.add_edge(\"decisionSummary\", \"DecisionStatement\", relation=\"domain\")\nG.add_edge(\"decisionSummary\", \"xsd:string\", relation=\"range\")\n\nG.add_edge(\"evidenceText\", \"Statement\", relation=\"domain\")\nG.add_edge(\"evidenceText\", \"xsd:string\", relation=\"range\")\n\nG.add_edge(\"fileName\", \"ADR\", relation=\"domain\")\nG.add_edge(\"fileName\", \"xsd:string\", relation=\"range\")\n\nG.add_edge(\"repositoryName\", \"Repository\", relation=\"domain\")\nG.add_edge(\"repositoryName\", \"xsd:string\", relation=\"range\")\n\nG.add_edge(\"title\", \"ADR\", relation=\"domain\")\nG.add_edge(\"title\", \"xsd:string\", relation=\"range\")\n\n# Restricciones\nG.add_edge(\"R_adr_belongsToRepository\", \"belongsToRepository\", relation=\"onProperty\")\nG.add_edge(\"R_adr_belongsToRepository\", \"Repository\", relation=\"someValuesFrom\")\nG.add_edge(\"R_adr_hasDecision\", \"hasDecisionStatement\", relation=\"onProperty\")\nG.add_edge(\"R_adr_hasDecision\", \"DecisionStatement\", relation=\"someValuesFrom\")",
+  "applied_calls": 49,
+  "repair_rounds": 0,
+  "issues": [],
+  "usage": {
+    "input_tokens": 6283,
+    "output_tokens": 1012,
+    "thinking_tokens": 1644,
+    "total_tokens": 8939
+  },
+  "delta": {
+    "classes": 1,
+    "object_properties": 2,
+    "datatype_properties": 1,
+    "subclass_axioms": 1,
+    "subproperty_axioms": 1,
+    "nodes": 4,
+    "edges": 8
+  },
+  "added": {
+    "nodes": [
+      "Alternative",
+      "alternativeName",
+      "considersAlternative",
+      "selectsAlternative"
+    ],
+    "edges": [
+      "Alternative -subClassOf-> Statement",
+      "alternativeName -domain-> Alternative",
+      "alternativeName -range-> xsd:string",
+      "considersAlternative -domain-> ADR",
+      "considersAlternative -range-> Alternative",
+      "selectsAlternative -domain-> ADR",
+      "selectsAlternative -range-> Alternative",
+      "selectsAlternative -subPropertyOf-> considersAlternative"
+    ]
+  },
+  "lost": {
+    "nodes": [],
+    "edges": []
+  },
+  "restored_by_pipeline": false
+}

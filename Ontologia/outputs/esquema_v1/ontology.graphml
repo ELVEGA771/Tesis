@@ -1,0 +1,305 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="edge" attr.name="relation" attr.type="string"/>
+<key id="d3" for="node" attr.name="characteristics" attr.type="string"/>
+<key id="d2" for="node" attr.name="pivot" attr.type="boolean"/>
+<key id="d1" for="node" attr.name="comment" attr.type="string"/>
+<key id="d0" for="node" attr.name="type" attr.type="string"/>
+<graph edgedefault="directed"><node id="Alternative">
+  <data key="d0">Class</data>
+</node>
+<node id="ArchitectureDecisionRecord">
+  <data key="d0">Class</data>
+  <data key="d1">Identidad = repositorio + fileName; el numero declarado no es clave. El id de nodo es un slug de ambos.</data>
+</node>
+<node id="Decision">
+  <data key="d0">Class</data>
+</node>
+<node id="Document">
+  <data key="d0">Class</data>
+</node>
+<node id="NormalizedStatus">
+  <data key="d0">Class</data>
+</node>
+<node id="RelationDeclaration">
+  <data key="d0">Class</data>
+  <data key="d2">True</data>
+  <data key="d1">Una por cada documento que afirma la relacion. Si los dos ADR la declaran, hay dos.</data>
+</node>
+<node id="Repository">
+  <data key="d0">Class</data>
+</node>
+<node id="StatusDeclaration">
+  <data key="d0">Class</data>
+</node>
+<node id="Topic">
+  <data key="d0">Class</data>
+  <data key="d1">Se asigna, no se extrae: los ADR de una misma cadena de reemplazo comparten el mismo nodo Topic.</data>
+</node>
+<node id="addressesTopic">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="belongsToRepository">
+  <data key="d0">ObjectProperty</data>
+  <data key="d3">["Functional"]</data>
+</node>
+<node id="considersAlternative">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="containsADR">
+  <data key="d0">ObjectProperty</data>
+</node>
+<node id="declaresRelation">
+  <data key="d0">ObjectProperty</data>
+  <data key="d1">Va desde el documento que contiene la afirmacion hacia la declaracion.</data>
+</node>
+<node id="hasNormalizedStatus">
+  <data key="d0">ObjectProperty</data>
+  <data key="d3">["Functional"]</data>
+</node>
+<node id="hasStatusDeclaration">
+  <data key="d0">ObjectProperty</data>
+  <data key="d3">["Functional"]</data>
+</node>
+<node id="recordsDecision">
+  <data key="d0">ObjectProperty</data>
+  <data key="d3">["Functional"]</data>
+</node>
+<node id="selectsAlternative">
+  <data key="d0">ObjectProperty</data>
+  <data key="d3">["Functional"]</data>
+  <data key="d1">Si la opcion elegida no figura entre las listadas, se crea como Alternative con la frase de la eleccion como evidencia.</data>
+</node>
+<node id="sourceADR">
+  <data key="d0">ObjectProperty</data>
+  <data key="d1">Va desde el ADR NUEVO (el que reemplaza o enmienda) hacia la declaracion.</data>
+</node>
+<node id="targetADR">
+  <data key="d0">ObjectProperty</data>
+  <data key="d1">Va desde el ADR AFECTADO (el reemplazado o enmendado) hacia la declaracion.</data>
+</node>
+<node id="alternativeDescription">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="decisionDescription">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="evidenceSnippet">
+  <data key="d0">DatatypeProperty</data>
+</node>
+<node id="fileName">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d3">["Functional"]</data>
+</node>
+<node id="rawStatusLiteral">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d3">["Functional"]</data>
+</node>
+<node id="recordDate">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d3">["Functional"]</data>
+  <data key="d1">Se toma de los metadatos del corpus (corpus_manifest.csv / git), no la extrae el LLM.</data>
+</node>
+<node id="relationType">
+  <data key="d0">ObjectProperty</data>
+  <data key="d3">["Functional"]</data>
+</node>
+<node id="repositoryName">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d3">["Functional"]</data>
+</node>
+<node id="title">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d3">["Functional"]</data>
+</node>
+<node id="topicName">
+  <data key="d0">DatatypeProperty</data>
+  <data key="d3">["Functional"]</data>
+</node>
+<node id="xsd:date">
+  <data key="d0">Datatype</data>
+</node>
+<node id="xsd:string">
+  <data key="d0">Datatype</data>
+</node>
+<node id="GroundedElement">
+  <data key="d0">Class</data>
+  <data key="d1">Elemento extraido del texto de un ADR. Toda instancia debe llevar evidenceSnippet con un fragmento literal de su ADR de origen; si el fragmento no aparece en el fichero, el nodo es no fundamentado.</data>
+</node>
+<node id="status_proposed">
+  <data key="d0">NormalizedStatus</data>
+</node>
+<node id="status_accepted">
+  <data key="d0">NormalizedStatus</data>
+</node>
+<node id="status_rejected">
+  <data key="d0">NormalizedStatus</data>
+</node>
+<node id="status_deprecated">
+  <data key="d0">NormalizedStatus</data>
+</node>
+<node id="status_superseded">
+  <data key="d0">NormalizedStatus</data>
+</node>
+<node id="status_amended">
+  <data key="d0">NormalizedStatus</data>
+</node>
+<node id="RelationType">
+  <data key="d0">Class</data>
+  <data key="d1">Vocabulario cerrado de tipos de relacion entre ADR.</data>
+</node>
+<node id="reltype_supersedes">
+  <data key="d0">RelationType</data>
+  <data key="d1">El ADR origen deja sin vigencia al ADR destino (superseded by / supersedes / replaces).</data>
+</node>
+<node id="reltype_amends">
+  <data key="d0">RelationType</data>
+  <data key="d1">El ADR origen modifica al ADR destino, que sigue vigente (amends / amended by).</data>
+</node>
+<edge source="Alternative" target="GroundedElement" id="0">
+  <data key="d4">subClassOf</data>
+</edge>
+<edge source="ArchitectureDecisionRecord" target="Document" id="subClassOf">
+  <data key="d4">subClassOf</data>
+</edge>
+<edge source="Decision" target="GroundedElement" id="0">
+  <data key="d4">subClassOf</data>
+</edge>
+<edge source="RelationDeclaration" target="GroundedElement" id="0">
+  <data key="d4">subClassOf</data>
+</edge>
+<edge source="StatusDeclaration" target="GroundedElement" id="0">
+  <data key="d4">subClassOf</data>
+</edge>
+<edge source="addressesTopic" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="addressesTopic" target="Topic" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="belongsToRepository" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="belongsToRepository" target="Repository" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="belongsToRepository" target="containsADR" id="inverseOf">
+  <data key="d4">inverseOf</data>
+</edge>
+<edge source="considersAlternative" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="considersAlternative" target="Alternative" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="containsADR" target="Repository" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="containsADR" target="ArchitectureDecisionRecord" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="declaresRelation" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="declaresRelation" target="RelationDeclaration" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="hasNormalizedStatus" target="StatusDeclaration" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="hasNormalizedStatus" target="NormalizedStatus" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="hasStatusDeclaration" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="hasStatusDeclaration" target="StatusDeclaration" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="recordsDecision" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="recordsDecision" target="Decision" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="selectsAlternative" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="selectsAlternative" target="Alternative" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="selectsAlternative" target="considersAlternative" id="subPropertyOf">
+  <data key="d4">subPropertyOf</data>
+</edge>
+<edge source="sourceADR" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="sourceADR" target="RelationDeclaration" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="targetADR" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="targetADR" target="RelationDeclaration" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="alternativeDescription" target="Alternative" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="alternativeDescription" target="xsd:string" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="decisionDescription" target="Decision" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="decisionDescription" target="xsd:string" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="evidenceSnippet" target="xsd:string" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="evidenceSnippet" target="GroundedElement" id="0">
+  <data key="d4">domain</data>
+</edge>
+<edge source="fileName" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="fileName" target="xsd:string" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="rawStatusLiteral" target="StatusDeclaration" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="rawStatusLiteral" target="xsd:string" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="recordDate" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="recordDate" target="xsd:date" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="relationType" target="RelationDeclaration" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="relationType" target="RelationType" id="0">
+  <data key="d4">range</data>
+</edge>
+<edge source="repositoryName" target="Repository" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="repositoryName" target="xsd:string" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="title" target="ArchitectureDecisionRecord" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="title" target="xsd:string" id="range">
+  <data key="d4">range</data>
+</edge>
+<edge source="topicName" target="Topic" id="domain">
+  <data key="d4">domain</data>
+</edge>
+<edge source="topicName" target="xsd:string" id="range">
+  <data key="d4">range</data>
+</edge>
+</graph></graphml>

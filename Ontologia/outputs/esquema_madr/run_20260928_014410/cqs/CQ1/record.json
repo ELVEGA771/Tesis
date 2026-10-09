@@ -1,0 +1,71 @@
+{
+  "cq_id": "CQ1",
+  "cq_text": "¿Qué decisión registra un ADR determinado y a qué repositorio pertenece ese ADR?",
+  "code": "import networkx as nx\n\nG = nx.MultiDiGraph()\n\n# ¿Es esta CQ respondible con el grafo anterior? -> no, el grafo estaba vacio\n\n# --- Tipos de Datos ---\nG.add_node(\"xsd:string\", type=\"Datatype\")\n\n# --- Clases principales y jerarquia ---\nG.add_node(\"Repository\", type=\"Class\")\nG.add_node(\"Document\", type=\"Class\")\nG.add_node(\"ADR\", type=\"Class\")\nG.add_edge(\"ADR\", \"Document\", relation=\"subClassOf\")\n\nG.add_node(\"Statement\", type=\"Class\")\nG.add_node(\"DecisionStatement\", type=\"Class\")\nG.add_edge(\"DecisionStatement\", \"Statement\", relation=\"subClassOf\")\n\n# --- Propiedades de Objeto ---\n# Un ADR pertenece a un Repositorio\nG.add_node(\"belongsToRepository\", type=\"ObjectProperty\")\nG.add_edge(\"belongsToRepository\", \"ADR\", relation=\"domain\")\nG.add_edge(\"belongsToRepository\", \"Repository\", relation=\"range\")\n\n# ADR y la afirmacion de decision que registra\nG.add_node(\"hasDecisionStatement\", type=\"ObjectProperty\")\nG.add_edge(\"hasDecisionStatement\", \"ADR\", relation=\"domain\")\nG.add_edge(\"hasDecisionStatement\", \"DecisionStatement\", relation=\"range\")\n\n# --- Propiedades de Datos ---\n# Atributos de ADR y Repository\nG.add_node(\"repositoryName\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\nG.add_edge(\"repositoryName\", \"Repository\", relation=\"domain\")\nG.add_edge(\"repositoryName\", \"xsd:string\", relation=\"range\")\n\nG.add_node(\"fileName\", type=\"DatatypeProperty\", characteristics=[\"Functional\"])\nG.add_edge(\"fileName\", \"ADR\", relation=\"domain\")\nG.add_edge(\"fileName\", \"xsd:string\", relation=\"range\")\n\nG.add_node(\"title\", type=\"DatatypeProperty\")\nG.add_edge(\"title\", \"ADR\", relation=\"domain\")\nG.add_edge(\"title\", \"xsd:string\", relation=\"range\")\n\n# Atributos de la declaracion de decision (DecisionStatement)\nG.add_node(\"decisionSummary\", type=\"DatatypeProperty\")\nG.add_edge(\"decisionSummary\", \"DecisionStatement\", relation=\"domain\")\nG.add_edge(\"decisionSummary\", \"xsd:string\", relation=\"range\")\n\n# Requisito adicional: fragmento literal de evidencia\nG.add_node(\"evidenceText\", type=\"DatatypeProperty\")\nG.add_edge(\"evidenceText\", \"Statement\", relation=\"domain\")\nG.add_edge(\"evidenceText\", \"xsd:string\", relation=\"range\")\n\n# --- Restricciones ---\n# Todo ADR debe pertenecer a al menos un repositorio\nG.add_node(\"R_adr_belongsToRepository\", type=\"Restriction\")\nG.add_edge(\"R_adr_belongsToRepository\", \"belongsToRepository\", relation=\"onProperty\")\nG.add_edge(\"R_adr_belongsToRepository\", \"Repository\", relation=\"someValuesFrom\")\nG.add_edge(\"R_adr_belongsToRepository\", \"ADR\", relation=\"subClassOf\")\n\n# Todo ADR registra al menos una DecisionStatement\nG.add_node(\"R_adr_hasDecision\", type=\"Restriction\")\nG.add_edge(\"R_adr_hasDecision\", \"hasDecisionStatement\", relation=\"onProperty\")\nG.add_edge(\"R_adr_hasDecision\", \"DecisionStatement\", relation=\"someValuesFrom\")\nG.add_edge(\"R_adr_hasDecision\", \"ADR\", relation=\"subClassOf\")",
+  "applied_calls": 37,
+  "repair_rounds": 1,
+  "issues": [],
+  "usage": {
+    "input_tokens": 7324,
+    "output_tokens": 1726,
+    "total_tokens": 11410,
+    "thinking_tokens": 2360
+  },
+  "delta": {
+    "classes": 5,
+    "object_properties": 2,
+    "datatype_properties": 5,
+    "restrictions": 2,
+    "subclass_axioms": 4,
+    "nodes": 15,
+    "edges": 22
+  },
+  "added": {
+    "nodes": [
+      "ADR",
+      "DecisionStatement",
+      "Document",
+      "R_adr_belongsToRepository",
+      "R_adr_hasDecision",
+      "Repository",
+      "Statement",
+      "belongsToRepository",
+      "decisionSummary",
+      "evidenceText",
+      "fileName",
+      "hasDecisionStatement",
+      "repositoryName",
+      "title",
+      "xsd:string"
+    ],
+    "edges": [
+      "ADR -subClassOf-> Document",
+      "DecisionStatement -subClassOf-> Statement",
+      "R_adr_belongsToRepository -onProperty-> belongsToRepository",
+      "R_adr_belongsToRepository -someValuesFrom-> Repository",
+      "R_adr_belongsToRepository -subClassOf-> ADR",
+      "R_adr_hasDecision -onProperty-> hasDecisionStatement",
+      "R_adr_hasDecision -someValuesFrom-> DecisionStatement",
+      "R_adr_hasDecision -subClassOf-> ADR",
+      "belongsToRepository -domain-> ADR",
+      "belongsToRepository -range-> Repository",
+      "decisionSummary -domain-> DecisionStatement",
+      "decisionSummary -range-> xsd:string",
+      "evidenceText -domain-> Statement",
+      "evidenceText -range-> xsd:string",
+      "fileName -domain-> ADR",
+      "fileName -range-> xsd:string",
+      "hasDecisionStatement -domain-> ADR",
+      "hasDecisionStatement -range-> DecisionStatement",
+      "repositoryName -domain-> Repository",
+      "repositoryName -range-> xsd:string",
+      "title -domain-> ADR",
+      "title -range-> xsd:string"
+    ]
+  },
+  "lost": {
+    "nodes": [],
+    "edges": []
+  },
+  "restored_by_pipeline": false
+}

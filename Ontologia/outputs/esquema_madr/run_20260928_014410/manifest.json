@@ -1,0 +1,54 @@
+{
+  "created_utc": "2026-09-28T01:44:11.908342+00:00",
+  "config": {
+    "model": "gemini-3.8-flash",
+    "max_tokens": 32000,
+    "effort": "high",
+    "thinking": true,
+    "thinking_budget": 8192,
+    "temperature": 0.0,
+    "max_retries": 3,
+    "retry_initial_delay": 2.0,
+    "retry_max_delay": 30.0,
+    "overload_retries": 5,
+    "overload_backoff_s": 20.0,
+    "technique": "CQbyCQ",
+    "section_order": [
+      "header",
+      "helper",
+      "story",
+      "task",
+      "footer",
+      "memory"
+    ],
+    "memory_mode": "canonical",
+    "llm_does_merge": true,
+    "restore_lost": true,
+    "repair_attempts": 2,
+    "model_additional_statement": true,
+    "namespace": "http://example.org/onto#",
+    "prompt_dir": "C:\\Users\\andyv\\Documents\\Tesis_herramientas\\Ontologia\\prompts",
+    "header_file": "header_cqbycq.md",
+    "helper_file": "helper.md",
+    "footer_file": "footer.md",
+    "repair_file": "repair.md",
+    "verify_file": "verify_cq.md",
+    "output_dir": "outputs/esquema_madr",
+    "run_id": "run_20260928_014410"
+  },
+  "prompt_sha256": {
+    "header_cqbycq.md": "950cd3ba08d6c7e6",
+    "helper.md": "83dc48c68381737b",
+    "footer.md": "312ee39c460c3f61",
+    "repair.md": "93a0c4c694e71667",
+    "verify_cq.md": "a056c5186c173b24"
+  },
+  "python": "3.13.7",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "story": {
+    "id": "adr_v1_1_madr",
+    "title": "Grafo de decisiones ADR para trazabilidad auditable",
+    "n_cqs": 17,
+    "has_additional_statement": true
+  }
+}

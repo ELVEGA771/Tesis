@@ -1,0 +1,43 @@
+{
+  "version": "1.1",
+  "derivada_de": "outputs/esquema_madr/run_20260928_014410 (CQbyCQ, historia inputs/historia_adr_v1_1.json)",
+  "cambios": [
+    "C1: NormalizedStatus pasa de 5 subclases a 6 individuos fijos: proposed, accepted, rejected, deprecated, superseded, amended",
+    "C2: relationType pasa a ObjectProperty -> RelationType {supersedes, amends, relatesTo}",
+    "C3: Functional en hasDecisionStatement, selectsAlternative, hasStatusStatement, hasNormalizedStatus, belongsToRepository, relationType, title",
+    "C4: se quitan consequencePolarity, argumentPolarity y participantRole (duplican las subclases)",
+    "C5: se quita R_adr_hasStatus (regla 5: solo la decision es obligatoria)"
+  ],
+  "summary_antes": {
+    "classes": 33,
+    "pivot_classes": 2,
+    "object_properties": 20,
+    "datatype_properties": 23,
+    "restrictions": 4,
+    "subclass_axioms": 32,
+    "equivalent_axioms": 0,
+    "disjoint_axioms": 9,
+    "subproperty_axioms": 1,
+    "inverse_axioms": 0,
+    "individuals": 0,
+    "assertions": 0,
+    "nodes": 82,
+    "edges": 136
+  },
+  "summary": {
+    "classes": 29,
+    "pivot_classes": 2,
+    "object_properties": 21,
+    "datatype_properties": 19,
+    "restrictions": 3,
+    "subclass_axioms": 26,
+    "equivalent_axioms": 0,
+    "disjoint_axioms": 9,
+    "subproperty_axioms": 1,
+    "inverse_axioms": 0,
+    "individuals": 9,
+    "assertions": 0,
+    "nodes": 83,
+    "edges": 122
+  }
+}
