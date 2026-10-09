@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+
+# Respaldos
+*.bak
+*.bak_*
+
+# Textos de los ADR: no se redistribuyen (observacion O3). Se reconstruyen con
+# Extraccion_ADR/corpus_tesis/descargar_adr.py
+Extraccion_ADR/corpus_tesis/adr/
+Extraccion_ADR/corpus_tesis/_clones/
+Extraccion_ADR/corpus_*/
+!Extraccion_ADR/corpus_tesis/
+Extraccion_ADR/test_run/
+
+# Estado local de la herramienta de anotacion
+Extraccion_ADR/corpus_tesis/anotacion/anotador/progreso.json
+
+# Salidas regenerables del prototipo (indice ChromaDB, grafos, registros de costo)
+Prototipo/datos/
+Prototipo/registros/
+
+# Documentos de la tesis y notas locales (se publicaran aparte)
+Redaccion_Documento_Final/
+*.docx
+bitacora_sesion_*.md
+plan_*.md
+ontologia_v1_explicada_tutor.md
+CLAUDE.md
+
+# Corridas piloto del esquema (v1, v2, CQ10, provisional): quedan en local;
+# en el repo solo van las corridas base y los esquemas congelados
+Ontologia/outputs/run_*/
+Ontologia/outputs/esquema_cq10/
+Ontologia/outputs/esquema_v1_1_provisional/
+Extraccion_ADR/competency_questions*.md
