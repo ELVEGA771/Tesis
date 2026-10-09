@@ -1,0 +1,141 @@
+repo,filename,date,words,madr_score,alternativas_explicitas,cadena_id,motivo,anotar,source_path
+CivicDataLab/up-fiscal-data,001-source.md,,131,3,True,,contexto del mismo repo,True,corpus_pre2024\raw\CivicDataLab__up-fiscal-data\001-source.md
+CivicDataLab/up-fiscal-data,002-koshvani.md,,58,2,False,C01,cadena de reemplazo,True,corpus_pre2024\raw\CivicDataLab__up-fiscal-data\002-koshvani.md
+CivicDataLab/up-fiscal-data,004-receipts.md,,86,3,True,C01,cadena de reemplazo,True,corpus_pre2024\raw\CivicDataLab__up-fiscal-data\004-receipts.md
+CivicDataLab/up-fiscal-data,005-phases.md,,100,3,True,,contexto del mismo repo,False,corpus_pre2024\raw\CivicDataLab__up-fiscal-data\005-phases.md
+CivicDataLab/up-fiscal-data,006-time.md,,164,3,True,,contexto del mismo repo,False,corpus_pre2024\raw\CivicDataLab__up-fiscal-data\006-time.md
+DFE-Digital/early-years-foundation-recovery,0001-web-framework.md,,118,5,True,,contexto del mismo repo,True,corpus_pre2024\raw\DFE-Digital__early-years-foundation-recovery\0001-web-framework.md
+DFE-Digital/early-years-foundation-recovery,0002-database.md,,103,4,True,,contexto del mismo repo,False,corpus_pre2024\raw\DFE-Digital__early-years-foundation-recovery\0002-database.md
+DFE-Digital/early-years-foundation-recovery,0006-content-storage-strategy.md,,269,5,True,C02,cadena de reemplazo,True,corpus_pre2024\raw\DFE-Digital__early-years-foundation-recovery\0006-content-storage-strategy.md
+DFE-Digital/early-years-foundation-recovery,0011-contentful.md,,113,4,True,C02,cadena de reemplazo,True,corpus_pre2024\raw\DFE-Digital__early-years-foundation-recovery\0011-contentful.md
+DFE-Digital/early-years-foundation-recovery,0018-user-tracking.md,,58,5,True,C03,cadena de reemplazo,False,corpus_pre2024\raw\DFE-Digital__early-years-foundation-recovery\0018-user-tracking.md
+DFE-Digital/early-years-foundation-recovery,0023-clarity-metrics.md,,70,4,True,C03,cadena de reemplazo,False,corpus_pre2024\raw\DFE-Digital__early-years-foundation-recovery\0023-clarity-metrics.md
+DFE-Digital/early-years-foundation-recovery,0028-content-security-policy-hardening.md,,298,5,True,,contexto del mismo repo,False,corpus_pre2024\raw\DFE-Digital__early-years-foundation-recovery\0028-content-security-policy-hardening.md
+DFE-Digital/early-years-foundation-reform,0001-record-architecture-decisions.md,,53,0,False,C04,cadena de reemplazo,False,corpus_pre2024\raw\DFE-Digital__early-years-foundation-reform\0001-record-architecture-decisions.md
+DFE-Digital/early-years-foundation-reform,0002-madr.md,,60,4,True,C04,cadena de reemplazo,False,corpus_pre2024\raw\DFE-Digital__early-years-foundation-reform\0002-madr.md
+DFE-Digital/early-years-foundation-reform,0004-database.md,,110,4,True,,contexto del mismo repo,True,corpus_pre2024\raw\DFE-Digital__early-years-foundation-reform\0004-database.md
+DFE-Digital/early-years-foundation-reform,0007-content-storage-strategy.md,,269,5,True,C05,cadena de reemplazo,False,corpus_pre2024\raw\DFE-Digital__early-years-foundation-reform\0007-content-storage-strategy.md
+DFE-Digital/early-years-foundation-reform,0010-contentful.md,,89,4,True,C05,cadena de reemplazo,False,corpus_pre2024\raw\DFE-Digital__early-years-foundation-reform\0010-contentful.md
+DFE-Digital/early-years-foundation-reform,0012-asset-pipeline-static-paths.md,,237,4,True,,contexto del mismo repo,True,corpus_pre2024\raw\DFE-Digital__early-years-foundation-reform\0012-asset-pipeline-static-paths.md
+DFE-Digital/early-years-foundation-reform,0013-classic-azure-cache-for-redis-bridge.md,,419,4,True,,contexto del mismo repo,True,corpus_pre2024\raw\DFE-Digital__early-years-foundation-reform\0013-classic-azure-cache-for-redis-bridge.md
+NERC-CEH/datalab,0002-ansible-for-provisioning-tool.md,2017-11-04,91,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\NERC-CEH__datalab\0002-ansible-for-provisioning-tool.md
+NERC-CEH/datalab,0007-kubernetes-for-container-orchestration.md,2017-11-04,106,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\NERC-CEH__datalab\0007-kubernetes-for-container-orchestration.md
+NERC-CEH/datalab,0013-custom-redbird-proxy.md,2017-11-04,94,0,False,C06,cadena de reemplazo,True,corpus_pre2024\raw\NERC-CEH__datalab\0013-custom-redbird-proxy.md
+NERC-CEH/datalab,0014-use-traefik-for-reverse-proxy.md,2017-11-04,111,0,False,C06,cadena de reemplazo,True,corpus_pre2024\raw\NERC-CEH__datalab\0014-use-traefik-for-reverse-proxy.md
+NERC-CEH/datalab,0015-use-kong-for-reverse-proxy.md,2017-11-04,126,0,False,C06,cadena de reemplazo,True,corpus_pre2024\raw\NERC-CEH__datalab\0015-use-kong-for-reverse-proxy.md
+NERC-CEH/datalab,0024-vault-for-secret-store.md,2017-11-04,101,0,False,C07,cadena de reemplazo,False,corpus_pre2024\raw\NERC-CEH__datalab\0024-vault-for-secret-store.md
+NERC-CEH/datalab,0028-spark-for-distributed-compute.md,2017-11-04,238,0,False,C08,cadena de reemplazo,True,corpus_pre2024\raw\NERC-CEH__datalab\0028-spark-for-distributed-compute.md
+NERC-CEH/datalab,0029-dask-for-python-distributed-compute.md,2017-11-05,96,0,False,C08,cadena de reemplazo,True,corpus_pre2024\raw\NERC-CEH__datalab\0029-dask-for-python-distributed-compute.md
+NERC-CEH/datalab,0034-custom-k8s-deployment-tool.md,2017-11-05,176,0,False,C09,cadena de reemplazo,False,corpus_pre2024\raw\NERC-CEH__datalab\0034-custom-k8s-deployment-tool.md
+NERC-CEH/datalab,0036-replace-kong-with-nginx-ingress-controller.md,2017-11-05,231,0,False,C06,cadena de reemplazo,True,corpus_pre2024\raw\NERC-CEH__datalab\0036-replace-kong-with-nginx-ingress-controller.md
+NERC-CEH/datalab,0037-single-ingress-controller-per-cluster.md,2019-08-21,238,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\NERC-CEH__datalab\0037-single-ingress-controller-per-cluster.md
+NERC-CEH/datalab,0041-user-driven-dask-and-spark.md,2019-12-05,197,0,False,C08,cadena de reemplazo,True,corpus_pre2024\raw\NERC-CEH__datalab\0041-user-driven-dask-and-spark.md
+NERC-CEH/datalab,0044-use-helm-as-k8s-deployment-tool.md,2020-12-14,252,0,False,C09,cadena de reemplazo,False,corpus_pre2024\raw\NERC-CEH__datalab\0044-use-helm-as-k8s-deployment-tool.md
+NERC-CEH/datalab,0045-kubernetes-secrets-as-secret-store.md,2021-01-22,156,0,False,C07,cadena de reemplazo,False,corpus_pre2024\raw\NERC-CEH__datalab\0045-kubernetes-secrets-as-secret-store.md
+OpenTermsArchive/engine,0001-service-name-and-id.md,2020-10-14,574,2,False,,contexto orgánico,True,corpus_repos\raw\OpenTermsArchive__engine\0001-service-name-and-id.md
+OpenTermsArchive/engine,0002-service-history.md,2020-11-23,812,2,True,,contexto orgánico,True,corpus_repos\raw\OpenTermsArchive__engine\0002-service-history.md
+TryGhost/ActivityPub,0001-internal-activity-delivery.md,,481,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\TryGhost__ActivityPub\0001-internal-activity-delivery.md
+TryGhost/ActivityPub,0002-frontend-backend-versioning.md,,835,0,False,C10,cadena de reemplazo,False,corpus_pre2024\raw\TryGhost__ActivityPub\0002-frontend-backend-versioning.md
+TryGhost/ActivityPub,0003-immutable-entities-with-events.md,,101,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\TryGhost__ActivityPub\0003-immutable-entities-with-events.md
+TryGhost/ActivityPub,0004-result-type-pattern.md,,234,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\TryGhost__ActivityPub\0004-result-type-pattern.md
+TryGhost/ActivityPub,0012-forward-compatible-api-evolution.md,,2930,0,False,C10,cadena de reemplazo,False,corpus_pre2024\raw\TryGhost__ActivityPub\0012-forward-compatible-api-evolution.md
+alphagov/govuk-design-system-architecture,001-javascript-for-less-capable-browsers.md,2018-05-16,462,0,False,C11,cadena de reemplazo,True,corpus_repos\raw\alphagov__govuk-design-system-architecture\001-javascript-for-less-capable-browsers.md
+alphagov/govuk-design-system-architecture,002-restructure-based-on-single-package.md,2018-05-10,399,0,False,,contexto del mismo repo,False,corpus_repos\raw\alphagov__govuk-design-system-architecture\002-restructure-based-on-single-package.md
+alphagov/govuk-design-system-architecture,006-javascript-compatibility.md,,1800,0,True,C11,cadena de reemplazo,True,corpus_repos\raw\alphagov__govuk-design-system-architecture\006-javascript-compatibility.md
+alphagov/govuk-design-system-architecture,007-javascript-file-formats.md,2023-06-27,742,0,True,,contexto del mismo repo,True,corpus_repos\raw\alphagov__govuk-design-system-architecture\007-javascript-file-formats.md
+alphagov/govuk-design-system-architecture,008-reset-the-javascript-api.md,2023-07-20,599,0,True,,contexto del mismo repo,False,corpus_repos\raw\alphagov__govuk-design-system-architecture\008-reset-the-javascript-api.md
+aws/aws-parallelcluster-ui,20221027-export-pcluster-manager-logs-from-cloudwatch.md,2022-10-27,198,0,False,,contexto orgánico,False,corpus_pre2024\raw\aws__aws-parallelcluster-ui\20221027-export-pcluster-manager-logs-from-cloudwatch.md
+aws/aws-parallelcluster-ui,20221027-support-multiple-versions-of-pc-api.md,2022-10-27,153,0,False,,contexto orgánico,False,corpus_pre2024\raw\aws__aws-parallelcluster-ui\20221027-support-multiple-versions-of-pc-api.md
+bitwarden/adr,0001-reactive-forms.md,2022-05-28,269,4,True,,contexto orgánico,True,corpus_viejos\raw\bitwarden__adr\0001-reactive-forms.md
+bitwarden/adr,0002-public-module-npm-packages.md,2022-06-02,231,4,True,,contexto orgánico,True,corpus_viejos\raw\bitwarden__adr\0002-public-module-npm-packages.md
+bitwarden/adr,0003-observable-data-services.md,2022-06-30,398,4,True,,contexto orgánico,True,corpus_viejos\raw\bitwarden__adr\0003-observable-data-services.md
+cloudfoundry/cloud_controller_ng,0002-using-machinist-for-factories.md,2019-03-22,391,0,False,C12,cadena de reemplazo,True,corpus_pre2024\raw\cloudfoundry__cloud_controller_ng\0002-using-machinist-for-factories.md
+cloudfoundry/cloud_controller_ng,0003-switching-to-request-specs-for-controllers.md,2019-04-16,266,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\cloudfoundry__cloud_controller_ng\0003-switching-to-request-specs-for-controllers.md
+cloudfoundry/cloud_controller_ng,0004-adding-key-prefix-to-annotations.md,2019-06-11,588,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\cloudfoundry__cloud_controller_ng\0004-adding-key-prefix-to-annotations.md
+cloudfoundry/cloud_controller_ng,0005-resp-ordering-relat-meta-links.md,2020-01-31,193,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\cloudfoundry__cloud_controller_ng\0005-resp-ordering-relat-meta-links.md
+cloudfoundry/cloud_controller_ng,0015-using-factory-bot-for-factories.md,2026-05-23,616,0,True,C12,cadena de reemplazo,True,corpus_completados\raw\cloudfoundry__cloud_controller_ng\0015-using-factory-bot-for-factories.md
+defenseunicorns/pepr,0002-build-vs-buy-for-runtime-engine.md,2023-04-01,451,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\defenseunicorns__pepr\0002-build-vs-buy-for-runtime-engine.md
+defenseunicorns/pepr,0003-use-commonjs-and-esbuild.md,2023-05-22,467,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\defenseunicorns__pepr\0003-use-commonjs-and-esbuild.md
+defenseunicorns/pepr,0009-e2e-testing.md,2023-11-02,300,0,False,C13,cadena de reemplazo,False,corpus_pre2024\raw\defenseunicorns__pepr\0009-e2e-testing.md
+defenseunicorns/pepr,0011-semantic-release.md,2024-07-17,379,0,False,C14,cadena de reemplazo,True,corpus_completados\raw\defenseunicorns__pepr\0011-semantic-release.md
+defenseunicorns/pepr,0012-e2e-testing.md,2024-07-17,159,0,False,C13,cadena de reemplazo,False,corpus_completados\raw\defenseunicorns__pepr\0012-e2e-testing.md
+defenseunicorns/pepr,0013-soak-testing.md,2024-07-17,480,0,False,,contexto del mismo repo,False,corpus_completados\raw\defenseunicorns__pepr\0013-soak-testing.md
+defenseunicorns/pepr,0022-release-please.md,2026-05-19,510,0,True,C14,cadena de reemplazo,True,corpus_completados\raw\defenseunicorns__pepr\0022-release-please.md
+dxw/rails-template,0005-use-dotenv-for-managing-environment-variables.md,2019-09-19,341,0,False,,contexto orgánico,False,corpus_viejos\raw\dxw__rails-template\0005-use-dotenv-for-managing-environment-variables.md
+dxw/rails-template,0006-use-bullet-to-catch-nplus1-queries.md,2019-09-19,112,0,False,,contexto orgánico,False,corpus_viejos\raw\dxw__rails-template\0006-use-bullet-to-catch-nplus1-queries.md
+dxw/rails-template,0007-add-rollbar-for-application-monitoring.md,2019-09-20,262,0,False,,contexto orgánico,False,corpus_viejos\raw\dxw__rails-template\0007-add-rollbar-for-application-monitoring.md
+eslint/rewrite,001-rewrite-core.md,2022-10-31,370,0,False,,contexto orgánico,False,corpus_pre2024\raw\eslint__rewrite\001-rewrite-core.md
+eslint/rewrite,002-javascript-jsdoc-tsc.md,2022-10-31,278,0,False,,contexto orgánico,False,corpus_pre2024\raw\eslint__rewrite\002-javascript-jsdoc-tsc.md
+govuk-forms/forms,ADR002-use-govuk-notify.md,2022-04-07,367,0,False,C15,cadena de reemplazo,True,corpus_pre2024\raw\govuk-forms__forms\ADR002-use-govuk-notify.md
+govuk-forms/forms,ADR003-use-govuk-signon.md,2022-04-07,146,0,False,C16,cadena de reemplazo,False,corpus_pre2024\raw\govuk-forms__forms\ADR003-use-govuk-signon.md
+govuk-forms/forms,ADR004-store-form-schemas-in-an-api.md,2022-02-18,1064,0,True,,contexto del mismo repo,False,corpus_pre2024\raw\govuk-forms__forms\ADR004-store-form-schemas-in-an-api.md
+govuk-forms/forms,ADR007-store-form-text-data-as-objects.md,2022-05-26,571,0,True,C17,cadena de reemplazo,False,corpus_pre2024\raw\govuk-forms__forms\ADR007-store-form-text-data-as-objects.md
+govuk-forms/forms,ADR013-use-paper-trail-gem-for-auditing-and-record-backups.md,2023-02-27,546,0,False,C18,cadena de reemplazo,True,corpus_pre2024\raw\govuk-forms__forms\ADR013-use-paper-trail-gem-for-auditing-and-record-backups.md
+govuk-forms/forms,ADR015-idp-authentication.md,2023-02-06,229,0,False,C16,cadena de reemplazo,False,corpus_pre2024\raw\govuk-forms__forms\ADR015-idp-authentication.md
+govuk-forms/forms,ADR017-use-paper-trail-for-draft-live-or-some-other-solution.md,2023-03-03,641,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\govuk-forms__forms\ADR017-use-paper-trail-for-draft-live-or-some-other-solution.md
+govuk-forms/forms,ADR018-use-govuk-organisation-api.md,2023-05-22,941,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\govuk-forms__forms\ADR018-use-govuk-organisation-api.md
+govuk-forms/forms,ADR019-use-amazon-ses.md,2023-03-27,438,0,False,C15,cadena de reemplazo,True,corpus_pre2024\raw\govuk-forms__forms\ADR019-use-amazon-ses.md
+govuk-forms/forms,ADR025-remove-papertrail.md,2024-02-01,183,0,False,C18,cadena de reemplazo,True,corpus_completados\raw\govuk-forms__forms\ADR025-remove-papertrail.md
+govuk-forms/forms,ADR043-use-mobility-with-column-strategy.md,2025-06-09,778,0,False,C19,cadena de reemplazo,False,corpus_completados\raw\govuk-forms__forms\ADR043-use-mobility-with-column-strategy.md
+govuk-forms/forms,ADR044-translate-api-response-at-request-time.md,2025-08-01,1568,0,False,C17,cadena de reemplazo,False,corpus_completados\raw\govuk-forms__forms\ADR044-translate-api-response-at-request-time.md
+govuk-forms/forms,ADR046-use-mobility-table-backend-strategy.md,2025-09-08,237,0,False,C19,cadena de reemplazo,False,corpus_completados\raw\govuk-forms__forms\ADR046-use-mobility-table-backend-strategy.md
+grafana/grafana-image-renderer,0001-language.md,,233,3,True,,contexto orgánico,True,corpus_repos\raw\grafana__grafana-image-renderer\0001-language.md
+grafana/grafana-image-renderer,0002-logs.md,,140,3,True,,contexto orgánico,True,corpus_repos\raw\grafana__grafana-image-renderer\0002-logs.md
+hashicorp-services/tfm,0002-deprecated-ce-to-tfc.md,,940,0,False,C20,cadena de reemplazo,False,corpus_pre2024\raw\hashicorp-services__tfm\0002-deprecated-ce-to-tfc.md
+hashicorp-services/tfm,0003-ce-to-tfc.md,2024-02-26,717,0,False,C20,cadena de reemplazo,False,corpus_completados\raw\hashicorp-services__tfm\0003-ce-to-tfc.md
+hashicorp-services/tfm,0004-ce-migration-cli-driven-workspaces copy.md,2024-02-29,293,0,False,,contexto del mismo repo,False,corpus_completados\raw\hashicorp-services__tfm\0004-ce-migration-cli-driven-workspaces copy.md
+hashicorp-services/tfm,0005-ce-migration-variables.md,2024-02-29,297,0,False,,contexto del mismo repo,False,corpus_completados\raw\hashicorp-services__tfm\0005-ce-migration-variables.md
+hashicorp-services/tfm,ce-to-tfc.md,,892,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\hashicorp-services__tfm\ce-to-tfc.md
+home-assistant/architecture,0002-minimum-supported-python-version.md,2019-05-13,214,0,False,C21,cadena de reemplazo,True,corpus_pre2024\raw\home-assistant__architecture\0002-minimum-supported-python-version.md
+home-assistant/architecture,0003-monitor-condition-and-data-selectors.md,2019-05-23,226,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\home-assistant__architecture\0003-monitor-condition-and-data-selectors.md
+home-assistant/architecture,0012-define-supported-installation-method.md,2020-06-03,366,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\home-assistant__architecture\0012-define-supported-installation-method.md
+home-assistant/architecture,0018-supported-databases.md,2021-10-20,391,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\home-assistant__architecture\0018-supported-databases.md
+home-assistant/architecture,0020-minimum-supported-python-version.md,2023-05-29,168,0,False,C21,cadena de reemplazo,True,corpus_pre2024\raw\home-assistant__architecture\0020-minimum-supported-python-version.md
+json-schema-org/json-schema-spec,2022-04-08-cref-for-ambiguity-and-fix-later-gh-spec-issue-1172.md,2022-05-19,641,5,True,,contexto orgánico,True,corpus_repos\raw\json-schema-org__json-schema-spec\2022-04-08-cref-for-ambiguity-and-fix-later-gh-spec-issue-1172.md
+json-schema-org/json-schema-spec,2022-09-decouple-from-ietf.md,2022-09-27,1606,4,True,,contexto orgánico,True,corpus_repos\raw\json-schema-org__json-schema-spec\2022-09-decouple-from-ietf.md
+json-schema-org/json-schema-spec,2022-11-stable-spec.md,2022-11-02,1631,4,True,,contexto orgánico,True,corpus_repos\raw\json-schema-org__json-schema-spec\2022-11-stable-spec.md
+konflux-ci/architecture,0001-pipeline-service-phase-1.md,2023-09-29,411,0,False,C22,cadena de reemplazo,True,corpus_pre2024\raw\konflux-ci__architecture\0001-pipeline-service-phase-1.md
+konflux-ci/architecture,0008-environment-provisioning.md,2022-12-14,2796,0,False,C23,cadena de reemplazo,False,corpus_pre2024\raw\konflux-ci__architecture\0008-environment-provisioning.md
+konflux-ci/architecture,0009-pipeline-service-via-operator.md,2023-09-29,555,0,False,C22,cadena de reemplazo,True,corpus_pre2024\raw\konflux-ci__architecture\0009-pipeline-service-via-operator.md
+konflux-ci/architecture,0013-integration-service-api-contracts.md,2023-01-30,2132,0,False,C24,cadena de reemplazo,False,corpus_pre2024\raw\konflux-ci__architecture\0013-integration-service-api-contracts.md
+konflux-ci/architecture,0015-integration-service-two-phase-architecture.md,2023-02-14,837,0,False,C23,cadena de reemplazo,False,corpus_pre2024\raw\konflux-ci__architecture\0015-integration-service-two-phase-architecture.md
+konflux-ci/architecture,0016-integration-service-promotion-logic.md,2023-02-27,697,0,False,C23,cadena de reemplazo,False,corpus_pre2024\raw\konflux-ci__architecture\0016-integration-service-promotion-logic.md
+konflux-ci/architecture,0021-partner-tasks.md,2023-03-06,606,0,True,C25,cadena de reemplazo,False,corpus_pre2024\raw\konflux-ci__architecture\0021-partner-tasks.md
+konflux-ci/architecture,0023-git-references-to-furnish-integration-test-scenarios.md,2023-04-21,578,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\konflux-ci__architecture\0023-git-references-to-furnish-integration-test-scenarios.md
+konflux-ci/architecture,0025-appstudio-pipeline-serviceaccount.md,2023-05-30,171,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\konflux-ci__architecture\0025-appstudio-pipeline-serviceaccount.md
+konflux-ci/architecture,0028-handling-snapshotenvironmentbinding-errors.md,2023-08-31,234,0,False,C23,cadena de reemplazo,False,corpus_pre2024\raw\konflux-ci__architecture\0028-handling-snapshotenvironmentbinding-errors.md
+konflux-ci/architecture,0030-tekton-results-naming-convention.md,2023-09-27,1642,0,False,C24,cadena de reemplazo,False,corpus_pre2024\raw\konflux-ci__architecture\0030-tekton-results-naming-convention.md
+konflux-ci/architecture,0031-sprayproxy.md,2023-10-24,424,0,False,C26,cadena de reemplazo,True,corpus_pre2024\raw\konflux-ci__architecture\0031-sprayproxy.md
+konflux-ci/architecture,0032-decoupling-deployment.md,2023-02-01,1663,0,False,C23,cadena de reemplazo,False,corpus_pre2024\raw\konflux-ci__architecture\0032-decoupling-deployment.md
+konflux-ci/architecture,0036-trusted-artifacts.md,2024-06-11,473,0,False,,contexto del mismo repo,False,corpus_completados\raw\konflux-ci__architecture\0036-trusted-artifacts.md
+konflux-ci/architecture,0037-integration-service-promotes-to-GCL-immediately.md,2024-06-21,463,0,False,C23,cadena de reemplazo,False,corpus_completados\raw\konflux-ci__architecture\0037-integration-service-promotes-to-GCL-immediately.md
+konflux-ci/architecture,0038-integration-service-composite-removal.md,2024-07-10,262,0,False,C23,cadena de reemplazo,False,corpus_pre2024\raw\konflux-ci__architecture\0038-integration-service-composite-removal.md
+konflux-ci/architecture,0039-workspace-deprecation.md,2024-09-22,1004,0,False,C26,cadena de reemplazo,True,corpus_completados\raw\konflux-ci__architecture\0039-workspace-deprecation.md
+konflux-ci/architecture,0042-provisioning-ephemeral-openshift-clusters.md,2024-06-05,1760,0,False,C23,cadena de reemplazo,False,corpus_completados\raw\konflux-ci__architecture\0042-provisioning-ephemeral-openshift-clusters.md
+konflux-ci/architecture,0053-trusted-task-model.md,2025-09-30,1468,0,False,C25,cadena de reemplazo,False,corpus_completados\raw\konflux-ci__architecture\0053-trusted-task-model.md
+linode/apl-core,2020-10-01-github-workflow.md,2020-10-01,401,0,False,,contexto orgánico,False,corpus_pre2024\raw\linode__apl-core\2020-10-01-github-workflow.md
+linode/apl-core,2020-11-06-konstraint-policy-library.md,2020-11-06,219,0,False,,contexto orgánico,False,corpus_pre2024\raw\linode__apl-core\2020-11-06-konstraint-policy-library.md
+ministryofjustice/offender-management-architecture-decisions,0002-use-cloud-platform-for-hosting.md,2018-10-12,358,0,False,,contexto orgánico,False,corpus_viejos\raw\ministryofjustice__offender-management-architecture-decisions\0002-use-cloud-platform-for-hosting.md
+ministryofjustice/offender-management-architecture-decisions,0003-use-progressive-enhancement.md,2018-10-12,225,0,False,,contexto orgánico,False,corpus_viejos\raw\ministryofjustice__offender-management-architecture-decisions\0003-use-progressive-enhancement.md
+ministryofjustice/offender-management-architecture-decisions,0004-separate-api-and-user-facing-applications.md,2018-10-12,563,0,False,,relación de enmienda,False,corpus_viejos\raw\ministryofjustice__offender-management-architecture-decisions\0004-separate-api-and-user-facing-applications.md
+ministryofjustice/offender-management-architecture-decisions,0006-use-the-custody-api-to-access-nomis-data.md,2018-10-19,560,0,False,,relación de enmienda,False,corpus_viejos\raw\ministryofjustice__offender-management-architecture-decisions\0006-use-the-custody-api-to-access-nomis-data.md
+ministryofjustice/offender-management-architecture-decisions,0010-allocation-api-has-less-responsibility.md,2018-11-20,555,0,False,,relación de enmienda,False,corpus_viejos\raw\ministryofjustice__offender-management-architecture-decisions\0010-allocation-api-has-less-responsibility.md
+ministryofjustice/offender-management-architecture-decisions,0016-use-elite2-api.md,2019-01-18,456,0,False,,relación de enmienda,False,corpus_viejos\raw\ministryofjustice__offender-management-architecture-decisions\0016-use-elite2-api.md
+ministryofjustice/offender-management-architecture-decisions,0018-testing-tls-mutual-auth-for-delius-api-access.md,2019-01-28,353,0,False,,relación de enmienda,False,corpus_viejos\raw\ministryofjustice__offender-management-architecture-decisions\0018-testing-tls-mutual-auth-for-delius-api-access.md
+ministryofjustice/offender-management-architecture-decisions,0019-manage-runtime-secrets-with-git-crypt.md,2019-01-30,886,0,True,,contexto orgánico,True,corpus_viejos\raw\ministryofjustice__offender-management-architecture-decisions\0019-manage-runtime-secrets-with-git-crypt.md
+mozilla/sre-adrs,0002-web-sre-service-documentation.md,2021-06-01,804,0,False,,contexto orgánico,False,corpus_viejos\raw\mozilla__sre-adrs\0002-web-sre-service-documentation.md
+mozilla/sre-adrs,0003-use-eks-cluster-as-default-container-platform.md,2021-06-07,294,0,False,,contexto orgánico,False,corpus_viejos\raw\mozilla__sre-adrs\0003-use-eks-cluster-as-default-container-platform.md
+mozilla/sre-adrs,0004-use-1-kubernetes-cluster-per-environment.md,2021-06-09,871,0,False,,contexto orgánico,False,corpus_viejos\raw\mozilla__sre-adrs\0004-use-1-kubernetes-cluster-per-environment.md
+remix-run/react-router,0001-use-npm-to-manage-npm-dependencies-for-deno-projects.md,2022-05-10,620,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\remix-run__react-router\0001-use-npm-to-manage-npm-dependencies-for-deno-projects.md
+remix-run/react-router,0002-do-not-clone-request.md,2022-05-13,197,0,False,,contexto del mismo repo,False,corpus_pre2024\raw\remix-run__react-router\0002-do-not-clone-request.md
+remix-run/react-router,0003-infer-types-for-useloaderdata-and-useactiondata-from-loader-and-action-via-generics.md,2022-07-11,1188,0,False,C27,cadena de reemplazo,False,corpus_pre2024\raw\remix-run__react-router\0003-infer-types-for-useloaderdata-and-useactiondata-from-loader-and-action-via-generics.md
+remix-run/react-router,0012-type-inference.md,2024-09-20,2099,0,False,C27,cadena de reemplazo,False,corpus_completados\raw\remix-run__react-router\0012-type-inference.md
+remix-run/react-router,0016-plan-remove-agnostic-types.md,,1593,0,True,,contexto del mismo repo,True,corpus_pre2024\raw\remix-run__react-router\0016-plan-remove-agnostic-types.md
+wbcsd/data-exchange-protocol,0005-use-uuid.md,2022-06-02,403,0,False,,contexto orgánico,False,corpus_pre2024\raw\wbcsd__data-exchange-protocol\0005-use-uuid.md
+wbcsd/data-exchange-protocol,0007-water-out-of-scope.md,2022-06-06,107,0,False,,contexto orgánico,False,corpus_pre2024\raw\wbcsd__data-exchange-protocol\0007-water-out-of-scope.md
+wbcsd/data-exchange-protocol,0013-use-bikeshed.md,2022-10-19,295,0,False,,contexto orgánico,False,corpus_pre2024\raw\wbcsd__data-exchange-protocol\0013-use-bikeshed.md
+zarf-dev/zarf,0002-moving-e2e-tests-away-from-terratest.md,2022-03-04,800,0,False,,contexto orgánico,False,corpus_pre2024\raw\zarf-dev__zarf\0002-moving-e2e-tests-away-from-terratest.md
+zarf-dev/zarf,0003-image-injection-into-remote-clusters-without-native-support.md,2022-03-04,612,0,False,,relación de enmienda,False,corpus_pre2024\raw\zarf-dev__zarf\0003-image-injection-into-remote-clusters-without-native-support.md
+zarf-dev/zarf,0004-generate-sboms-with-witness.md,2022-03-29,139,0,False,,contexto orgánico,False,corpus_pre2024\raw\zarf-dev__zarf\0004-generate-sboms-with-witness.md
+zarf-dev/zarf,0005-mutating-webhook.md,2022-05-18,379,0,False,,contexto orgánico,False,corpus_pre2024\raw\zarf-dev__zarf\0005-mutating-webhook.md
+zarf-dev/zarf,0007-use-rust-binary-for-both-injection-stages.md,2022-10-29,470,0,False,,relación de enmienda,False,corpus_pre2024\raw\zarf-dev__zarf\0007-use-rust-binary-for-both-injection-stages.md

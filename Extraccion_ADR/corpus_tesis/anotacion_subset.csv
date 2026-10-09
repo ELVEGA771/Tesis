@@ -1,0 +1,46 @@
+repo,filename,date,words,madr_score,alternativas_explicitas,cadena_id,motivo,anotar,source_path
+CivicDataLab/up-fiscal-data,001-source.md,,131,3,True,,contexto del mismo repo,True,corpus_pre2024\raw\CivicDataLab__up-fiscal-data\001-source.md
+CivicDataLab/up-fiscal-data,002-koshvani.md,,58,2,False,C01,cadena de reemplazo,True,corpus_pre2024\raw\CivicDataLab__up-fiscal-data\002-koshvani.md
+CivicDataLab/up-fiscal-data,004-receipts.md,,86,3,True,C01,cadena de reemplazo,True,corpus_pre2024\raw\CivicDataLab__up-fiscal-data\004-receipts.md
+DFE-Digital/early-years-foundation-recovery,0001-web-framework.md,,118,5,True,,contexto del mismo repo,True,corpus_pre2024\raw\DFE-Digital__early-years-foundation-recovery\0001-web-framework.md
+DFE-Digital/early-years-foundation-recovery,0006-content-storage-strategy.md,,269,5,True,C02,cadena de reemplazo,True,corpus_pre2024\raw\DFE-Digital__early-years-foundation-recovery\0006-content-storage-strategy.md
+DFE-Digital/early-years-foundation-recovery,0011-contentful.md,,113,4,True,C02,cadena de reemplazo,True,corpus_pre2024\raw\DFE-Digital__early-years-foundation-recovery\0011-contentful.md
+DFE-Digital/early-years-foundation-reform,0004-database.md,,110,4,True,,contexto del mismo repo,True,corpus_pre2024\raw\DFE-Digital__early-years-foundation-reform\0004-database.md
+DFE-Digital/early-years-foundation-reform,0012-asset-pipeline-static-paths.md,,237,4,True,,contexto del mismo repo,True,corpus_pre2024\raw\DFE-Digital__early-years-foundation-reform\0012-asset-pipeline-static-paths.md
+DFE-Digital/early-years-foundation-reform,0013-classic-azure-cache-for-redis-bridge.md,,419,4,True,,contexto del mismo repo,True,corpus_pre2024\raw\DFE-Digital__early-years-foundation-reform\0013-classic-azure-cache-for-redis-bridge.md
+NERC-CEH/datalab,0013-custom-redbird-proxy.md,2017-11-04,94,0,False,C06,cadena de reemplazo,True,corpus_pre2024\raw\NERC-CEH__datalab\0013-custom-redbird-proxy.md
+NERC-CEH/datalab,0014-use-traefik-for-reverse-proxy.md,2017-11-04,111,0,False,C06,cadena de reemplazo,True,corpus_pre2024\raw\NERC-CEH__datalab\0014-use-traefik-for-reverse-proxy.md
+NERC-CEH/datalab,0015-use-kong-for-reverse-proxy.md,2017-11-04,126,0,False,C06,cadena de reemplazo,True,corpus_pre2024\raw\NERC-CEH__datalab\0015-use-kong-for-reverse-proxy.md
+NERC-CEH/datalab,0028-spark-for-distributed-compute.md,2017-11-04,238,0,False,C08,cadena de reemplazo,True,corpus_pre2024\raw\NERC-CEH__datalab\0028-spark-for-distributed-compute.md
+NERC-CEH/datalab,0029-dask-for-python-distributed-compute.md,2017-11-05,96,0,False,C08,cadena de reemplazo,True,corpus_pre2024\raw\NERC-CEH__datalab\0029-dask-for-python-distributed-compute.md
+NERC-CEH/datalab,0036-replace-kong-with-nginx-ingress-controller.md,2017-11-05,231,0,False,C06,cadena de reemplazo,True,corpus_pre2024\raw\NERC-CEH__datalab\0036-replace-kong-with-nginx-ingress-controller.md
+NERC-CEH/datalab,0041-user-driven-dask-and-spark.md,2019-12-05,197,0,False,C08,cadena de reemplazo,True,corpus_pre2024\raw\NERC-CEH__datalab\0041-user-driven-dask-and-spark.md
+OpenTermsArchive/engine,0001-service-name-and-id.md,2020-10-14,574,2,False,,contexto orgánico,True,corpus_repos\raw\OpenTermsArchive__engine\0001-service-name-and-id.md
+OpenTermsArchive/engine,0002-service-history.md,2020-11-23,812,2,True,,contexto orgánico,True,corpus_repos\raw\OpenTermsArchive__engine\0002-service-history.md
+alphagov/govuk-design-system-architecture,001-javascript-for-less-capable-browsers.md,2018-05-16,462,0,False,C11,cadena de reemplazo,True,corpus_repos\raw\alphagov__govuk-design-system-architecture\001-javascript-for-less-capable-browsers.md
+alphagov/govuk-design-system-architecture,006-javascript-compatibility.md,,1800,0,True,C11,cadena de reemplazo,True,corpus_repos\raw\alphagov__govuk-design-system-architecture\006-javascript-compatibility.md
+alphagov/govuk-design-system-architecture,007-javascript-file-formats.md,2023-06-27,742,0,True,,contexto del mismo repo,True,corpus_repos\raw\alphagov__govuk-design-system-architecture\007-javascript-file-formats.md
+bitwarden/adr,0001-reactive-forms.md,2022-05-28,269,4,True,,contexto orgánico,True,corpus_viejos\raw\bitwarden__adr\0001-reactive-forms.md
+bitwarden/adr,0002-public-module-npm-packages.md,2022-06-02,231,4,True,,contexto orgánico,True,corpus_viejos\raw\bitwarden__adr\0002-public-module-npm-packages.md
+bitwarden/adr,0003-observable-data-services.md,2022-06-30,398,4,True,,contexto orgánico,True,corpus_viejos\raw\bitwarden__adr\0003-observable-data-services.md
+cloudfoundry/cloud_controller_ng,0002-using-machinist-for-factories.md,2019-03-22,391,0,False,C12,cadena de reemplazo,True,corpus_pre2024\raw\cloudfoundry__cloud_controller_ng\0002-using-machinist-for-factories.md
+cloudfoundry/cloud_controller_ng,0015-using-factory-bot-for-factories.md,2026-05-23,616,0,True,C12,cadena de reemplazo,True,corpus_completados\raw\cloudfoundry__cloud_controller_ng\0015-using-factory-bot-for-factories.md
+defenseunicorns/pepr,0011-semantic-release.md,2024-07-17,379,0,False,C14,cadena de reemplazo,True,corpus_completados\raw\defenseunicorns__pepr\0011-semantic-release.md
+defenseunicorns/pepr,0022-release-please.md,2026-05-19,510,0,True,C14,cadena de reemplazo,True,corpus_completados\raw\defenseunicorns__pepr\0022-release-please.md
+govuk-forms/forms,ADR002-use-govuk-notify.md,2022-04-07,367,0,False,C15,cadena de reemplazo,True,corpus_pre2024\raw\govuk-forms__forms\ADR002-use-govuk-notify.md
+govuk-forms/forms,ADR013-use-paper-trail-gem-for-auditing-and-record-backups.md,2023-02-27,546,0,False,C18,cadena de reemplazo,True,corpus_pre2024\raw\govuk-forms__forms\ADR013-use-paper-trail-gem-for-auditing-and-record-backups.md
+govuk-forms/forms,ADR019-use-amazon-ses.md,2023-03-27,438,0,False,C15,cadena de reemplazo,True,corpus_pre2024\raw\govuk-forms__forms\ADR019-use-amazon-ses.md
+govuk-forms/forms,ADR025-remove-papertrail.md,2024-02-01,183,0,False,C18,cadena de reemplazo,True,corpus_completados\raw\govuk-forms__forms\ADR025-remove-papertrail.md
+grafana/grafana-image-renderer,0001-language.md,,233,3,True,,contexto orgánico,True,corpus_repos\raw\grafana__grafana-image-renderer\0001-language.md
+grafana/grafana-image-renderer,0002-logs.md,,140,3,True,,contexto orgánico,True,corpus_repos\raw\grafana__grafana-image-renderer\0002-logs.md
+home-assistant/architecture,0002-minimum-supported-python-version.md,2019-05-13,214,0,False,C21,cadena de reemplazo,True,corpus_pre2024\raw\home-assistant__architecture\0002-minimum-supported-python-version.md
+home-assistant/architecture,0020-minimum-supported-python-version.md,2023-05-29,168,0,False,C21,cadena de reemplazo,True,corpus_pre2024\raw\home-assistant__architecture\0020-minimum-supported-python-version.md
+json-schema-org/json-schema-spec,2022-04-08-cref-for-ambiguity-and-fix-later-gh-spec-issue-1172.md,2022-05-19,641,5,True,,contexto orgánico,True,corpus_repos\raw\json-schema-org__json-schema-spec\2022-04-08-cref-for-ambiguity-and-fix-later-gh-spec-issue-1172.md
+json-schema-org/json-schema-spec,2022-09-decouple-from-ietf.md,2022-09-27,1606,4,True,,contexto orgánico,True,corpus_repos\raw\json-schema-org__json-schema-spec\2022-09-decouple-from-ietf.md
+json-schema-org/json-schema-spec,2022-11-stable-spec.md,2022-11-02,1631,4,True,,contexto orgánico,True,corpus_repos\raw\json-schema-org__json-schema-spec\2022-11-stable-spec.md
+konflux-ci/architecture,0001-pipeline-service-phase-1.md,2023-09-29,411,0,False,C22,cadena de reemplazo,True,corpus_pre2024\raw\konflux-ci__architecture\0001-pipeline-service-phase-1.md
+konflux-ci/architecture,0009-pipeline-service-via-operator.md,2023-09-29,555,0,False,C22,cadena de reemplazo,True,corpus_pre2024\raw\konflux-ci__architecture\0009-pipeline-service-via-operator.md
+konflux-ci/architecture,0031-sprayproxy.md,2023-10-24,424,0,False,C26,cadena de reemplazo,True,corpus_pre2024\raw\konflux-ci__architecture\0031-sprayproxy.md
+konflux-ci/architecture,0039-workspace-deprecation.md,2024-09-22,1004,0,False,C26,cadena de reemplazo,True,corpus_completados\raw\konflux-ci__architecture\0039-workspace-deprecation.md
+ministryofjustice/offender-management-architecture-decisions,0019-manage-runtime-secrets-with-git-crypt.md,2019-01-30,886,0,True,,contexto orgánico,True,corpus_viejos\raw\ministryofjustice__offender-management-architecture-decisions\0019-manage-runtime-secrets-with-git-crypt.md
+remix-run/react-router,0016-plan-remove-agnostic-types.md,,1593,0,True,,contexto del mismo repo,True,corpus_pre2024\raw\remix-run__react-router\0016-plan-remove-agnostic-types.md
