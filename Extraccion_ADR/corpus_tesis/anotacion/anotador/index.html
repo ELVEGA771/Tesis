@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anotador ADR v1.1</title>
+<style>
+:root{
+  --bg:#F2F4F8; --surface:#FFFFFF; --surface-2:#E9EDF4; --ink:#172033; --muted:#5A6479; --line:#D5DBE5;
+  --accent:#2F5BD3; --accent-soft:#E2E9FB; --ok:#0E8A6E; --warn:#B7791F; --bad:#C0392B;
+  --e-estado:#C07A12; --e-fecha:#8A6D3B; --e-participante:#6B7385; --e-contexto:#2F7FA8; --e-problema:#1F6C8F;
+  --e-driver:#7A52C7; --e-alternativa:#5E9A1E; --e-decision:#0E8A6E; --e-justificacion:#138A8A;
+  --e-argumento:#A0522D; --e-consecuencia:#B8456B; --e-confirmacion:#3D6B3D; --e-info_adicional:#6B5A8E;
+  --e-relacion:#C0392B; --e-tema:#2F5BD3;
+  --mono:"JetBrains Mono", Consolas, ui-monospace, monospace;
+  --sans:"Segoe UI", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root{
+  color-scheme:dark; --bg:#0F141D; --surface:#171E2A; --surface-2:#1F2837; --ink:#E4E9F2; --muted:#9AA5BA; --line:#2C3647;
+  --accent:#7FA2FF; --accent-soft:#1E2B4A; --ok:#3CC7A2; --warn:#F0AE45; --bad:#FF7A6B;
+  --e-estado:#F0AE45; --e-fecha:#D9B77A; --e-participante:#A5AEC0; --e-contexto:#6CC0E8; --e-problema:#5AB0D8;
+  --e-driver:#B79BF2; --e-alternativa:#9BCB5A; --e-decision:#3CC7A2; --e-justificacion:#4FD1D1;
+  --e-argumento:#E3976B; --e-consecuencia:#EF7FA6; --e-confirmacion:#8FCB8F; --e-info_adicional:#B5A4DE;
+  --e-relacion:#FF7A6B; --e-tema:#7FA2FF;
+}}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font:14px/1.45 var(--sans);display:grid;grid-template-columns:270px minmax(0,1fr) minmax(380px,40%);grid-template-rows:auto minmax(0,1fr);height:100vh}
+header{grid-column:1/-1;display:flex;align-items:center;gap:14px;padding:8px 14px;border-bottom:1px solid var(--line);background:var(--surface)}
+header h1{font-size:15px;margin:0;font-weight:700}
+.bar{flex:1;height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden;max-width:360px}
+.bar i{display:block;height:100%;background:var(--ok);width:0}
+.hint{color:var(--muted);font-size:12px;margin-left:auto}
+kbd{font:11px var(--mono);border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 4px;background:var(--surface-2)}
+aside{overflow:auto;border-right:1px solid var(--line);background:var(--surface)}
+aside .grp{padding:8px 12px 2px;font:600 11px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+aside button{all:unset;display:flex;gap:8px;align-items:flex-start;width:100%;padding:6px 12px;cursor:pointer;box-sizing:border-box}
+aside button:hover{background:var(--surface-2)}
+aside button.act{background:var(--accent-soft)}
+aside button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.dot{flex:none;width:10px;height:10px;border-radius:50%;margin-top:4px;border:2px solid var(--muted)}
+.dot.terminado{background:var(--ok);border-color:var(--ok)}
+.dot.empezado{background:linear-gradient(90deg,var(--warn) 50%,transparent 50%);border-color:var(--warn)}
+aside .t{font-size:12.5px;line-height:1.3}
+aside .f{font:11px var(--mono);color:var(--muted)}
+.chip{font:600 10px var(--mono);padding:0 5px;border-radius:4px;background:var(--surface-2);color:var(--muted);margin-left:4px}
+main{overflow:auto;position:relative;background:var(--surface-2)}
+.doc-head{position:sticky;top:0;z-index:2;background:var(--surface-2);padding:10px 18px;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.doc-head b{font-size:15px}
+.doc-head span{font:12px var(--mono);color:var(--muted)}
+pre#txt{margin:0;padding:16px 18px 80px;font:13px/1.65 var(--mono);white-space:pre-wrap;word-break:break-word}
+pre#txt span[data-r]{border-bottom:2px solid var(--c);background:color-mix(in srgb,var(--c) 12%,transparent);cursor:pointer;border-radius:2px}
+pre#txt span.flash{animation:fl 1.2s}
+@keyframes fl{0%,40%{background:color-mix(in srgb,var(--c) 55%,transparent)}}
+@media (prefers-reduced-motion:reduce){pre#txt span.flash{animation:none;outline:2px solid var(--c)}}
+#tool{position:fixed;z-index:10;display:flex;flex-wrap:wrap;gap:4px;max-width:520px;padding:6px;background:var(--surface);border:1px solid var(--line);border-radius:8px;box-shadow:0 6px 24px rgba(0,0,0,.18)}
+#tool button{font:12px var(--sans);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:6px;padding:3px 7px;cursor:pointer;border-left:3px solid var(--c)}
+#tool button:hover{background:var(--surface-2)}
+section#form{overflow:auto;background:var(--surface);border-left:1px solid var(--line);display:flex;flex-direction:column}
+.actions{position:sticky;top:0;z-index:3;background:var(--surface);border-bottom:1px solid var(--line);padding:8px 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.btn{font:12.5px var(--sans);padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.pri:hover{filter:brightness(1.1);color:#fff}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+#msg{font-size:12px;width:100%}
+#msg .ok{color:var(--ok)} #msg .bad{color:var(--bad)} #msg .warn{color:var(--warn)}
+#msg ul{margin:4px 0 0;padding-left:18px}
+.grp-el{border-bottom:1px solid var(--line);padding:8px 12px}
+.grp-el h3{margin:0 0 6px;font-size:12.5px;display:flex;align-items:center;gap:6px}
+.grp-el h3 .sw{width:10px;height:10px;border-radius:3px;background:var(--c)}
+.grp-el h3 .n{color:var(--muted);font-weight:400}
+.grp-el h3 .add{margin-left:auto;font:11px var(--sans);border:0;background:none;color:var(--accent);cursor:pointer}
+.grp-el .desc{font-size:11.5px;color:var(--muted);margin:-3px 0 6px}
+.row{border:1px solid var(--line);border-left:3px solid var(--c);border-radius:6px;padding:6px 8px;margin-bottom:6px;display:grid;gap:5px;background:var(--surface)}
+.row.sel{box-shadow:0 0 0 2px var(--accent)}
+.row .top{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:11.5px}
+.row textarea,.row input[type=text],.row input[type=date],.row select{width:100%;font:12px var(--mono);background:var(--surface-2);color:var(--ink);border:1px solid var(--line);border-radius:5px;padding:4px 6px}
+.row textarea{resize:vertical;min-height:30px}
+.row label{font-size:11px;color:var(--muted);display:grid;gap:2px}
+.row .inl{display:flex;gap:6px;flex-wrap:wrap;align-items:end}
+.row .inl > *{flex:1;min-width:120px}
+.g{font:600 11px var(--mono)}
+.g.y{color:var(--ok)} .g.n{color:var(--bad)}
+.auto{font:600 10px var(--mono);color:var(--warn);border:1px solid var(--warn);border-radius:4px;padding:0 4px}
+.del{margin-left:auto;border:0;background:none;color:var(--muted);cursor:pointer;font-size:15px;line-height:1}
+.del:hover{color:var(--bad)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg button{border:0;background:var(--surface);color:var(--ink);padding:3px 9px;cursor:pointer;font:12px var(--sans)}
+.seg button[aria-pressed=true]{background:var(--c);color:#fff}
+.req{color:var(--bad)}
+.empty{color:var(--muted);font-size:12px;padding:20px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Anotador ADR · esquema v1.1</h1>
+  <div class="bar" title="ADR terminados"><i id="prog"></i></div>
+  <span id="progtxt" style="font:12px var(--mono)"></span>
+  <span class="hint"><kbd>Ctrl</kbd>+<kbd>S</kbd> guardar · <kbd>Ctrl</kbd>+<kbd>Enter</kbd> terminar y siguiente</span>
+</header>
+<aside id="list" aria-label="ADR del subconjunto"></aside>
+<main id="doc"><div class="empty">Elige un ADR de la lista.</div></main>
+<section id="form" aria-label="Filas de anotación"><div class="empty">…</div></section>
+<div id="tool" hidden></div>
+
+<script>
+const EL = [
+  {k:"estado", t:"Estado", key:"e", desc:"Literal del campo de estado, sin «Status:».", one:true},
+  {k:"fecha", t:"Fecha declarada (date)", key:"f", desc:"Solo si el ADR declara date: última actualización (no es la fecha de registro).", one:true},
+  {k:"participante", t:"Participantes", key:"p", desc:"decision-makers / deciders, consulted, informed: una fila por persona o equipo."},
+  {k:"contexto", t:"Contexto", key:"1", desc:"El primer párrafo del contexto basta; valor opcional."},
+  {k:"problema", t:"Problema", key:"2", desc:"La pregunta o el problema, si se enuncia."},
+  {k:"driver", t:"Criterios (decision drivers)", key:"3", desc:"Solo de una sección de criterios explícita; no se deducen."},
+  {k:"alternativa", t:"Alternativas", key:"4", desc:"Solo opciones listadas. Marca como mucho una elegida."},
+  {k:"decision", t:"Decisión", key:"5", desc:"Obligatoria. Valor = la decisión en una línea.", one:true},
+  {k:"justificacion", t:"Justificación", key:"6", desc:"El «because…» de la opción elegida o la sección Rationale."},
+  {k:"argumento", t:"Argumentos por alternativa", key:"7", desc:"Pros and Cons of the Options: polaridad y alternativa."},
+  {k:"consecuencia", t:"Consecuencias", key:"8", desc:"Una por punto; polaridad positiva, negativa o neutra."},
+  {k:"confirmacion", t:"Confirmación", key:"9", desc:"Cómo se comprobará que la implementación cumple."},
+  {k:"info_adicional", t:"Información adicional", key:"i", desc:"More Information, enlaces, referencias."},
+  {k:"relacion", t:"Relaciones con otros ADR", key:"r", desc:"supersedes, amends o relatesTo. Solo con referencia explícita."},
+  {k:"tema", t:"Tema", desc:"Etiqueta corta en inglés; se copia a toda la cadena.", one:true}
+];
+const ELK = Object.fromEntries(EL.map(e => [e.k, e]));
+const COLS = ["elemento","evidencia","valor","elegida","estado_normalizado","polaridad","alternativa","rol","tipo_relacion","adr_nuevo","adr_afectado","nota"];
+const ESTADOS = ["accepted","proposed","rejected","deprecated","superseded","amended"];
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const norm = s => String(s || "").replace(/\s+/g, " ").trim().toLowerCase();
+
+let S = {adrs:[], temas:{}}, cur = null, rows = [], texto = "", archivosRepo = [], dirty = false, selRow = null;
+
+async function api(path, body){
+  const r = await fetch(path, body ? {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(body)} : {});
+  const j = await r.json();
+  if (j.error) throw new Error(j.error);
+  return j;
+}
+
+// ---------- lista ----------
+async function cargarEstado(){
+  S = await api("/api/estado");
+  const done = S.adrs.filter(a => a.estado === "terminado").length;
+  $("#prog").style.width = (100 * done / S.adrs.length) + "%";
+  $("#progtxt").textContent = `${done}/${S.adrs.length} terminados`;
+  let html = "", repo = null;
+  S.adrs.forEach((a, i) => {
+    if (a.repo !== repo){ repo = a.repo; html += `<div class="grp">${esc(repo)}</div>`; }
+    const act = cur && cur.repo === a.repo && cur.archivo === a.archivo ? " act" : "";
+    html += `<button class="${act}" data-i="${i}"><span class="dot ${a.estado}" title="${a.estado}"></span>
+      <span><span class="t">${esc(a.titulo)}</span>${a.cadena ? `<span class="chip">${esc(a.cadena)}</span>` : ""}<br><span class="f">${esc(a.archivo)}</span></span></button>`;
+  });
+  $("#list").innerHTML = html;
+  $("#list").querySelectorAll("button").forEach(b => b.onclick = () => abrir(S.adrs[+b.dataset.i]));
+}
+
+async function abrir(a){
+  if (dirty && cur) await guardar(false, true);
+  cur = a; selRow = null;
+  const j = await api(`/api/adr?repo=${encodeURIComponent(a.repo)}&archivo=${encodeURIComponent(a.archivo)}`);
+  texto = j.texto; archivosRepo = j.archivos_repo;
+  rows = j.filas.map(f => Object.fromEntries(COLS.map(c => [c, f[c] ?? ""])));
+  dirty = j.sugerido;
+  document.querySelectorAll("#list button").forEach(b => b.classList.toggle("act", S.adrs[+b.dataset.i] === a));
+  pintarDoc(); pintarForm();
+  msg(j.sugerido ? `<span class="warn">Filas sugeridas automáticamente (marcadas <b>auto</b>). Revisa, corrige o borra y guarda.</span>` : (j.terminado ? `<span class="ok">ADR terminado. Puedes seguir editándolo.</span>` : ""));
+  $("#doc").scrollTop = 0;
+}
+
+// ---------- documento ----------
+function rangos(){
+  const out = [];
+  rows.forEach((r, i) => {
+    const ev = r.evidencia.trim();
+    if (!ev) return;
+    const pat = ev.split(/\s+/).map(w => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("\\s+");
+    let m; try { m = new RegExp(pat, "i").exec(texto); } catch(e){ m = null; }
+    r._ok = !!m;
+    if (m) out.push({s:m.index, e:m.index + m[0].length, i});
+  });
+  return out;
+}
+function pintarDoc(){
+  const rs = rangos().sort((a, b) => (b.e - b.s) - (a.e - a.s));
+  const lab = new Int32Array(texto.length).fill(-1);
+  rs.forEach(r => { for (let k = r.s; k < r.e; k++) lab[k] = r.i; });
+  let html = "", k = 0;
+  while (k < texto.length){
+    let j = k; while (j < texto.length && lab[j] === lab[k]) j++;
+    const seg = esc(texto.slice(k, j));
+    if (lab[k] >= 0){ const r = rows[lab[k]]; html += `<span data-r="${lab[k]}" style="--c:var(--e-${r.elemento})" title="${esc(ELK[r.elemento]?.t)}">${seg}</span>`; }
+    else html += seg;
+    k = j;
+  }
+  $("#doc").innerHTML = `<div class="doc-head"><b>${esc(cur.titulo)}</b><span>${esc(cur.repo)} / ${esc(cur.archivo)}${cur.cadena ? " · cadena " + esc(cur.cadena) : ""}</span></div><pre id="txt">${html}</pre>`;
+  $("#txt").querySelectorAll("span[data-r]").forEach(s => s.onclick = () => enfocarFila(+s.dataset.r));
+}
+function enfocarFila(i){
+  selRow = i;
+  document.querySelectorAll(".row").forEach(r => r.classList.toggle("sel", +r.dataset.i === i));
+  const el = document.querySelector(`.row[data-i="${i}"]`);
+  if (el) el.scrollIntoView({block:"nearest"});
+}
+function flash(i){
+  const s = document.querySelector(`#txt span[data-r="${i}"]`);
+  if (!s) return;
+  s.scrollIntoView({block:"center"}); s.classList.remove("flash"); void s.offsetWidth; s.classList.add("flash");
+}
+
+// ---------- barra de selección ----------
+const tool = $("#tool");
+let seleccion = "";
+const USAR_BARRA_SELECCION = false;   // el usuario prefiere seleccionar texto sin la barra de opciones
+document.addEventListener("mouseup", ev => {
+  if (!USAR_BARRA_SELECCION) return;
+  if (tool.contains(ev.target)) return;
+  const s = window.getSelection(), txt = $("#txt");
+  const t = s && s.toString().trim();
+  if (!t || !txt || !txt.contains(s.anchorNode)){ tool.hidden = true; return; }
+  seleccion = t;
+  tool.innerHTML = EL.filter(e => e.k !== "tema").map(e => `<button data-k="${e.k}" style="--c:var(--e-${e.k})">${esc(e.t.split(" (")[0])}${e.key ? ` <kbd>${e.key}</kbd>` : ""}</button>`).join("");
+  const rect = s.getRangeAt(0).getBoundingClientRect();
+  tool.hidden = false;
+  tool.style.left = Math.max(8, Math.min(rect.left, innerWidth - tool.offsetWidth - 8)) + "px";
+  tool.style.top = Math.min(rect.bottom + 6, innerHeight - tool.offsetHeight - 8) + "px";
+  tool.querySelectorAll("button").forEach(b => b.onclick = () => agregar(b.dataset.k, seleccion));
+});
+function agregar(k, ev){
+  const r = Object.fromEntries(COLS.map(c => [c, ""])); r.elemento = k; r.evidencia = ev || "";
+  if (k === "estado") r.estado_normalizado = adivinaEstado(ev);
+  if (k === "alternativa") r.elegida = "0";
+  if (k === "relacion"){ r.tipo_relacion = /amend/i.test(ev) ? "amends" : /supers|superc|replac/i.test(ev) ? "supersedes" : "relatesTo"; r.adr_nuevo = cur.archivo; }
+  if (k === "fecha"){ const m = /\d{4}-\d{2}-\d{2}/.exec(ev || ""); r.valor = m ? m[0] : ""; }
+  if (ELK[k].one){ const j = rows.findIndex(x => x.elemento === k); if (j >= 0 && !rows[j].evidencia.trim() && k !== "tema"){ rows.splice(j, 1); } }
+  rows.push(r); dirty = true; tool.hidden = true; window.getSelection().removeAllRanges();
+  pintarDoc(); pintarForm(); enfocarFila(rows.length - 1);
+}
+function adivinaEstado(s){
+  s = (s || "").toLowerCase();
+  if (/supers?[ec]ed(ed)? by|superseded|superceded|replaced/.test(s)) return "superseded";
+  if (/amended/.test(s)) return "amended";
+  if (/rejected|declined/.test(s)) return "rejected";
+  if (/deprecated|obsolete|retired/.test(s)) return "deprecated";
+  if (/proposed|draft|in progress|open|pending|review/.test(s)) return "proposed";
+  if (/accepted|approved|implemented|adopted|done|completed|supers?[ec]edes/.test(s)) return "accepted";
+  return "";
+}
+document.addEventListener("keydown", ev => {
+  if ((ev.ctrlKey || ev.metaKey) && ev.key.toLowerCase() === "s"){ ev.preventDefault(); guardar(false); return; }
+  if ((ev.ctrlKey || ev.metaKey) && ev.key === "Enter"){ ev.preventDefault(); guardar(true); return; }
+  if (!tool.hidden && !ev.ctrlKey && !ev.altKey && !ev.metaKey){
+    const e = EL.find(x => x.key === ev.key.toLowerCase());
+    if (e){ ev.preventDefault(); agregar(e.k, seleccion); }
+    if (ev.key === "Escape") tool.hidden = true;
+  }
+});
+
+// ---------- formulario ----------
+function pintarForm(){
+  const alts = rows.filter(r => r.elemento === "alternativa" && r.evidencia.trim());
+  const temasRepo = S.temas[cur.repo] || [];
+  let html = `<div class="actions">
+    <button class="btn" id="b-save">Guardar <kbd>Ctrl S</kbd></button>
+    <button class="btn pri" id="b-done">Terminar y siguiente <kbd>Ctrl ↵</kbd></button>
+    <button class="btn" id="b-acc" title="Quita la marca auto de todas las filas">Aceptar sugerencias</button>
+    <button class="btn" id="b-sug" title="Propone filas para los elementos que aún no tienen ninguna">Sugerir lo que falta</button>
+    <div id="msg"></div></div>`;
+  EL.forEach(e => {
+    const idx = rows.map((r, i) => [r, i]).filter(([r]) => r.elemento === e.k);
+    html += `<div class="grp-el" style="--c:var(--e-${e.k})"><h3><span class="sw"></span>${esc(e.t)}${e.k === "decision" ? ' <span class="req">*</span>' : ""} <span class="n">${idx.length || ""}</span>
+      ${e.one && idx.length ? "" : `<button class="add" data-add="${e.k}">+ añadir</button>`}</h3>
+      ${idx.length ? "" : `<div class="desc">${esc(e.desc)}</div>`}
+      ${idx.map(([r, i]) => filaHTML(r, i, alts, temasRepo)).join("")}</div>`;
+  });
+  $("#form").innerHTML = html;
+  $("#b-save").onclick = () => guardar(false);
+  $("#b-done").onclick = () => guardar(true);
+  $("#b-acc").onclick = () => { rows.forEach(r => { if (r.nota.startsWith("auto:")) r.nota = r.nota.replace(/^auto: [^;]*;?\s*/, ""); }); dirty = true; pintarForm(); };
+  $("#b-sug").onclick = async () => {
+    const j = await api("/api/sugerir", {repo:cur.repo, archivo:cur.archivo, filas:rows});
+    j.filas.forEach(f => rows.push(Object.fromEntries(COLS.map(c => [c, f[c] ?? ""]))));
+    dirty = true; pintarDoc(); pintarForm();
+    msg(j.filas.length ? `<span class="warn">${j.filas.length} filas sugeridas.</span>` : "No hay nada más que sugerir.");
+  };
+  $("#form").querySelectorAll("[data-add]").forEach(b => b.onclick = () => agregar(b.dataset.add, ""));
+  $("#form").querySelectorAll(".row").forEach(div => {
+    const i = +div.dataset.i;
+    div.querySelectorAll("[data-f]").forEach(inp => {
+      const ev = inp.tagName === "SELECT" || inp.type === "checkbox" || inp.type === "date" ? "change" : "input";
+      inp.addEventListener(ev, () => {
+        const f = inp.dataset.f;
+        rows[i][f] = inp.type === "checkbox" ? (inp.checked ? "1" : "0") : inp.value;
+        if (f === "elegida" && inp.checked) rows.forEach((r, j) => { if (j !== i && r.elemento === "alternativa") r.elegida = "0"; });
+        if (rows[i].nota === "auto: revisar" && f !== "nota") rows[i].nota = "";
+        dirty = true;
+        if (f === "evidencia"){ pintarDoc(); const g = div.querySelector(".g"); rangos(); g.className = "g " + (rows[i]._ok ? "y" : "n"); g.textContent = rows[i]._ok ? "✓ literal" : "✗ no aparece"; }
+        if (f === "elegida" || f === "estado_normalizado" || f === "tipo_relacion") pintarForm();
+      });
+    });
+    div.querySelectorAll("[data-pol]").forEach(b => b.onclick = () => { rows[i].polaridad = b.dataset.pol; if (rows[i].nota === "auto: revisar") rows[i].nota = ""; dirty = true; pintarForm(); });
+    div.querySelector(".del").onclick = () => { rows.splice(i, 1); dirty = true; pintarDoc(); pintarForm(); };
+    div.addEventListener("focusin", () => { selRow = i; flash(i); });
+  });
+  document.querySelectorAll("#form textarea").forEach(t => { t.style.height = "auto"; t.style.height = Math.min(t.scrollHeight + 2, 160) + "px"; });
+}
+function filaHTML(r, i, alts, temasRepo){
+  const k = r.elemento, ev = r.evidencia.trim();
+  const auto = r.nota.startsWith("auto:") ? `<span class="auto">auto</span>` : "";
+  const g = k === "tema" ? "" : ev ? (r._ok ? `<span class="g y">✓ literal</span>` : `<span class="g n">✗ no aparece</span>`) : (k === "fecha" ? "" : `<span class="g n">sin evidencia</span>`);
+  let body = "";
+  if (k !== "tema") body += `<label>evidencia (literal)<textarea data-f="evidencia" rows="1">${esc(r.evidencia)}</textarea></label>`;
+  const valorLbl = {decision:"decisión en una línea (obligatorio)", tema:"tema (inglés, minúsculas)", fecha:"fecha AAAA-MM-DD", participante:"nombre (si difiere)", alternativa:"nombre limpio (opcional)"}[k] || "resumen en una línea (opcional)";
+  if (k === "tema") body += `<label>${valorLbl}<input type="text" data-f="valor" value="${esc(r.valor)}" list="dl-temas"></label><datalist id="dl-temas">${temasRepo.map(t => `<option value="${esc(t)}">`).join("")}</datalist>`;
+  else if (k === "fecha") body += `<label>${valorLbl}<input type="date" data-f="valor" value="${esc(r.valor)}"></label>`;
+  else if (!["estado","relacion"].includes(k)) body += `<label>${valorLbl}<input type="text" data-f="valor" value="${esc(r.valor)}"></label>`;
+  if (k === "estado") body += `<label>estado normalizado<select data-f="estado_normalizado"><option value="">— elige —</option>${ESTADOS.map(s => `<option ${r.estado_normalizado === s ? "selected" : ""}>${s}</option>`).join("")}</select></label>`;
+  if (k === "alternativa") body += `<label style="display:flex;gap:6px;align-items:center;color:var(--ink)"><input type="checkbox" data-f="elegida" ${r.elegida === "1" ? "checked" : ""}> opción adoptada</label>`;
+  if (k === "argumento" || k === "consecuencia"){
+    body += `<div class="inl"><div><span style="font-size:11px;color:var(--muted)">polaridad</span><br><span class="seg">${["positiva","negativa","neutra"].map(p => `<button type="button" data-pol="${p}" aria-pressed="${r.polaridad === p}">${{positiva:"+ positiva",negativa:"− negativa",neutra:"= neutra"}[p]}</button>`).join("")}</span></div>`;
+    if (k === "argumento") body += `<label>alternativa<select data-f="alternativa"><option value="">— elige —</option>${alts.map(a => `<option value="${esc(a.evidencia.trim())}" ${norm(a.evidencia) === norm(r.alternativa) ? "selected" : ""}>${esc(a.valor || a.evidencia)}</option>`).join("")}</select></label>`;
+    body += `</div>`;
+  }
+  if (k === "participante") body += `<label>rol<select data-f="rol"><option value="">— elige —</option>${["decision-maker","consulted","informed"].map(s => `<option ${r.rol === s ? "selected" : ""}>${s}</option>`).join("")}</select></label>`;
+  if (k === "relacion"){
+    const opts = sel => archivosRepo.map(a => `<option ${sel === a ? "selected" : ""}>${esc(a)}</option>`).join("");
+    body += `<div class="inl"><label>tipo<select data-f="tipo_relacion">${["supersedes","amends","relatesTo"].map(s => `<option ${r.tipo_relacion === s ? "selected" : ""}>${s}</option>`).join("")}</select></label>
+      <label>adr_nuevo (reemplaza / enmienda / menciona)<select data-f="adr_nuevo"><option value=""></option>${opts(r.adr_nuevo)}</select></label>
+      <label>adr_afectado<select data-f="adr_afectado"><option value=""></option>${opts(r.adr_afectado)}</select></label></div>`;
+  }
+  body += `<label>nota<input type="text" data-f="nota" value="${esc(r.nota)}"></label>`;
+  return `<div class="row${selRow === i ? " sel" : ""}" data-i="${i}" style="--c:var(--e-${k})"><div class="top">${auto}${g}<button class="del" title="Borrar fila" aria-label="Borrar fila">×</button></div>${body}</div>`;
+}
+
+// ---------- guardar ----------
+function revisar(){
+  const p = [];
+  const dec = rows.filter(r => r.elemento === "decision");
+  if (!dec.length || !dec[0].evidencia.trim()) p.push("Falta la decisión (evidencia).");
+  else if (!dec[0].valor.trim()) p.push("La decisión necesita valor (una línea).");
+  if (dec.length > 1) p.push("Hay más de una decisión.");
+  if (!rows.some(r => r.elemento === "tema" && r.valor.trim())) p.push("Falta el tema.");
+  rows.forEach(r => {
+    if (r.elemento === "estado" && !r.estado_normalizado) p.push("Estado sin normalizar.");
+    if ((r.elemento === "argumento" || r.elemento === "consecuencia") && !r.polaridad) p.push(`${r.elemento} sin polaridad.`);
+    if (r.elemento === "argumento" && !r.alternativa) p.push("Argumento sin alternativa.");
+    if (r.elemento === "participante" && !r.rol) p.push("Participante sin rol.");
+    if (r.elemento === "relacion" && (!r.adr_nuevo || !r.adr_afectado)) p.push("Relación sin extremos.");
+    if (r.evidencia.trim() && r._ok === false) p.push(`${r.elemento}: la evidencia no aparece literal.`);
+  });
+  if (rows.filter(r => r.elemento === "alternativa" && r.elegida === "1").length > 1) p.push("Más de una alternativa elegida.");
+  return [...new Set(p)];
+}
+let confirmarTerminar = false;
+async function guardar(terminar, silencioso){
+  if (!cur) return;
+  rangos();
+  const pend = revisar();
+  if (terminar && pend.length && !confirmarTerminar){
+    confirmarTerminar = true;
+    msg(`<span class="bad">Antes de terminar:</span><ul>${pend.map(x => `<li>${esc(x)}</li>`).join("")}</ul><span class="warn">Pulsa «Terminar» otra vez para terminar igualmente.</span>`);
+    return;
+  }
+  confirmarTerminar = false;
+  const limpio = rows.filter(r => r.elemento === "tema" || r.elemento === "fecha" || r.evidencia.trim() || r.valor.trim() || ["estado","decision"].includes(r.elemento))
+                     .map(r => Object.fromEntries(COLS.map(c => [c, r[c]])));
+  try {
+    const j = await api("/api/guardar", {repo:cur.repo, archivo:cur.archivo, filas:limpio, terminado:!!terminar});
+    dirty = false;
+    if (terminar){ rows.forEach(r => { if (r.nota.startsWith("auto:")) r.nota = r.nota.replace(/^auto: [^;]*;?\s*/, ""); }); }
+    const f = j.fundamentacion;
+    const txt = `<span class="ok">Guardado.</span> Corpus: ${f.grounded_ok}/${f.grounded_total} evidencias fundamentadas.` +
+      (j.problemas.length ? `<ul class="bad">${j.problemas.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ` <span class="ok">Sin problemas en este ADR.</span>`);
+    await cargarEstado();
+    if (terminar && !silencioso){
+      const i = S.adrs.findIndex(a => a.repo === cur.repo && a.archivo === cur.archivo);
+      const sig = S.adrs.slice(i + 1).concat(S.adrs.slice(0, i)).find(a => a.estado !== "terminado");
+      if (sig){ await abrir(sig); msg(txt.replace("Guardado.", `Guardado y terminado ${esc(cur && S.adrs[i].archivo)}.`)); return; }
+      msg(txt + ` <b class="ok">¡Los 45 ADR están terminados!</b>`);
+    } else if (!silencioso) { pintarForm(); msg(txt); }
+  } catch(e){ msg(`<span class="bad">No se pudo guardar: ${esc(e.message)}</span>`); }
+}
+function msg(h){ const m = $("#msg"); if (m) m.innerHTML = h; }
+window.addEventListener("beforeunload", e => { if (dirty){ e.preventDefault(); e.returnValue = ""; } });
+
+cargarEstado().then(() => { const p = S.adrs.find(a => a.estado !== "terminado"); if (p) abrir(p); });
+</script>
+</body>
+</html>
