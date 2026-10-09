@@ -1,0 +1,8 @@
+# Versiones usadas en las corridas del 2026-10-09 (Python 3.13, CUDA 12.4)
+langgraph==1.2.14
+networkx==3.5
+chromadb==1.5.9
+sentence-transformers==6.1.0
+transformers==5.19.0
+torch==2.6.0
+# Modelo servido localmente con Ollama: qwen3:4b-instruct (ollama pull qwen3:4b-instruct)
