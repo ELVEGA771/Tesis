@@ -1,0 +1,73 @@
+{
+  "id": "adr_v2",
+  "title": "Registros de decision arquitectonica (ADR) - version extendida",
+  "story": "Cuando se desarrolla un sistema de software, se toman decisiones constantemente que condicionan la estructura y arquitectura del sistema. Para llevar un registro de la trazabilidad y justificaciones de estas decisiones se registran usando registros de decision arquitectonica (ADR). Un ADR se caracteriza por tener un identificador que puede ser secuencial y un titulo descriptivo sobre la decision arquitectonica a tratar. Tambien se les puede asociar un ticket o historia de usuario que motivo esta decision, pero lo mas importante de los ADR son el contexto que describen y las alternativas tecnicas tomadas en cuenta. Para cada alternativa de una decision especifica existen puntos positivos y puntos negativos y en base a este analisis se registra cual fue la decision final donde se selecciona unicamente una alternativa junto con su justificacion y, si existen, las consecuencias o decisiones de seguimiento que conlleva. Es importante mencionar que los registros son dinamicos en el sentido de que primero el registro tiene un estado de propuesto, pero despues puede pasar a un estado aceptado en una fecha determinada. A medida que el software evoluciona y las condiciones cambian, una decision previa puede quedar obsoleta. En estos casos, el registro antiguo pasa a estado reemplazado (superseded) o enmendado (amended), quedando explicitamente vinculado al nuevo registro sucesor que documenta la nueva decision. Cada ADR pertenece a un sistema de software concreto y se clasifica en un area tematica de la arquitectura, como persistencia, integracion, seguridad o despliegue. En la toma de una decision participan personas con distintos roles: quienes toman la decision (decisores), quienes son consultados por su conocimiento experto y quienes solo son informados del resultado; una misma persona puede tener roles distintos en ADRs distintos. Los factores que motivan una decision son de distintos tipos: atributos de calidad que el sistema debe cumplir (rendimiento, disponibilidad, seguridad, mantenibilidad), restricciones impuestas desde fuera del equipo (presupuesto, plazos, tecnologia obligatoria, normativa) y supuestos que el equipo da por ciertos sin haberlos verificado. Las consecuencias de una decision pueden ser positivas o negativas. Una decision afecta a uno o varios componentes o elementos del sistema, como servicios, modulos, bases de datos o interfaces. Ademas, los ADR se relacionan entre si: una decision puede depender de otra tomada antes, y una decision puede dar lugar a decisiones de seguimiento que se documentan en ADRs nuevos. Un ADR esta vigente mientras su estado mas reciente sea aceptado.",
+  "additional_statement": "Un ADR de seguimiento es aquel que se deriva de al menos otro ADR. Ademas, en un ADR se elige como maximo una alternativa como decision final.",
+  "competency_questions": [
+    {
+      "id": "CQ1",
+      "origen": "CQ1 original",
+      "text": "Para un ADR especifico, ¿cual es su identificador numerico, su titulo descriptivo y, si existe, el identificador del ticket/issue al que esta vinculado?"
+    },
+    {
+      "id": "CQ2",
+      "origen": "CQ2 original",
+      "text": "Para un ADR dado, ¿que planteamiento de contexto resuelve, que requisitos o fuerzas tecnicas (decision drivers / forces) lo motivan, y que alternativa tecnica concreta fue elegida como solucion (chosen alternative)?"
+    },
+    {
+      "id": "CQ3",
+      "origen": "nueva: tipos de factor (atributos de calidad, restricciones y supuestos)",
+      "text": "Para un ADR dado, ¿cuales de sus factores de decision son atributos de calidad, cuales son restricciones externas y cuales son supuestos no verificados?"
+    },
+    {
+      "id": "CQ4",
+      "origen": "CQ3 original",
+      "text": "En un ADR determinado, ¿que argumentos especificos a favor (pros) y en contra (cons) se formularon para cada una de las alternativas tecnicas evaluadas?"
+    },
+    {
+      "id": "CQ5",
+      "origen": "nueva: justificacion y consecuencias (Nygard, MADR)",
+      "text": "Para un ADR dado, ¿cual es la justificacion de la alternativa elegida y que consecuencias positivas y negativas conlleva esa decision?"
+    },
+    {
+      "id": "CQ6",
+      "origen": "nueva: participantes (decision-makers / consulted / informed en MADR)",
+      "text": "¿Que personas participaron en la decision de un ADR y con que rol lo hicieron (decisor, consultado o informado)?"
+    },
+    {
+      "id": "CQ7",
+      "origen": "nueva: elementos afectados",
+      "text": "¿Que componentes o elementos del sistema (servicios, modulos, bases de datos, interfaces) se ven afectados por la decision de un ADR?"
+    },
+    {
+      "id": "CQ8",
+      "origen": "CQ4 original",
+      "text": "Para un ADR determinado, ¿cual es su historial cronologico de estados, indicando que estado adquirio en que marca temporal o fecha especifica?"
+    },
+    {
+      "id": "CQ9",
+      "origen": "nueva: vigencia en el tiempo",
+      "text": "¿Que ADRs de un sistema estaban vigentes, es decir, con estado aceptado, en una fecha determinada?"
+    },
+    {
+      "id": "CQ10",
+      "origen": "CQ5 original",
+      "text": "¿Que ADRs han sido sustituidos (superseded) o enmendados (amended) por un nuevo ADR, y cual es el registro sucesor que introduce dicho cambio tecnico?"
+    },
+    {
+      "id": "CQ11",
+      "origen": "nueva: dependencias y decisiones de seguimiento",
+      "text": "¿De que ADRs anteriores depende un ADR determinado y que decisiones de seguimiento se derivaron de el?"
+    },
+    {
+      "id": "CQ12",
+      "origen": "CQ6 original, sin vocabulario de grafo",
+      "text": "¿Que ADRs aceptados no tienen ninguna alternativa elegida o tienen mas de una alternativa elegida?"
+    },
+    {
+      "id": "CQ13",
+      "origen": "CQ7 original, sin vocabulario de grafo",
+      "text": "¿Que ADRs cuyo estado mas reciente es reemplazado no indican cual es el ADR sucesor que los reemplaza?"
+    }
+  ]
+}

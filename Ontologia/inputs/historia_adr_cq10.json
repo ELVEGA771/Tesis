@@ -1,0 +1,67 @@
+{
+  "id": "adr_cq10",
+  "title": "Grafo de decisiones auditable sobre ADR publicos",
+  "fuente_cqs": "Extraccion_ADR/competency_questions_v2.md (CQs derivadas de repositorios disjuntos del corpus de evaluacion)",
+  "decisiones_de_diseno": {
+    "granularidad_decision": "Una Decision por ADR; sub-decisiones solo cuando un reemplazo parcial o una enmienda las nombra (tension 1)",
+    "relaciones": "Declaracion de relacion reificada, con tipo, efecto, alcance, polaridad y procedencia (tensiones 2, 3 y 6)",
+    "estado_vs_vigencia": "Separados; la vigencia es un conjunto de afirmaciones con procedencia (tension 4, resuelta en el documento de CQs)",
+    "identidad": "Repositorio + archivo; el numero declarado no es clave (tension 5, resuelta en el documento de CQs)",
+    "artefactos_no_adr": "Fuera del alcance; quedan como texto de evidencia (tension 7)",
+    "idioma": "Nombres del esquema en ingles"
+  },
+  "story": "Un equipo de investigacion quiere construir, a partir de Architecture Decision Records (ADR) publicos de repositorios de codigo abierto, un grafo de decisiones auditable: cada afirmacion del grafo tiene que poder rastrearse al texto del documento del que salio. Los ADR estan escritos en ingles, en formatos muy variados (MADR, Nygard, plantillas propias, e incluso documentos que se llaman 'Plan' en lugar de 'ADR'), y declaran sus metadatos de formas distintas: vinetas, negritas, frontmatter YAML, secciones de segundo nivel o solo en el encabezado.\n\nCada ADR es un documento que se identifica por su repositorio y su nombre de archivo. El numero que declara no sirve como identificador: a veces se reutiliza dentro del mismo repositorio o contradice la cronologia, y un ADR puede haber tenido identidades previas. Un ADR declara un estado con un literal libre (accepted, ACCEPTED, Implemented, Superseded by 0028, Completed, Implemented and verified end to end), que hay que conservar tal cual junto con su valor normalizado y la sintaxis con la que se declaro; a veces el propio campo de estado contiene una relacion con otro ADR. El estado declarado no es lo mismo que la vigencia real del ADR. Un ADR puede declarar una fecha, pero la fecha no siempre permite ordenar: hay cadenas enteras fechadas el mismo dia. Un ADR tambien puede llevar un aviso explicito de que ya no debe seguirse; en ese caso su contenido solo vale como historia y no como norma.\n\nUn ADR trata sobre un tema y registra una decision. Para tomarla, el equipo fija criterios (decision drivers), considera alternativas con sus pros y contras, elige una y descarta las demas, a veces indicando el motivo del rechazo y que criterio viola cada alternativa descartada. El marcador de eleccion puede aparecer dentro del propio titulo de la opcion. Las personas que toman la decision tambien quedan registradas.\n\nLos ADR se relacionan entre si de muchas formas. Un ADR puede reemplazar a otro por completo o solo en parte, indicando que parte cae, que parte sigue vigente y, a veces, que parte se traslada a un tercer ADR. Tambien puede enmendarlo, extenderlo, aclararlo, armonizarse con el, construir sobre el o provenir de la fusion de otro. Una enmienda puede retirar, modificar o dejar intacta cada una de las sub-decisiones numeradas del ADR enmendado, y puede ser condicional. Un ADR puede ademas negar explicitamente una relacion ('Does NOT supersede') o declarar que no reemplaza a nadie ('Supersedes: none'), lo cual es distinto de no decir nada. Las relaciones no son uno a uno: un ADR puede reemplazar a varios y ser reemplazado por varios, cada par con su propio alcance y su propio motivo (correccion, consolidacion o refinamiento). Cada extremo puede declarar la relacion o no hacerlo, y los dos extremos pueden contradecirse sobre si el reemplazo fue total o parcial. A veces el destino de una relacion ni siquiera existe en el repositorio. Los ADR relacionados por reemplazo forman cadenas que no siempre son lineales, y su orden es topologico, no por fecha ni por numero. Un documento puede incluso afirmar a la vez que fue reemplazado y que sigue vigente, por ejemplo mediante una nota de armonizacion con fecha propia posterior.\n\nDecisiones de diseno del esquema (restricciones que hay que respetar):\n1. Los nombres de clases y propiedades se escriben en ingles (clases en PascalCase y propiedades en camelCase), porque el corpus esta en ingles. Los comentarios del codigo pueden ir en espanol.\n2. Todo ADR tiene exactamente una decision principal. Solo se crean sub-decisiones dentro de un ADR cuando un reemplazo parcial o una enmienda las nombra o las numera.\n3. Cada declaracion de una relacion entre dos ADR hecha por un documento concreto es un nodo propio, con: el ADR origen, el ADR destino, el tipo declarado, el efecto sobre la vigencia (ninguno, parcial o total), el alcance, el motivo, la polaridad (afirmada o negada), el documento que la declara y, cuando aplique, las sub-decisiones afectadas y el efecto sobre cada una (modificada, retirada o intacta). Si los dos extremos declaran la misma relacion, hay dos declaraciones, y pueden no coincidir.\n4. Solo se modelan relaciones entre ADR. Las menciones a archivos de codigo, variables de entorno o secciones de otros documentos no son nodos: quedan como texto de evidencia.\n5. El estado declarado y la vigencia se representan por separado. La vigencia de un ADR es un conjunto de afirmaciones, cada una con su fuente, su fecha y su evidencia, y esas afirmaciones pueden estar en conflicto.",
+  "additional_statement": "Toda afirmacion del grafo (decisiones, sub-decisiones, alternativas, criterios, estados declarados, afirmaciones de vigencia y declaraciones de relacion) debe guardar el fragmento literal del ADR de origen que la respalda, para poder detectar los nodos que no estan fundamentados en el texto.",
+  "competency_questions": [
+    {
+      "id": "CQ1",
+      "bloque": "a",
+      "text": "Dado un ADR que evaluó varias opciones, ¿cuáles fueron, cuál se seleccionó y qué motivo de rechazo quedó registrado para cada descartada?"
+    },
+    {
+      "id": "CQ2",
+      "bloque": "a",
+      "text": "¿Cuál es el estado de un ADR, con qué sintaxis se declaró y qué valor literal usó, cuando un mismo repositorio mezcla varias sintaxis de metadatos y un vocabulario de estado propio?"
+    },
+    {
+      "id": "CQ3",
+      "bloque": "a",
+      "text": "¿Qué relaciones declara un ADR de forma negativa o escondida, y cuáles de sus menciones a otros ADR no deben producir una arista?"
+    },
+    {
+      "id": "CQ4",
+      "bloque": "b",
+      "text": "¿Cuál era la decisión vigente sobre un tema en la fecha F y por qué cadena se llegó, cuando todos los eslabones comparten la misma fecha?"
+    },
+    {
+      "id": "CQ5",
+      "bloque": "b",
+      "text": "Cuando el número de ADR contradice la cronología, o el reemplazante es anterior al reemplazado, ¿qué criterio de orden se aplica y cómo se registra la anomalía?"
+    },
+    {
+      "id": "CQ6",
+      "bloque": "b",
+      "text": "Dado un ADR reemplazado, ¿qué había decidido, qué parte de su contenido sigue siendo recuperable como historia y no como norma, y qué justificación dio el reemplazante?"
+    },
+    {
+      "id": "CQ7",
+      "bloque": "c",
+      "text": "¿Cuál es la decisión vigente para un tema cuando el propio documento afirma simultáneamente que fue reemplazado y que sigue siendo válido?"
+    },
+    {
+      "id": "CQ8",
+      "bloque": "c",
+      "text": "¿Qué ADR reemplaza a varios a la vez, cuántos de los reemplazados lo reconocen, y algún destino del reemplazo no existe?"
+    },
+    {
+      "id": "CQ9",
+      "bloque": "c",
+      "text": "En un reemplazo parcial, ¿qué parte cae, qué parte sigue vigente, y los dos extremos de la arista coinciden en si el reemplazo fue total o parcial?"
+    },
+    {
+      "id": "CQ10",
+      "bloque": "c",
+      "text": "Dado un par vinculado, ¿la relación retira la decisión anterior, la modifica o solo la extiende, y si es una enmienda, qué sub-decisiones concretas toca y con qué efecto cada una?"
+    }
+  ]
+}

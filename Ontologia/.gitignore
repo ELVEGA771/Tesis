@@ -1,0 +1,8 @@
+.env
+outputs/*
+!outputs/esquema_plan/
+!outputs/esquema_v1/
+!outputs/esquema_madr/
+!outputs/esquema_v1_1/
+__pycache__/
+*.pyc

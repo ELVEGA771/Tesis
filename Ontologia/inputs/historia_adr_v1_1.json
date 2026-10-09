@@ -1,0 +1,137 @@
+{
+  "id": "adr_v1_1_madr",
+  "title": "Grafo de decisiones ADR para trazabilidad auditable",
+  "fuente_cqs": "CQ1-CQ8: derivadas a priori de las metricas de la planificacion aprobada (seccion 5, bloques 1-3), identicas a las del esquema v1.0. CQ9-CQ17: una por cada elemento de la plantilla MADR 4.0.0 (https://adr.github.io/madr/) que las CQ1-CQ8 no cubren. Ninguna se deriva de un ADR concreto.",
+  "decisiones_de_diseno": {
+    "idioma": "Nombres del esquema en ingles",
+    "identidad": "Un ADR se identifica por repositorio + archivo; el numero declarado no es clave",
+    "relaciones": "Cada declaracion de relacion hecha por un documento es un nodo propio (reificada), con tipo, documento que la declara y evidencia",
+    "solo_adr": "Solo relaciones ADR-ADR; las menciones a codigo o a otros documentos quedan como texto de evidencia",
+    "sub_decisiones": "No se modelan: solo las exigia el reemplazo parcial y la enmienda por sub-decision, fuera de alcance (ver abajo)",
+    "procedencia": "Toda afirmacion guarda el fragmento literal que la respalda (requisito adicional)",
+    "cobertura_madr": "El esquema cubre todos los elementos de MADR 4.0.0. Solo las CQ1-CQ8 alimentan consultas de evaluacion con respuesta unica; los elementos de CQ9-CQ17 se extraen y se fundamentan, pero no se evaluan con consultas."
+  },
+  "fuera_de_alcance": {
+    "criterio": "Fenomenos que no mide ninguna metrica de la planificacion y que son marginales en el corpus de evaluacion (140 ADR).",
+    "reemplazo_parcial": "1/140 ADR; los 36 reemplazos validos del ground truth son totales",
+    "relaciones_negadas_y_supersedes_none": "0/140",
+    "armonizado_y_construye_sobre": "0/140",
+    "sub_decisiones_numeradas": "solo aparecen en reemplazos parciales y enmiendas por sub-decision",
+    "catalogo_de_casos_limite": "Extraccion_ADR/competency_questions_v2.md (corrida outputs/esquema_cq10)"
+  },
+  "story": "Un equipo de investigacion quiere construir, a partir de Architecture Decision Records (ADR) publicos de repositorios de codigo abierto, un grafo de decisiones auditable y compararlo con una busqueda por similitud sobre el texto. El grafo tiene que permitir reconstruir que se decidio, que opciones se consideraron, en que estado estaba cada decision en una fecha dada y cual es la decision vigente sobre un tema, y cada afirmacion del grafo tiene que poder rastrearse al texto del documento del que salio.\n\nLos ADR estan escritos en ingles y siguen formatos variados (MADR, Nygard o plantillas propias). Cada ADR es un documento que pertenece a un repositorio y se identifica por su repositorio y su nombre de archivo, porque el numero que declara no siempre es unico ni sigue la cronologia. Un ADR tiene un titulo y suele declarar una fecha.\n\nTodo ADR registra una decision sobre un tema concreto, por ejemplo la base de datos principal o el mecanismo de autenticacion. Algunos ADR enumeran las alternativas que se consideraron y cual se adopto; muchos otros solo enuncian la decision, sin alternativas.\n\nCada ADR declara un estado con un literal libre (proposed, Accepted, deprecated, superseded by ADR-0005...). Ese literal hay que conservarlo tal cual y ademas normalizarlo a un vocabulario comun: propuesto, aceptado, deprecado, reemplazado o enmendado. A veces el propio campo de estado contiene la relacion con otro ADR, como en 'accepted, supersedes ADR-0003'. El estado de una decision cambia con el tiempo: una decision aceptada deja de estar vigente en la fecha en que otro ADR la reemplaza, de modo que el estado en una fecha se reconstruye a partir de la fecha del propio ADR y de las fechas de los ADR que lo reemplazan.\n\nLos ADR se relacionan entre si. Un ADR puede reemplazar a otro (superseded by / supersedes / replaces), y entonces la decision anterior deja de estar vigente; o puede enmendarlo (amends / amended by), y entonces la decision anterior sigue vigente con cambios. Una relacion puede declararse en los dos documentos o solo en uno de ellos. Los ADR que se reemplazan unos a otros forman cadenas sobre un mismo tema, y la decision vigente sobre ese tema es la del ultimo ADR de la cadena que no ha sido reemplazado.\n\nAdemas de lo anterior, el grafo tiene que conservar todo lo que un ADR documenta segun la plantilla MADR. Un ADR describe el contexto en el que se tomo la decision y el problema que buscaba resolver. Puede enumerar los criterios o fuerzas que guiaron la decision. La opcion adoptada suele ir acompanada de una justificacion. El ADR puede declarar las consecuencias de la decision, y cada consecuencia puede ser positiva, negativa o neutra. Para cada alternativa considerada puede dar argumentos a favor, en contra o neutros. Puede indicar como se comprobara que la implementacion cumple la decision. Puede nombrar a las personas que tomaron la decision, a las que se consulto y a las que solo se informo. La fecha que declara el propio ADR corresponde a su ultima actualizacion y no tiene por que coincidir con la fecha en que se registro. Por ultimo, puede incluir informacion adicional y mencionar otros ADR relacionados con los que no guarda una relacion de reemplazo ni de enmienda.\n\nDecisiones de diseno del esquema (restricciones que hay que respetar):\n1. Los nombres de clases y propiedades se escriben en ingles (clases en PascalCase y propiedades en camelCase), porque el corpus esta en ingles. Los comentarios del codigo pueden ir en espanol.\n2. Cada declaracion de una relacion entre dos ADR hecha por un documento concreto es un nodo propio, con el ADR origen, el ADR destino, el tipo de relacion, el documento que la declara y su evidencia. Si los dos documentos declaran la misma relacion, hay dos declaraciones.\n3. Solo se modelan relaciones entre ADR. Las menciones a archivos de codigo, variables de entorno o secciones de otros documentos no son nodos: quedan como texto de evidencia.\n4. El esquema tiene que ser ligero: lo va a poblar un modelo de lenguaje pequeno extrayendo de cada ADR. No anadas clases ni propiedades que no hagan falta para las preguntas de competencia.\n5. Los elementos que el ADR no documenta simplemente no se crean: ningun elemento de MADR es obligatorio en el grafo, salvo la decision.",
+  "additional_statement": "Toda afirmacion del grafo extraida del texto (decisiones, alternativas, estados declarados, declaraciones de relacion, contexto, criterios, justificaciones, consecuencias, argumentos sobre las alternativas, confirmacion, participantes e informacion adicional) debe guardar el fragmento literal del ADR de origen que la respalda, para poder detectar los nodos que no estan fundamentados en el texto. El tema no se extrae: se asigna.",
+  "competency_questions": [
+    {
+      "id": "CQ1",
+      "bloque": "1 - fidelidad",
+      "metrica": "P/R/F1 de nodos de decision",
+      "text": "¿Qué decisión registra un ADR determinado y a qué repositorio pertenece ese ADR?"
+    },
+    {
+      "id": "CQ2",
+      "bloque": "1 - fidelidad / 2 - trazabilidad",
+      "metrica": "P/R/F1 de nodos de alternativa; P/R/F1 del conjunto de alternativas consideradas",
+      "text": "Para un ADR dado, ¿qué alternativas se consideraron y cuál de ellas se adoptó como decisión?"
+    },
+    {
+      "id": "CQ3",
+      "bloque": "2 - trazabilidad",
+      "metrica": "base de la exactitud del estado en una fecha",
+      "text": "¿Qué estado declara un ADR, con qué valor literal, a qué estado normalizado corresponde y en qué fecha se registró el ADR?"
+    },
+    {
+      "id": "CQ4",
+      "bloque": "3 - contradicciones",
+      "metrica": "agrupacion para la decision vigente por tema",
+      "text": "¿Sobre qué tema trata un ADR y qué otros ADR del mismo repositorio tratan ese mismo tema?"
+    },
+    {
+      "id": "CQ5",
+      "bloque": "3 - contradicciones",
+      "metrica": "F1 de deteccion de la relacion de reemplazo entre pares",
+      "text": "¿Qué ADR reemplaza a qué otro ADR, y esa relación la declaran los dos documentos o solo uno de ellos?"
+    },
+    {
+      "id": "CQ6",
+      "bloque": "3 - contradicciones",
+      "metrica": "evita falsos positivos de reemplazo en el F1 de pares",
+      "text": "¿Qué ADR enmienda a otro ADR sin reemplazarlo, de modo que la decisión enmendada sigue vigente?"
+    },
+    {
+      "id": "CQ7",
+      "bloque": "2 - trazabilidad",
+      "metrica": "exactitud del estado de una decision en una fecha",
+      "text": "¿En qué estado estaba la decisión de un ADR en una fecha determinada, teniendo en cuenta los ADR que lo reemplazaron después?"
+    },
+    {
+      "id": "CQ8",
+      "bloque": "3 - contradicciones",
+      "metrica": "exactitud de la decision vigente por tema",
+      "text": "¿Cuál es la decisión vigente sobre un tema determinado y por qué cadena de reemplazos se llega a ella?"
+    },
+    {
+      "id": "CQ9",
+      "bloque": "cobertura MADR 4.0.0",
+      "seccion_madr": "Context and Problem Statement",
+      "metrica": "no se evalua con consultas; cuenta en la tasa de nodos no fundamentados",
+      "text": "¿En qué contexto se tomó la decisión de un ADR y qué problema buscaba resolver?"
+    },
+    {
+      "id": "CQ10",
+      "bloque": "cobertura MADR 4.0.0",
+      "seccion_madr": "Decision Drivers",
+      "metrica": "no se evalua con consultas; cuenta en la tasa de nodos no fundamentados",
+      "text": "¿Qué criterios o fuerzas declara un ADR como guía de su decisión?"
+    },
+    {
+      "id": "CQ11",
+      "bloque": "cobertura MADR 4.0.0",
+      "seccion_madr": "Decision Outcome",
+      "metrica": "no se evalua con consultas; cuenta en la tasa de nodos no fundamentados",
+      "text": "¿Con qué justificación declara un ADR que adoptó la opción elegida?"
+    },
+    {
+      "id": "CQ12",
+      "bloque": "cobertura MADR 4.0.0",
+      "seccion_madr": "Consequences",
+      "metrica": "no se evalua con consultas; cuenta en la tasa de nodos no fundamentados",
+      "text": "¿Qué consecuencias de la decisión declara un ADR y cuáles de ellas son positivas, negativas o neutras?"
+    },
+    {
+      "id": "CQ13",
+      "bloque": "cobertura MADR 4.0.0",
+      "seccion_madr": "Pros and Cons of the Options",
+      "metrica": "no se evalua con consultas; cuenta en la tasa de nodos no fundamentados",
+      "text": "¿Qué argumentos a favor, en contra o neutros da un ADR sobre cada una de las alternativas consideradas?"
+    },
+    {
+      "id": "CQ14",
+      "bloque": "cobertura MADR 4.0.0",
+      "seccion_madr": "Confirmation",
+      "metrica": "no se evalua con consultas; cuenta en la tasa de nodos no fundamentados",
+      "text": "¿Cómo declara un ADR que se comprobará que la implementación cumple la decisión?"
+    },
+    {
+      "id": "CQ15",
+      "bloque": "cobertura MADR 4.0.0",
+      "seccion_madr": "decision-makers, consulted, informed",
+      "metrica": "no se evalua con consultas; cuenta en la tasa de nodos no fundamentados",
+      "text": "¿Quiénes tomaron la decisión de un ADR, a quiénes se consultó y a quiénes solo se informó?"
+    },
+    {
+      "id": "CQ16",
+      "bloque": "cobertura MADR 4.0.0",
+      "seccion_madr": "date",
+      "metrica": "no se evalua con consultas; cuenta en la tasa de nodos no fundamentados",
+      "text": "¿Qué fecha declara el propio ADR como su última actualización, a diferencia de la fecha en que se registró?"
+    },
+    {
+      "id": "CQ17",
+      "bloque": "cobertura MADR 4.0.0",
+      "seccion_madr": "More Information",
+      "metrica": "no se evalua con consultas; cuenta en la tasa de nodos no fundamentados",
+      "text": "¿Qué información adicional documenta un ADR y con qué otros ADR declara estar relacionado sin reemplazarlos ni enmendarlos?"
+    }
+  ]
+}

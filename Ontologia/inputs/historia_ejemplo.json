@@ -1,0 +1,22 @@
+{
+  "id": "teatro",
+  "title": "Compania de teatro",
+  "story": "Una compania de teatro quiere un sistema para documentar su actividad. La compania monta obras de teatro escritas por dramaturgos. Cada montaje de una obra se representa varias veces, en fechas distintas y en salas distintas. Los actores se incorporan a un elenco para un montaje concreto durante un periodo determinado: un mismo actor puede estar en varios elencos a lo largo del tiempo, y puede abandonar un elenco antes de que el montaje termine su temporada. En cada montaje, un actor interpreta uno o varios personajes de la obra. Ademas de los actores, en un montaje participan otros profesionales con roles distintos (direccion, escenografia, vestuario). Las salas pertenecen a teatros, tienen un aforo y estan en una ciudad. De cada representacion concreta interesa saber la fecha, la sala y cuantas entradas se vendieron.",
+  "additional_statement": "Un actor protagonista es aquel que interpreta al menos un personaje principal en algun montaje.",
+  "competency_questions": [
+    { "id": "CQ1", "text": "Quien escribio una obra determinada?" },
+    { "id": "CQ2", "text": "Que montajes se han hecho de una obra determinada?" },
+    { "id": "CQ3", "text": "En que fechas se represento un montaje determinado?" },
+    { "id": "CQ4", "text": "En que sala tuvo lugar una representacion determinada?" },
+    { "id": "CQ5", "text": "A que teatro pertenece una sala y en que ciudad esta?" },
+    { "id": "CQ6", "text": "Cual es el aforo de una sala determinada?" },
+    { "id": "CQ7", "text": "Cuantas entradas se vendieron en una representacion determinada?" },
+    { "id": "CQ8", "text": "Que actores formaron parte del elenco de un montaje determinado?" },
+    { "id": "CQ9", "text": "Durante que periodo estuvo un actor en el elenco de un montaje?" },
+    { "id": "CQ10", "text": "Que personajes interpreto un actor en un montaje determinado?" },
+    { "id": "CQ11", "text": "Que personajes aparecen en una obra determinada?" },
+    { "id": "CQ12", "text": "Que profesionales que no son actores participaron en un montaje y con que rol?" },
+    { "id": "CQ13", "text": "En cuantos montajes ha participado un actor determinado?" },
+    { "id": "CQ14", "text": "Que montajes estaban en cartel en una fecha determinada?" }
+  ]
+}

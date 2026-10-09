@@ -1,0 +1,36 @@
+{
+  "id": "adr",
+  "title": "Registros de decision arquitectonica (ADR)",
+  "story": "Cuando se desarrolla un sistema de software, se toman decisiones constantemente que condicionan la estructura y arquitectura del sistema. Para llevar un registro de la trazabilidad y justificaciones de estas decisiones se registran usando registros de decision arquitectonica (ADR). Un ADR se caracteriza por tener un identificador que puede ser secuencial y un titulo descriptivo sobre la decision arquitectonica a tratar. Tambien se les puede asociar un ticket o historia de usuario que motivo esta decision, pero lo mas importante de los ADR son el contexto que describen y las alternativas tecnicas tomadas en cuenta. Para cada alternativa de una decision especifica existen puntos positivos y puntos negativos y en base a este analisis se registra cual fue la decision final donde se selecciona unicamente una alternativa junto con su justificacion y, si existen, las consecuencias o decisiones de seguimiento que conlleva. Es importante mencionar que los registros son dinamicos en el sentido de que primero el registro tiene un estado de propuesto, pero despues puede pasar a un estado aceptado en una fecha determinada. A medida que el software evoluciona y las condiciones cambian, una decision previa puede quedar obsoleta. En estos casos, el registro antiguo pasa a estado reemplazado (superseded) o enmendado (amended), quedando explicitamente vinculado al nuevo registro sucesor que documenta la nueva decision.",
+  "additional_statement": "",
+  "competency_questions": [
+    {
+      "id": "CQ1",
+      "text": "Para un ADR especifico, ¿cual es su identificador numerico, su titulo descriptivo y, si existe, el identificador del ticket/issue al que esta vinculado?"
+    },
+    {
+      "id": "CQ2",
+      "text": "Para un ADR dado, ¿que planteamiento de contexto resuelve, que requisitos o fuerzas tecnicas (decision drivers / forces) lo motivan, y que alternativa tecnica concreta fue elegida como solucion (chosen alternative)?"
+    },
+    {
+      "id": "CQ3",
+      "text": "En un ADR determinado, ¿que argumentos especificos a favor (pros) y en contra (cons) se formularon para cada una de las alternativas tecnicas evaluadas?"
+    },
+    {
+      "id": "CQ4",
+      "text": "Para un ADR determinado, ¿cual es su historial cronologico de estados, indicando que estado adquirio en que marca temporal o fecha especifica?"
+    },
+    {
+      "id": "CQ5",
+      "text": "¿Que ADRs han sido sustituidos (superseded) o enmendados (amended) por un nuevo ADR, y cual es el registro sucesor que introduce dicho cambio tecnico?"
+    },
+    {
+      "id": "CQ6",
+      "text": "¿Que nodos ADR carecen de una arista selectsAlternative o tienen conectada mas de una alternativa seleccionada?"
+    },
+    {
+      "id": "CQ7",
+      "text": "Si un nodo ADR tiene el atributo de estado en Superseded, ¿cuales son los nodos ADR que no tienen ninguna arista supersededBy que apunte al ADR sucesor?"
+    }
+  ]
+}
